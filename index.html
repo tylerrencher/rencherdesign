@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rencher Design | Off-Grid Home Design, Spring City Utah</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#7c2e00",
+              "on-secondary-fixed": "#2c1600",
+              "surface-variant": "#e5e2df",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#5f5e5e",
+              "outline-variant": "#d4c3be",
+              "secondary-fixed-dim": "#eebd8e",
+              "on-tertiary-fixed-variant": "#7c2e00",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#c8c6c5",
+              "surface-container-low": "#f6f3f0",
+              "surface-container": "#f0edea",
+              "tertiary-fixed": "#ffdbcd",
+              "secondary-fixed": "#ffdcbd",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#e4e2e1",
+              "error": "#ba1a1a",
+              "primary-fixed-dim": "#c8c6c5",
+              "on-surface": "#1c1c1a",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#f3f0ed",
+              "on-error-container": "#93000a",
+              "surface-dim": "#dcd9d7",
+              "on-primary-container": "#b7b5b4",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#ff9c6e",
+              "primary-container": "#474747",
+              "on-surface-variant": "#504441",
+              "on-secondary-fixed-variant": "#61401b",
+              "surface": "#fcf9f6",
+              "on-tertiary-fixed": "#351000",
+              "inverse-surface": "#31302f",
+              "surface-bright": "#fcf9f6",
+              "on-primary-fixed": "#1b1c1c",
+              "outline": "#827470",
+              "tertiary": "#571e00",
+              "surface-container-highest": "#e5e2df",
+              "on-primary-fixed-variant": "#474747",
+              "background": "#fcf9f6",
+              "secondary-container": "#fdcb9b",
+              "on-error": "#ffffff",
+              "on-background": "#1c1c1a",
+              "tertiary-fixed-dim": "#ffb595",
+              "primary": "#313030",
+              "on-secondary-container": "#79542d",
+              "surface-container-high": "#eae8e5",
+              "secondary": "#7c5730"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fcf9f6;
+            color: #1c1c1a;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Noto Serif', serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Navigation -->
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm transition-opacity">
+  <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex space-x-10 items-center">
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="about.html">About</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="journal.html">Journal</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="services.html">Services</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="portfolio.html">Portfolio</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="process.html">Process</a>
+    </div>
+    <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='#contact'">
+      Begin Your Project
+    </button>
+
+    <!-- Mobile hamburger button -->
+    <button id="menu-toggle" class="md:hidden flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu drawer -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+    <div class="px-8 py-6 space-y-1">
+      <a href="about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        About
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Journal
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Services
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Portfolio
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Process
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <div class="pt-4">
+        <a href="#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">
+          Begin Your Project
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = toggle.querySelectorAll('.hamburger-bar');
+
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', !isOpen);
+
+    if (!isOpen) {
+      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+      bars[1].style.opacity = '0';
+      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bars[0].style.transform = '';
+      bars[1].style.opacity = '';
+      bars[2].style.transform = '';
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      bars[0].style.transform = '';
+      bars[1].style.opacity = '';
+      bars[2].style.transform = '';
+    }
+  });
+</script>
+
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Luxurious modern farmhouse with white siding, black steel windows, and warm interior lighting nestled in a golden hour meadow landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1Hy089WJsPqtCKIhEZ-V3b_jvZq10kedMZNBIOdHjn9YudKaaTDCqSlyYgB4I7vBjJEtUUUnnTHRWOxm1W8-cxRXXW2hzkzGXOrX2Pcgcg9roKHZc3rxy_v7AHiPGEUPa335MHFpjeY7b353Eq5B9Psf5jaxkbCFCgkhIcv6cM_3zzObd8QzdIojyaLajFg3QaaZ5A0qpag2Z6-maQFT5NG-tI2aglHSoHk-DQ505rgguBJFghr-pjTuteOhsJZLUk4FXHt9SpQYM"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-screen-2xl mx-auto px-8 w-full">
+<div class="max-w-2xl">
+<h1 class="text-6xl md:text-7xl font-headline text-white leading-tight mb-8">
+                    Your Family's Sanctuary, Built for a Lifetime
+                </h1>
+<p class="text-xl md:text-2xl font-body text-white/90 mb-10 leading-relaxed font-light">
+                    I design off-grid and high-efficiency homes from the ground up — floor plans, energy systems, water, and thermal envelope. I've done it for my own family. Now I do it for yours.
+                </p>
+<!--<div class="flex gap-4">
+<a class="bg-secondary text-white px-10 py-5 rounded-md font-semibold text-lg hover:shadow-xl transition-all" href="#contact">Start Your Project</a>
+<a class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-md font-semibold text-lg hover:bg-white/20 transition-all" href="#">View Process</a>
+</div>
+</div>
+</div>-->
+</section>
+
+<!-- Core Philosophy Section -->
+<section class="py-32 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+<div class="md:col-span-5">
+<span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-4">My Approach</span>
+<h2 class="text-5xl font-headline leading-tight mb-8">A home designed around how your family actually lives</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-6 font-body">
+                       I believe a home should earn its place in your life — acoustically quiet, thermally stable, energy independent, and built to last. My approach comes from personal experience: I designed and built my own off-grid home, working through every system and tradeoff firsthand. That knowledge is what I bring to your project.
+                    </p>
+<div class="space-y-6 mt-12">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">ear_sound</span>
+<div>
+<h4 class="font-bold font-body text-primary">Acoustic Serenity</h4>
+<p class="text-on-surface-variant text-sm">Thoughtfully designed HVAC and building envelope systems that eliminate mechanical noise and outside intrusion — because a quiet home is a calm home.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">device_thermostat</span>
+<div>
+<h4 class="font-bold font-body text-primary">Thermal Performance</h4>
+<p class="text-on-surface-variant text-sm">Continuous air barriers, thermal bridge elimination, and insulation strategies sized for your climate — so your home holds temperature without working hard.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 relative">
+<div class="aspect-[4/5] relative z-10 overflow-hidden rounded-lg shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Interior of a modern high-end home with large windows, natural oak floors, and minimalist technical architectural details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwrN9kWTDVALz-qKSkYEb6ba0z_xd94yoejRJYr-eLjUJDMjrVbs9xrO7HFh2heY5z-rH_dj5puPN-9Lt0-WG2DDliD9eoz_X8mmuCb7GX9x7We3chseRvapR2vCKkRX2z9nJEQHVa087PpwOYgEEjVZQpm6xgzduAXxnxyxEWmbizQPWzbh02plb4bheA7MVBLychPvTAo8i2sWbKYJICJICMQx0V7CfjZ-jzzXAKYooCl4_gF5frwj5MhtjO3ilbRk3OjnmkEjxx"/>
+</div>
+<div class="absolute -bottom-8 -left-8 w-64 h-64 bg-secondary-container z-0 rounded-lg"></div>
+<div class="absolute -top-8 -right-8 w-80 h-80 border-2 border-outline-variant/30 z-0"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- What I Do Section (Bento Grid) -->
+<section class="py-32 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="text-center mb-20">
+<h2 class="text-5xl font-headline mb-4">What I Design</h2>
+<div class="h-1 w-20 bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-8 h-full">
+<!-- Residential Home Design -->
+<div class="md:col-span-2 bg-surface-container-highest p-12 rounded-xl flex flex-col justify-between group overflow-hidden relative min-h-[400px]">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6">house</span>
+<h3 class="text-3xl font-headline mb-4">Residential Home Design</h3>
+<p class="text-on-surface-variant text-lg max-w-md">Floor plans, elevations, wall sections, 3D renderings, and permit-ready drawing sets — designed around how your family actually moves through space, with aesthetics built to last decades, not trends.</p>
+</div>
+<img class="absolute right-[-10%] bottom-[-10%] w-2/3 opacity-20 group-hover:scale-105 transition-transform duration-500" data-alt="Architectural drawing and model of a modern farmhouse on a wooden desk with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQeLnBNaGyrNjbx35yYmRB6zqKXYib7sQhTnXx23tQYEgBNxLJFU9JpraKxODQq-cf4p_ulSBPQT5tltEiJ6AljlnfR3D5sO6-DNeCfE4Zn_MXNl6Ty0ujX4naNBg7PQSCAv-TOcDAj9nytxv7bCfFRUjNpDMjjIrw283Ll3e4ZbK44s0KhX4TtNuO5VRR9At0-C9VQh5nEOoMlqVeyT8YeWrg4g0o4qqjq-UYuOtlgBqTXaX0KujrZiFgSqqu3LaZe868Iq2s3DxO"/>
+</div>
+<!-- Property Layout -->
+<div class="bg-white p-12 rounded-xl shadow-sm border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl text-secondary mb-6">map</span>
+<h3 class="text-2xl font-headline mb-4">Property Layout</h3>
+<p class="text-on-surface-variant">Every site has a best answer for solar orientation, privacy, drainage, and indoor-outdoor connection. I find it and design for it.</p>
+</div>
+</div>
+<!-- Home Energy Efficiency -->
+<div class="bg-primary text-white p-12 rounded-xl flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl text-secondary-container mb-6">energy_savings_leaf</span>
+<h3 class="text-2xl font-headline mb-4">Energy Efficiency</h3>
+<p class="text-white/70">Passive solar orientation, airtight construction, and right-sized mechanical systems — a home that stays comfortable without working against the climate it sits in.  I spent more time on air sealing in my own home than on any other system. The results speak for themselves.</p>
+</div>
+<div class="mt-8">
+<a class="inline-flex items-center gap-2 text-secondary-container hover:underline" href="about.html">My Story <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Off-Grid Design -->
+<div class="md:col-span-2 bg-surface-container p-12 rounded-xl flex items-center gap-12 overflow-hidden">
+<div class="flex-1">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6">solar_power</span>
+<h3 class="text-3xl font-headline mb-4">Off-Grid Design</h3>
+<p class="text-on-surface-variant text-lg">Solar array sizing, battery storage, water systems, and backup power — designed as a unified whole, not bolted on as an afterthought. I've lived off-grid full time since 2023. I live off-grid with a family of nine. I know what the numbers need to look like in January.</p>
+</div>
+<div class="hidden lg:block w-1/3 h-full rounded-lg overflow-hidden shadow-lg">
+<img class="w-full h-full object-cover" data-alt="Modern high-efficiency solar panels integrated into a dark metal roof of a high-end architectural project" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeBDa8XCMfBGhvelTdn15lXd0gnGYd16pF6MN5VNUCdf0AcclDRtT76pv2lc7wU4Is9EhOI2qzDNW5ymto8l0ZVk6Q-rKVc8_GJ4oyIGfRnuHQLQaQCpA1DCl06cmz05fSllgw6EGtO-2uOpxUd2kdTZ7cLee9dBaDNyRl5tvC6ro-XTMdniWpPeUq_jVWZ8c8MPlasuXuxDb1Sf0mSiRcFFF2WcE0ks7BQn2_v7FUtlVJMChXJu5o_RCxQpBwz5344orU1QsRIRqR"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Software Engineer Section — New -->
+<section class="py-32 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <div class="lg:col-span-6">
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-4">Why It Matters</span>
+        <h2 class="text-5xl font-headline leading-tight mb-8">I spent 13 years making sure complex systems didn't fail.</h2>
+        <div class="space-y-5 text-on-surface-variant text-lg font-body leading-relaxed font-light">
+          <p>In software, defects are cheapest to fix in the design phase. The further into development you get, the more expensive a fundamental problem becomes. Some can't be fixed at all without starting over.</p>
+          <p>Houses work exactly the same way. As a build progresses, less and less can be changed — and every change costs more. The framing stage is not the time to reconsider your wall assembly. The HVAC rough-in is not the time to rethink your air sealing strategy.</p>
+          <p>I ask a lot of questions early. I push you to make decisions before anything is built, when changing your mind costs nothing. My clients still face choices during the build — but far fewer of them, and none of the fundamental ones. That's what makes the build go smoothly.</p>
+        </div>
+      </div>
+      <div class="lg:col-span-6 grid grid-cols-1 gap-6">
+        <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/20 flex items-start gap-5">
+          <span class="material-symbols-outlined text-secondary text-3xl mt-1">design_services</span>
+          <div>
+            <h4 class="font-headline text-lg text-primary mb-2">Decisions made upfront cost nothing</h4>
+            <p class="text-on-surface-variant text-sm font-body leading-relaxed">Every decision you make before breaking ground is free. Every decision you make mid-framing costs time, money, and stress. I front-load the hard thinking so you don't have to.</p>
+          </div>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/20 flex items-start gap-5">
+          <span class="material-symbols-outlined text-secondary text-3xl mt-1">engineering</span>
+          <div>
+            <h4 class="font-headline text-lg text-primary mb-2">I stay involved through the build</h4>
+            <p class="text-on-surface-variant text-sm font-body leading-relaxed">Most general contractors don't have experience building high-performance homes. I stay available to answer their questions, review critical details, and keep the framer and HVAC team on plan. You can work with a contractor you trust — as long as they'll follow the drawings.</p>
+          </div>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/20 flex items-start gap-5">
+          <span class="material-symbols-outlined text-secondary text-3xl mt-1">gavel</span>
+          <div>
+            <h4 class="font-headline text-lg text-primary mb-2">I've navigated the permitting process</h4>
+            <p class="text-on-surface-variant text-sm font-body leading-relaxed">I went through full county permitting for an off-grid home in a jurisdiction that had never reviewed one. I know how to work with county employees, read ordinances, and get to approval — even when the path isn't clear.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact/Inquiry Section -->
+<section class="py-32 bg-surface-container-high" id="contact">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+<div>
+<span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-4">Connect With Me</span>
+<h2 class="text-5xl font-headline mb-8">Ready to build your sanctuary?</h2>
+<p class="text-on-surface-variant text-lg mb-12 max-w-md">
+                        I take on a limited number of projects each year to ensure every client receives my full attention. I am currently accepting a limited number of projects for delivery in Fall 2026 — tell me about your land and what you're imagining.
+                    </p>
+<div class="space-y-8">
+<div class="flex items-center gap-6 group">
+<div class="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">Phone</p>
+<p class="text-xl font-body font-semibold">435-562-5964</p>
+</div>
+</div>
+<div class="flex items-center gap-6 group">
+<div class="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">Email</p>
+<p class="text-xl font-body font-semibold">tyler@rencherdesign.com</p>
+</div>
+</div>
+<div class="flex items-center gap-6 group">
+<div class="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">Studio</p>
+<p class="text-xl font-body font-semibold">Spring City, Utah</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface p-10 rounded-xl shadow-xl">
+
+  <!-- Success message (hidden by default) -->
+  <div id="form-success" class="hidden text-center py-12 space-y-4">
+    <span class="material-symbols-outlined text-secondary text-5xl">check_circle</span>
+    <h3 class="text-2xl font-headline text-primary">Message sent.</h3>
+    <p class="text-on-surface-variant font-body">I'll be in touch within a day or two. While you're waiting to hear from me, here's a <a class="underline decoration-[#7c5730] underline-offset-4 hover:text-[#7c5730] transition-colors duration-200" href="prepare.html">preparation guide</a> I put together to help you get ready for our first conversation.</p>
+  </div>
+
+  <!-- Error message (hidden by default) -->
+  <div id="form-error" class="hidden mb-6 p-4 bg-error-container rounded-md">
+    <p class="text-on-error-container text-sm font-body">Something went wrong. Please try again or email me directly at tyler@rencherdesign.com.</p>
+  </div>
+
+  <form id="contact-form" action="https://formspree.io/f/xnjonpqg" method="POST" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-2 block">Your Name</label>
+        <input name="name" class="w-full bg-surface-container-low border-none rounded-md focus:ring-2 focus:ring-secondary/20 p-4 font-body" placeholder="First &amp; Last" type="text" required/>
+      </div>
+      <div>
+        <label class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-2 block">Email Address</label>
+        <input name="email" class="w-full bg-surface-container-low border-none rounded-md focus:ring-2 focus:ring-secondary/20 p-4 font-body" placeholder="email@example.com" type="email" required/>
+      </div>
+    </div>
+    <div>
+      <label class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-2 block">Project Type</label>
+      <select name="project_type" class="w-full bg-surface-container-low border-none rounded-md focus:ring-2 focus:ring-secondary/20 p-4 font-body appearance-none">
+        <option>New Residential Design</option>
+        <option>Off-Grid Consultation</option>
+        <option>Site Planning</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div>
+      <label class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-2 block">Your Vision</label>
+      <textarea name="message" class="w-full bg-surface-container-low border-none rounded-md focus:ring-2 focus:ring-secondary/20 p-4 font-body" placeholder="Tell me about your land, your family, and what you're dreaming of building..." rows="4" required></textarea>
+    </div>
+    <button id="submit-btn" class="w-full bg-primary text-on-primary py-5 rounded-md font-bold text-lg hover:bg-primary-container transition-all shadow-md disabled:opacity-60 disabled:cursor-not-allowed" type="submit">
+      Send Inquiry
+    </button>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    errorMsg.classList.add('hidden');
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.classList.add('hidden');
+        successMsg.classList.remove('hidden');
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      errorMsg.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Inquiry';
+    }
+  });
+</script>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#313030] dark:bg-[#1c1c1a] full-width bottom-0 text-[#fcf9f6] dark:text-[#d4c3be]">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-20 max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
+<p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">
+                    Architectural design for those who value technical excellence alongside family comfort.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-4">
+<p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+<ul class="space-y-2">
+<!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>-->
+<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="https://www.linkedin.com/in/tylerrencher/">LinkedIn</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="font-label text-xs tracking-widest uppercase text-secondary">Resources</p>
+<ul class="space-y-2">
+<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="privacy.html">Privacy Policy</a></li>
+<!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Journal</a></li>-->
+</ul>
+</div>
+</div>
+<div class="flex flex-col justify-between items-end">
+<div class="text-right">
+<p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40">© 2026 Rencher Design</p>
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40 mt-1">Spring City, Utah</p>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

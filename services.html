@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services | Rencher Design</title>
+<meta name="description" content="Rencher Design offers schematic drafting, high-performance home design, off-grid system design, and local project management. Permit-ready drawing packages for residential construction."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tertiary-container": "#7c2e00", "on-secondary-fixed": "#2c1600",
+          "surface-variant": "#e5e2df", "on-tertiary": "#ffffff",
+          "surface-tint": "#5f5e5e", "outline-variant": "#d4c3be",
+          "secondary-fixed-dim": "#eebd8e", "on-tertiary-fixed-variant": "#7c2e00",
+          "error-container": "#ffdad6", "inverse-primary": "#c8c6c5",
+          "surface-container-low": "#f6f3f0", "surface-container": "#f0edea",
+          "tertiary-fixed": "#ffdbcd", "secondary-fixed": "#ffdcbd",
+          "surface-container-lowest": "#ffffff", "primary-fixed": "#e4e2e1",
+          "error": "#ba1a1a", "primary-fixed-dim": "#c8c6c5",
+          "on-surface": "#1c1c1a", "on-secondary": "#ffffff",
+          "inverse-on-surface": "#f3f0ed", "on-error-container": "#93000a",
+          "surface-dim": "#dcd9d7", "on-primary-container": "#b7b5b4",
+          "on-primary": "#ffffff", "on-tertiary-container": "#ff9c6e",
+          "primary-container": "#474747", "on-surface-variant": "#504441",
+          "on-secondary-fixed-variant": "#61401b", "surface": "#fcf9f6",
+          "on-tertiary-fixed": "#351000", "inverse-surface": "#31302f",
+          "surface-bright": "#fcf9f6", "on-primary-fixed": "#1b1c1c",
+          "outline": "#827470", "tertiary": "#571e00",
+          "surface-container-highest": "#e5e2df", "on-primary-fixed-variant": "#474747",
+          "background": "#fcf9f6", "secondary-container": "#fdcb9b",
+          "on-error": "#ffffff", "on-background": "#1c1c1a",
+          "tertiary-fixed-dim": "#ffb595", "primary": "#313030",
+          "on-secondary-container": "#79542d", "surface-container-high": "#eae8e5",
+          "secondary": "#7c5730"
+        },
+        fontFamily: { "headline": ["Noto Serif"], "body": ["Plus Jakarta Sans"], "label": ["Plus Jakarta Sans"] },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Navigation -->
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm transition-opacity">
+  <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex space-x-10 items-center">
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="about.html">About</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="journal.html">Journal</a>
+      <a class="text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]" href="services.html">Services</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="portfolio.html">Portfolio</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="process.html">Process</a>
+    </div>
+    <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='index.html#contact'">
+      Begin Your Project
+    </button>
+
+    <!-- Mobile hamburger button -->
+    <button id="menu-toggle" class="md:hidden flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu drawer -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+    <div class="px-8 py-6 space-y-1">
+      <a href="about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        About
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Journal
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">
+        Services
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Portfolio
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Process
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <div class="pt-4">
+        <a href="index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">
+          Begin Your Project
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = toggle.querySelectorAll('.hamburger-bar');
+
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', !isOpen);
+
+    if (!isOpen) {
+      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+      bars[1].style.opacity = '0';
+      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bars[0].style.transform = '';
+      bars[1].style.opacity = '';
+      bars[2].style.transform = '';
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      bars[0].style.transform = '';
+      bars[1].style.opacity = '';
+      bars[2].style.transform = '';
+    }
+  });
+</script>
+
+<!-- Hero -->
+<section class="py-24 bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-3xl">
+      <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-4">Services</span>
+      <h1 class="text-6xl font-headline leading-tight mb-6">Drawings that contractors can actually follow.</h1>
+      <p class="text-xl text-on-surface-variant font-body font-light leading-relaxed">
+        Four service levels — from straightforward permit packages to fully integrated high-performance design — plus plan submittal handling and local project management for builds in North Sanpete County. Every package is delivered as a permit-ready drawing set prepared for engineer review and AHJ submission.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Jump nav -->
+<section class="py-6 bg-surface border-b border-outline-variant/20 sticky top-[73px] z-40">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="flex flex-wrap gap-3 items-center">
+      <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant hidden md:block mr-2">Jump to:</span>
+      <a href="#schematic" class="font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary transition-all">Schematic Drafting</a>
+      <a href="#high-performance" class="font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary transition-all">High-Performance Drafting</a>
+      <a href="#off-grid" class="font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary transition-all">Off-Grid System Design</a>
+      <a href="#plan-submittal" class="font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary transition-all">Plan Submittal</a>
+      <a href="#management" class="font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary transition-all">Project Management</a>
+    </div>
+  </div>
+</section>
+
+<!-- Engineer note -->
+<section class="py-10 bg-surface border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-3xl flex items-start gap-5">
+      <span class="material-symbols-outlined text-secondary text-3xl mt-1 flex-shrink-0">info</span>
+      <div>
+        <h3 class="font-headline text-lg text-primary mb-2">About engineer stamps and permits</h3>
+        <p class="text-on-surface-variant font-body text-base leading-relaxed">My drawing packages are prepared for engineer review and AHJ (building department) submission. A structural engineer reviews and stamps the package before permit application. Many rural jurisdictions do not require a licensed architect for single-family residential — I'll help you understand what your county requires before we begin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TIER 1: Schematic ─── -->
+<section class="py-24 bg-surface-container-low" id="schematic">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-7 space-y-8">
+        <div>
+          <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Tier 1</span>
+          <h2 class="text-5xl font-headline leading-snug mb-4">Schematic Drafting</h2>
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light">A clean, professional permit package for straightforward residential builds that don't require high-performance detailing. If you're building a conventional home with standard construction methods and typical mechanical systems, this gives you what you need to get to permit without paying for analysis and detailing you won't use.</p>
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light mt-4">This is a more transactional engagement than my other services. I will still thoroughly analyze your family situation and goals to design a home fit for your needs. It is not the right choice if you care about energy efficiency, thermal comfort, air quality, or off-grid operation — the High-Performance package is the appropriate starting point for those goals.</p>
+        </div>
+        <div>
+          <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-5">What's included</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3 p-4 bg-surface rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">floor</span><span class="text-sm font-body text-on-surface-variant leading-relaxed">Floor plans with dimensions and room labels</span></div>
+            <div class="flex items-start gap-3 p-4 bg-surface rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">view_in_ar</span><span class="text-sm font-body text-on-surface-variant leading-relaxed">All four exterior elevations</span></div>
+            <div class="flex items-start gap-3 p-4 bg-surface rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">map</span><span class="text-sm font-body text-on-surface-variant leading-relaxed">Basic site plan with setbacks</span></div>
+            <div class="flex items-start gap-3 p-4 bg-surface rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">electrical_services</span><span class="text-sm font-body text-on-surface-variant leading-relaxed">Standard electrical layout</span></div>
+            <div class="flex items-start gap-3 p-4 bg-surface rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">square_foot</span><span class="text-sm font-body text-on-surface-variant leading-relaxed">Standard wall sections for permit</span></div>
+          </div>
+        </div>
+        <div class="bg-surface rounded-xl p-6 border border-outline-variant/30">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">block</span>
+            <div>
+              <p class="font-headline text-sm text-primary mb-1">Not included in this package</p>
+              <p class="text-on-surface-variant text-sm font-body leading-relaxed">Air sealing details, thermal envelope analysis, HVAC load calculations, detailed cabinet plans, off-grid system design, or build support. These are available in the High-Performance package.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-5">
+        <div class="sticky top-36">
+          <div class="bg-surface rounded-xl p-10 border border-outline-variant/30">
+            <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-2">Starting price</p>
+            <span class="font-headline text-5xl text-primary">$4,000</span>
+            <p class="text-on-surface-variant text-sm font-body mt-2 mb-2">Base price for homes up to approximately 2,000 sq ft. All discovery fees credited to this total.</p>
+            <div class="bg-surface-container-low rounded-lg px-4 py-3 mb-6 border border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant"><span class="font-semibold text-primary">$1.50 / sq ft</span> for each sq ft over 2,000. One revision round included; additional revisions billed hourly at $100/hr.</p>
+            </div>
+            <div class="border-t border-outline-variant/20 pt-6 mb-6 space-y-3">
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Flat fee — straightforward and predictable</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">One revision round included</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Engineer-review and permit-ready format</span></div>
+            </div>
+            <a href="index.html#contact" class="block w-full bg-primary text-on-primary text-center py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Get Started</a>
+            <p class="text-center text-xs text-on-surface-variant mt-4 font-body">Initial conversation is free.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-screen-2xl mx-auto px-8"><div class="border-t border-outline-variant/20"></div></div>
+
+<!-- ─── TIER 2: High-Performance ─── -->
+<section class="py-24 bg-surface" id="high-performance">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-7 space-y-8">
+        <div>
+          <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Tier 2</span>
+          <h2 class="text-5xl font-headline leading-snug mb-4">High-Performance Home Drafting</h2>
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light">A complete permit-ready drawing set with the performance details that standard drafting package leaves out. The difference between a comfortable home and an average one lives in the details most contractors never see on paper — and most designers never put there.</p>
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light mt-4">This is the right choice if you care about thermal comfort, quiet interiors, energy efficiency, or indoor air quality. It is also the required foundation if you plan to add off-grid systems.</p>
+        </div>
+        <div>
+          <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-5">What's included</p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-5 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">floor</span><div><h4 class="font-headline text-base text-primary mb-1">Floor plans & elevations</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">Dimensioned floor plans for all levels, all four exterior elevations, and a site plan. Formatted for building department submission.</p></div></div>
+            <div class="flex items-start gap-4 p-5 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">3d_rotation</span><div><h4 class="font-headline text-base text-primary mb-1">3D renderings and videos</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">Decisions are easier with pictures. Extensive 3D renderings are the backbone of a successful remote design experience.</p></div></div>
+            <div class="flex items-start gap-4 p-5 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">air</span><div><h4 class="font-headline text-base text-primary mb-1">Air sealing & envelope details</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">Wall section cuts, insulation details, and annotated air barrier continuity drawings. The details that determine whether your home is actually comfortable — and that most contractors have never been handed on paper. I spent more time on this in my own home than on any other system.</p></div></div>
+            <div class="flex items-start gap-4 p-5 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">hvac</span><div><h4 class="font-headline text-base text-primary mb-1">Detailed HVAC plan</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">Equipment sizing, duct routing, register placement, and ventilation strategy — based on calculated heating and cooling loads for your home's actual envelope and climate, not rules of thumb.</p></div></div>
+            <div class="flex items-start gap-4 p-5 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">electrical_services</span><div><h4 class="font-headline text-base text-primary mb-1">Detailed electrical plan</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">Panel sizing, circuit layout, outlet and fixture locations, and load calculations. Coordinated with HVAC and mechanical systems.</p></div></div>
+            <div class="flex items-start gap-4 p-5 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">plumbing</span><div><h4 class="font-headline text-base text-primary mb-1">Water & waste plans</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">Basic plumbing and septic plans for standard connections. Projects involving rainwater harvesting or catchment systems receive a detailed water plan — reflected in the project quote.</p></div></div>
+            <div class="flex items-start gap-4 p-5 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">kitchen</span><div><h4 class="font-headline text-base text-primary mb-1">Detailed cabinet plan</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">Kitchen, bathroom, and storage cabinet layouts with dimensions — detailed enough for a cabinet shop to bid and fabricate from.</p></div></div>
+            <div class="flex items-start gap-4 p-5 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">construction</span><div><h4 class="font-headline text-base text-primary mb-1">Build support</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">I stay available throughout your build to answer contractor questions and keep the framer and HVAC team on plan. Most general contractors haven't built to this standard before — I bridge that gap.</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-5">
+        <div class="sticky top-36">
+          <div class="bg-surface-container-highest rounded-xl p-10 border-2 border-secondary/30">
+            <div class="inline-block bg-secondary text-white font-label text-[10px] tracking-widest uppercase px-3 py-1 rounded-full mb-4">Most popular</div>
+            <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-2">Starting price</p>
+            <span class="font-headline text-5xl text-primary">$8,000</span>
+            <p class="text-on-surface-variant text-sm font-body mt-2 mb-2">Base price for homes up to approximately 2,000 sq ft. All discovery fees credited to this total.</p>
+            <div class="bg-surface-container rounded-lg px-4 py-3 mb-6 border border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant"><span class="font-semibold text-primary">$3.00 / sq ft</span> for each sq ft over 2,000. Two revision rounds included; additional revisions billed hourly at $100/hr.</p>
+            </div>
+            <div class="border-t border-outline-variant/20 pt-6 mb-6 space-y-3">
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Flat fee — no hourly surprises</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Two revision rounds included</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Additional revisions billed hourly</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Build support throughout construction</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Engineer-review and permit-ready format</span></div>
+            </div>
+            <a href="index.html#contact" class="block w-full bg-primary text-on-primary text-center py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Begin Your Project</a>
+            <p class="text-center text-xs text-on-surface-variant mt-4 font-body">Initial conversation is free. No obligation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-screen-2xl mx-auto px-8"><div class="border-t border-outline-variant/20"></div></div>
+
+<!-- ─── TIER 3: Off-Grid ─── -->
+<section class="py-24 bg-surface-container-low" id="off-grid">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-7 space-y-8">
+        <div>
+          <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Tier 3 · Add-on or standalone</span>
+          <h2 class="text-5xl font-headline leading-snug mb-4">Off-Grid System Design</h2>
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light">Most solar contractors can give you a system size estimate. What they can't do is account for your specific load profile, your location's seasonal solar variance, your family's actual usage patterns, and how all of those interact with your battery bank, generator backup, and long-term energy strategy.</p>
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light mt-4">I can — because I've done this analysis for my own family's home and live with the results every day. This work is time-intensive and must be analyzed individually for each family and situation. There is no standard formula.</p>
+        </div>
+        <div>
+          <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-5">What this covers</p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-5 bg-surface rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">bolt</span><div><h4 class="font-headline text-base text-primary mb-1">Load profile analysis</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">A detailed accounting of your household's energy demand — appliance by appliance, season by season. Everything else is built on this foundation.</p></div></div>
+            <div class="flex items-start gap-4 p-5 bg-surface rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">solar_power</span><div><h4 class="font-headline text-base text-primary mb-1">Solar array sizing</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">Array size calculated from your actual load profile and your location's seasonal peak sun hours — including the winter worst-case your system must survive. Not a summer-day estimate.</p></div></div>
+            <div class="flex items-start gap-4 p-5 bg-surface rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">battery_charging_full</span><div><h4 class="font-headline text-base text-primary mb-1">Battery storage & generator backup</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">Battery bank sized for your desired autonomy days and realistic usage patterns. Generator sizing, integration strategy, and a clear explanation of the tradeoffs so you can make an informed decision.</p></div></div>
+            <div class="flex items-start gap-4 p-5 bg-surface rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">water_drop</span><div><h4 class="font-headline text-base text-primary mb-1">Water system design</h4><p class="text-on-surface-variant text-sm font-body leading-relaxed">For projects without municipal water: rainwater harvesting calculations, tank sizing, filtration train design, and seasonal supply vs. demand analysis. Greywater recycling evaluation if applicable.</p></div></div>
+          </div>
+        </div>
+        <div class="bg-primary text-white rounded-xl p-8">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-secondary-container text-3xl mt-1 flex-shrink-0">format_quote</span>
+            <div>
+              <p class="font-serif italic text-white/90 text-lg leading-relaxed mb-4">"My family of nine lives off-grid full time. I know what the numbers need to look like in January — not just on a sunny day in July. That's the analysis I bring to your project."</p>
+              <p class="text-white/50 text-sm font-body">— Tyler Rencher</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-5">
+        <div class="sticky top-36">
+          <div class="bg-surface rounded-xl p-10 border border-outline-variant/30">
+            <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-2">Pricing</p>
+            <span class="font-headline text-3xl text-primary">Custom quote</span>
+            <p class="text-on-surface-variant text-sm font-body mt-2 mb-8">Priced individually — complexity varies significantly based on your family's usage patterns, location, and system interactions. Contact me for an honest estimate.</p>
+            <div class="border-t border-outline-variant/20 pt-6 mb-6 space-y-3">
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Add to the High-Performance package</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Or engage as a standalone service</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Fully integrated with electrical and HVAC drawings</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Results in a spec your solar contractor can bid from</span></div>
+            </div>
+            <a href="index.html#contact" class="block w-full bg-primary text-on-primary text-center py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Discuss Your Project</a>
+            <p class="text-center text-xs text-on-surface-variant mt-4 font-body">Initial conversation is free.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-screen-2xl mx-auto px-8"><div class="border-t border-outline-variant/20"></div></div>
+
+<!-- ─── SERVICE: Plan Submittal ─── -->
+<section class="py-24 bg-surface-container-low" id="plan-submittal">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-7 space-y-8">
+        <div>
+          <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Add-on service</span>
+          <h2 class="text-5xl font-headline leading-snug mb-4">Plan Submittal</h2>
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light">Navigating a building department is a skill of its own. Every AHJ (authority having jurisdiction) has different requirements, different reviewers, and different timelines. I've been through this process — including with a county that had never reviewed an off-grid electrical system before — and I know how to get plans through without unnecessary delay.</p>
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light mt-4">When you add Plan Submittal, I handle all communication with your building department: initial submission, responding to correction notices, resubmitting revised drawings as needed, and following through until your permit is in hand. You don't have to learn a new process or track down a reviewer. I do it for you.</p>
+        </div>
+        <div>
+          <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-5">What's included</p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-5 bg-surface rounded-xl border border-outline-variant/20">
+              <span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">send</span>
+              <div>
+                <h4 class="font-headline text-base text-primary mb-1">Initial plan submission</h4>
+                <p class="text-on-surface-variant text-sm font-body leading-relaxed">I prepare and submit your complete drawing set to your AHJ in the format they require — digital portal, paper set, or both.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-5 bg-surface rounded-xl border border-outline-variant/20">
+              <span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">forum</span>
+              <div>
+                <h4 class="font-headline text-base text-primary mb-1">All AHJ correspondence</h4>
+                <p class="text-on-surface-variant text-sm font-body leading-relaxed">I manage every communication with the building department — questions, correction requests, and follow-ups — so you aren't learning their process on the fly.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-5 bg-surface rounded-xl border border-outline-variant/20">
+              <span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">edit_document</span>
+              <div>
+                <h4 class="font-headline text-base text-primary mb-1">Correction response & resubmittal</h4>
+                <p class="text-on-surface-variant text-sm font-body leading-relaxed">When reviewers request changes, I rework the drawings and resubmit. The process continues until permit is issued — no surprise extra charges per round.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-5 bg-surface rounded-xl border border-outline-variant/20">
+              <span class="material-symbols-outlined text-secondary text-2xl mt-0.5 flex-shrink-0">task_alt</span>
+              <div>
+                <h4 class="font-headline text-base text-primary mb-1">Permit in hand</h4>
+                <p class="text-on-surface-variant text-sm font-body leading-relaxed">The engagement ends when your building permit is issued and delivered. You're ready to break ground.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-surface rounded-xl p-6 border border-outline-variant/30">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">info</span>
+            <div>
+              <p class="font-headline text-sm text-primary mb-1">Permit fees not included</p>
+              <p class="text-on-surface-variant text-sm font-body leading-relaxed">Building permit fees are paid directly to your county or municipality and vary by jurisdiction and project size. These are passed through at cost — they are not part of my fee.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-5">
+        <div class="sticky top-36">
+          <div class="bg-surface rounded-xl p-10 border border-outline-variant/30">
+            <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-2">Pricing</p>
+            <span class="font-headline text-4xl text-primary">1% estimated project cost</span>
+            <p class="text-on-surface-variant text-sm font-body mt-2 mb-8">Fee is based on the estimated total construction cost of your project. Priced at the time of engagement. Discovery fees credited to project total.</p>
+            <div class="border-t border-outline-variant/20 pt-6 mb-6 space-y-3">
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">All AHJ communication handled</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Correction response & resubmittals included</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Available as add-on to any drawing package</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Ends when permit is in hand</span></div>
+            </div>
+            <a href="index.html#contact" class="block w-full bg-primary text-on-primary text-center py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Add to Your Project</a>
+            <p class="text-center text-xs text-on-surface-variant mt-4 font-body">Can be combined with any drawing service.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-screen-2xl mx-auto px-8"><div class="border-t border-outline-variant/20"></div></div>
+
+<!-- ─── SERVICE 4: Project Management ─── -->
+<section class="py-24 bg-surface" id="management">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-7 space-y-8">
+        <div>
+          <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Local service · North Sanpete County, Utah</span>
+          <h2 class="text-5xl font-headline leading-snug mb-4">Project Management</h2>
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light">For projects in North Sanpete County, I offer land development services to take raw land (often an agricultural split) and turn it into a buildable lot. This always requires a surveyor's services and extended interactions with the building and zoning department with the county. I will design your plans, get them stamped by an engineer, and move them through the building department. I will conduct weekly in-person site visits to verify that work in progress matches the drawings — and to catch problems before they become expensive. You will recieve a written report after each visit.</p>
+        </div>
+        <div>
+          <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-5">What site visits cover</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">foundation</span><span class="text-sm font-body text-on-surface-variant leading-relaxed">Foundation and slab placement</span></div>
+            <div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">roofing</span><span class="text-sm font-body text-on-surface-variant leading-relaxed">Rough framing compliance</span></div>
+            <div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">air</span><span class="text-sm font-body text-on-surface-variant leading-relaxed">Air sealing before insulation cover</span></div>
+            <div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">hvac</span><span class="text-sm font-body text-on-surface-variant leading-relaxed">Mechanical rough-in verification</span></div>
+            <div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">solar_power</span><span class="text-sm font-body text-on-surface-variant leading-relaxed">Off-grid system installation (if applicable)</span></div>
+            <div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-xl border border-outline-variant/20"><span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">fact_check</span><span class="text-sm font-body text-on-surface-variant leading-relaxed">Written report after each visit</span></div>
+          </div>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/20">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0">location_on</span>
+            <div>
+              <p class="font-headline text-sm text-primary mb-1">Local to North Sanpete County</p>
+              <p class="text-on-surface-variant text-sm font-body leading-relaxed">This service is available for builds within reasonable driving distance of Spring City, Utah. Remote build support by phone and video is available for projects outside the area.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-5">
+        <div class="sticky top-36">
+          <div class="bg-surface-container-highest rounded-xl p-10 border border-outline-variant/30">
+            <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-2">Pricing</p>
+            <span class="font-headline text-4xl text-primary">5% estimated project cost</span>
+            <p class="text-on-surface-variant text-sm font-body mt-2 mb-8">Plus surveyor and structural engineer expenses, which vary by project. I coordinate and manage both — you're billed their actual costs at cost. Contact me for a quote based on your project's location and scope.</p>
+            <div class="border-t border-outline-variant/20 pt-6 mb-6 space-y-3">
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Raw land to buildable lot coordination</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Surveyor and structural engineer engaged and managed</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Weekly in-person site visits with written reports</span></div>
+              <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-base mt-0.5">check_circle</span><span class="text-sm font-body text-on-surface-variant">Plan submittal and building permit handling</span></div>
+            </div>
+            <a href="index.html#contact" class="block w-full bg-primary text-on-primary text-center py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Ask About Management</a>
+            <p class="text-center text-xs text-on-surface-variant mt-4 font-body">North Sanpete County area only.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-20 bg-surface-container-low border-t border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-headline mb-10">Common questions</h2>
+      <div class="space-y-8">
+        <div class="border-b border-outline-variant/20 pb-8">
+          <h4 class="font-headline text-lg text-primary mb-3">Which service is right for me?</h4>
+          <p class="text-on-surface-variant font-body leading-relaxed">If you care about thermal comfort, energy efficiency, or quiet interiors, start with High-Performance. Add the Off-Grid service if you want full energy independence. If you're building a conventional home and need a clean permit package without performance detailing, Schematic is the right fit. Not sure? The first conversation is free.</p>
+        </div>
+        <div class="border-b border-outline-variant/20 pb-8">
+          <h4 class="font-headline text-lg text-primary mb-3">Do I need a licensed architect?</h4>
+          <p class="text-on-surface-variant font-body leading-relaxed">Many states and rural counties do not require a licensed architect for single-family residential construction under a certain square footage. What is typically required is a structural engineer's stamp. I produce the drawings; the engineer reviews the structural elements and stamps the package. I'll help you understand what your specific jurisdiction requires.</p>
+        </div>
+        <div class="border-b border-outline-variant/20 pb-8">
+          <h4 class="font-headline text-lg text-primary mb-3">Can I use my own general contractor?</h4>
+          <p class="text-on-surface-variant font-body leading-relaxed">Yes — and I encourage it. The best outcome is a contractor you trust who is willing to follow detailed drawings and take direction on the performance details. I stay available to answer their questions throughout the build.</p>
+        </div>
+        <div class="border-b border-outline-variant/20 pb-8">
+          <h4 class="font-headline text-lg text-primary mb-3">How long does the drawing process take?</h4>
+          <p class="text-on-surface-variant font-body leading-relaxed">A typical project takes two to four months from engagement to final drawing set, depending on complexity and revision rounds. Projects where the client has done significant thinking upfront tend to go faster and smoother.</p>
+        </div>
+        <div class="pb-4">
+          <h4 class="font-headline text-lg text-primary mb-3">What if my project is outside Utah?</h4>
+          <p class="text-on-surface-variant font-body leading-relaxed">I work with clients remotely. Discovery sessions happen by video call and drawings are delivered digitally. The one exception is project management, which is only available locally in North Sanpete County. Remote build support by phone and video is available everywhere.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8 text-center">
+    <h2 class="text-4xl font-headline mb-4 text-white">Not sure which service fits your project?</h2>
+    <p class="text-white/70 font-body text-lg mb-8 max-w-xl mx-auto">Tell me about your land, your goals, and your timeline. The first conversation is free and I'll give you an honest read on what your project actually needs.</p>
+    <a href="index.html#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#313030] text-[#fcf9f6]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-20 max-w-screen-2xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
+      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">
+        Architectural design for those who value technical excellence alongside family comfort.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="space-y-4">
+<p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+<ul class="space-y-2">
+<!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>-->
+<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="https://www.linkedin.com/in/tylerrencher/">LinkedIn</a></li>
+</ul>
+</div>
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Resources</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="privacy.html">Privacy Policy</a></li>
+          <!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Journal</a></li>-->
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col justify-between items-end">
+      <div class="text-right">
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40">© 2026 Rencher Design</p>
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40 mt-1">Spring City, Utah</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

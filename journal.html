@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Journal | Rencher Design</title>
+<meta name="description" content="Writing on home design, high-performance building, off-grid living, and the decisions that separate a good home from an exceptional one."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tertiary-container": "#7c2e00", "on-secondary-fixed": "#2c1600",
+          "surface-variant": "#e5e2df", "on-tertiary": "#ffffff",
+          "surface-tint": "#5f5e5e", "outline-variant": "#d4c3be",
+          "secondary-fixed-dim": "#eebd8e", "on-tertiary-fixed-variant": "#7c2e00",
+          "error-container": "#ffdad6", "inverse-primary": "#c8c6c5",
+          "surface-container-low": "#f6f3f0", "surface-container": "#f0edea",
+          "tertiary-fixed": "#ffdbcd", "secondary-fixed": "#ffdcbd",
+          "surface-container-lowest": "#ffffff", "primary-fixed": "#e4e2e1",
+          "error": "#ba1a1a", "primary-fixed-dim": "#c8c6c5",
+          "on-surface": "#1c1c1a", "on-secondary": "#ffffff",
+          "inverse-on-surface": "#f3f0ed", "on-error-container": "#93000a",
+          "surface-dim": "#dcd9d7", "on-primary-container": "#b7b5b4",
+          "on-primary": "#ffffff", "on-tertiary-container": "#ff9c6e",
+          "primary-container": "#474747", "on-surface-variant": "#504441",
+          "on-secondary-fixed-variant": "#61401b", "surface": "#fcf9f6",
+          "on-tertiary-fixed": "#351000", "inverse-surface": "#31302f",
+          "surface-bright": "#fcf9f6", "on-primary-fixed": "#1b1c1c",
+          "outline": "#827470", "tertiary": "#571e00",
+          "surface-container-highest": "#e5e2df", "on-primary-fixed-variant": "#474747",
+          "background": "#fcf9f6", "secondary-container": "#fdcb9b",
+          "on-error": "#ffffff", "on-background": "#1c1c1a",
+          "tertiary-fixed-dim": "#ffb595", "primary": "#313030",
+          "on-secondary-container": "#79542d", "surface-container-high": "#eae8e5",
+          "secondary": "#7c5730"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif"],
+          "body": ["Plus Jakarta Sans"],
+          "label": ["Plus Jakarta Sans"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+
+  /* Entry hover lift */
+  .entry-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .entry-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(49,48,48,0.08); }
+
+  /* Category filter active state */
+  .filter-btn { transition: all 0.15s ease; }
+  .filter-btn.active {
+    background-color: #313030;
+    color: #fcf9f6;
+    border-color: #313030;
+  }
+
+  /* Featured entry rule accent */
+  .featured-rule {
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    background-color: #7c5730;
+    margin-bottom: 1.25rem;
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Navigation -->
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm transition-opacity">
+  <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex space-x-10 items-center">
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="about.html">About</a>
+      <a class="text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]" href="journal.html">Journal</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="services.html">Services</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="portfolio.html">Portfolio</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="process.html">Process</a>
+    </div>
+    <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='index.html#contact'">
+      Begin Your Project
+    </button>
+
+    <!-- Mobile hamburger button -->
+    <button id="menu-toggle" class="md:hidden flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu drawer -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+    <div class="px-8 py-6 space-y-1">
+      <a href="about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        About
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">
+        Journal
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Services
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Portfolio
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Process
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <div class="pt-4">
+        <a href="index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">
+          Begin Your Project
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="py-20 bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl">
+      <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-4">Journal</span>
+      <h1 class="text-5xl font-headline leading-tight mb-5">Writing on homes, design, and the decisions that matter.</h1>
+      <p class="text-lg text-on-surface-variant font-body font-light leading-relaxed">
+        I write about what I've learned designing and building homes — the things that work, the things that are misunderstood, and the questions worth asking before you build. These aren't abstractions. They come from a house I designed for my own family and live in every day.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Category filter bar -->
+<div class="py-5 bg-surface border-b border-outline-variant/20 sticky top-[73px] z-40">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="flex flex-wrap gap-2 items-center">
+      <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant hidden md:block mr-2">Filter:</span>
+      <button onclick="filterEntries('all')" data-filter="all" class="filter-btn active font-label text-xs tracking-wide border border-outline-variant/60 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary">All entries</button>
+      <button onclick="filterEntries('performance')" data-filter="performance" class="filter-btn font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary">High-Performance Building</button>
+      <button onclick="filterEntries('off-grid')" data-filter="off-grid" class="filter-btn font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary">Off-Grid Living</button>
+      <button onclick="filterEntries('design')" data-filter="design" class="filter-btn font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary">Design Process</button>
+      <button onclick="filterEntries('client')" data-filter="client" class="filter-btn font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary">For Clients</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FEATURED ENTRY ─── -->
+<section class="py-20 bg-surface" id="entries">
+  <div class="max-w-screen-2xl mx-auto px-8">
+
+    <!-- Featured -->
+    <div class="mb-16" data-category="performance">
+      <span class="featured-rule"></span>
+      <span class="font-label text-[10px] tracking-widest uppercase text-secondary block mb-6">Featured entry</span>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">High-Performance Building</span>
+            <span class="text-outline-variant">·</span>
+            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">March 2026</span>
+            <span class="text-outline-variant">·</span>
+            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">12 min read</span>
+          </div>
+          <h2 class="text-4xl font-headline leading-snug mb-4">
+            <a href="index.html" class="hover:text-secondary transition-colors duration-200">Why air sealing matters more than insulation — and why almost no one does it correctly.</a>
+          </h2>
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light mb-6">
+            The insulation industry has done an excellent job convincing homeowners that R-value is the number that matters. It isn't. A wall with perfect R-30 insulation and a single undetailed penetration loses more heat than a wall with R-15 insulation that has been properly sealed. I spent more time on air sealing in my home than on any other system, and I'll tell you exactly why — and what it looks like to do it right.
+          </p>
+          <a href="index.html" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all duration-200">
+            Read entry <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
+        </div>
+        <div class="lg:col-span-4">
+          <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/20 space-y-5">
+            <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">In this entry</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="w-1 h-1 rounded-full bg-secondary mt-2.5 flex-shrink-0"></span>
+                <span class="text-sm font-body text-on-surface-variant leading-relaxed">What air sealing actually is and why R-value alone misleads you</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1 h-1 rounded-full bg-secondary mt-2.5 flex-shrink-0"></span>
+                <span class="text-sm font-body text-on-surface-variant leading-relaxed">The five locations where air sealing fails in nearly every residential build</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1 h-1 rounded-full bg-secondary mt-2.5 flex-shrink-0"></span>
+                <span class="text-sm font-body text-on-surface-variant leading-relaxed">What the blower door test actually tells you — and when to run it</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1 h-1 rounded-full bg-secondary mt-2.5 flex-shrink-0"></span>
+                <span class="text-sm font-body text-on-surface-variant leading-relaxed">How I designed the envelope in my own home, and what I'd do differently</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-outline-variant/20 mb-16"></div>
+
+    <!-- Entry grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8" id="entry-grid">
+
+      <!-- Entry: design -->
+      <article class="entry-card bg-surface rounded-xl border border-outline-variant/20 overflow-hidden" data-category="design">
+        <a href="index.html" class="block p-8 h-full">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Design Process</span>
+          </div>
+          <h3 class="text-xl font-headline leading-snug mb-3 group-hover:text-secondary">The difference between a house that fits and a house that functions.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+            Most clients come in knowing what they want. A farmhouse kitchen. Vaulted ceilings. A big front porch. These are aesthetic preferences, and they're valid. But they're not a design brief. Here's how I think about the difference between what a home looks like and what it does.
+          </p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center gap-2">
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Feb 2026</span>
+              <span class="text-outline-variant text-xs">·</span>
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">8 min</span>
+            </div>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Entry: off-grid -->
+      <article class="entry-card bg-surface rounded-xl border border-outline-variant/20 overflow-hidden" data-category="off-grid">
+        <a href="index.html" class="block p-8 h-full">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Off-Grid Living</span>
+          </div>
+          <h3 class="text-xl font-headline leading-snug mb-3">Sizing a solar array: why the number your contractor gives you is probably wrong.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+            Most solar quotes are sized for average daily production in good conditions. They're not sized for January, which is the month that determines whether your system works. Here's how to think about the number that actually matters.
+          </p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center gap-2">
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Jan 2026</span>
+              <span class="text-outline-variant text-xs">·</span>
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">10 min</span>
+            </div>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Entry: client -->
+      <article class="entry-card bg-surface rounded-xl border border-outline-variant/20 overflow-hidden" data-category="client">
+        <a href="index.html" class="block p-8 h-full">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">For Clients</span>
+          </div>
+          <h3 class="text-xl font-headline leading-snug mb-3">What to bring to your first design conversation — and what to leave out.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+            I've had discovery conversations with clients who showed up with a binder of magazine tearouts and no idea what their budget was. And I've had clients who arrived with nothing but had thought deeply about how their family actually lives. One of those conversations produces a better home.
+          </p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center gap-2">
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Dec 2025</span>
+              <span class="text-outline-variant text-xs">·</span>
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">6 min</span>
+            </div>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Entry: performance -->
+      <article class="entry-card bg-surface rounded-xl border border-outline-variant/20 overflow-hidden" data-category="performance">
+        <a href="index.html" class="block p-8 h-full">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">High-Performance Building</span>
+          </div>
+          <h3 class="text-xl font-headline leading-snug mb-3">HVAC load calculations: why rules of thumb produce uncomfortable homes.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+            The standard approach to HVAC sizing is to use square footage. The problem is that square footage tells you almost nothing about how much heating and cooling a home actually needs. Manual J exists for a reason — here's what it is and why it matters to you.
+          </p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center gap-2">
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Nov 2025</span>
+              <span class="text-outline-variant text-xs">·</span>
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">9 min</span>
+            </div>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Entry: design -->
+      <article class="entry-card bg-surface rounded-xl border border-outline-variant/20 overflow-hidden" data-category="design">
+        <a href="index.html" class="block p-8 h-full">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Design Process</span>
+          </div>
+          <h3 class="text-xl font-headline leading-snug mb-3">The rooms people regret — and the rooms they never thought to ask for.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+            In almost every custom home, there is one room that sits largely unused and one space the owners wish they had thought to include. After seeing both patterns enough times, I've started keeping a list. This is that list.
+          </p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center gap-2">
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Oct 2025</span>
+              <span class="text-outline-variant text-xs">·</span>
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">7 min</span>
+            </div>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Entry: off-grid -->
+      <article class="entry-card bg-surface rounded-xl border border-outline-variant/20 overflow-hidden" data-category="off-grid">
+        <a href="index.html" class="block p-8 h-full">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Off-Grid Living</span>
+          </div>
+          <h3 class="text-xl font-headline leading-snug mb-3">Living off-grid with a family of nine: what we gave up, and what we didn't.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+            The most common assumption about off-grid homes is that you sacrifice comfort for independence. My family runs a dishwasher, washer and dryer, full kitchen appliances, and a forced-air heating system — all from solar and battery storage. Here's how that's possible, and what it actually took to design it.
+          </p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center gap-2">
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Sep 2025</span>
+              <span class="text-outline-variant text-xs">·</span>
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">14 min</span>
+            </div>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Entry: client -->
+      <article class="entry-card bg-surface rounded-xl border border-outline-variant/20 overflow-hidden" data-category="client">
+        <a href="index.html" class="block p-8 h-full">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">For Clients</span>
+          </div>
+          <h3 class="text-xl font-headline leading-snug mb-3">Why design decisions are cheapest before anything is built.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+            In software, there's a well-understood principle: defects are cheapest to find in the design phase and exponentially more expensive as you move toward production. Custom home construction follows the same curve — but most clients don't discover this until they're mid-build and facing a $40,000 change order.
+          </p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center gap-2">
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Aug 2025</span>
+              <span class="text-outline-variant text-xs">·</span>
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">5 min</span>
+            </div>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Entry: performance -->
+      <article class="entry-card bg-surface rounded-xl border border-outline-variant/20 overflow-hidden" data-category="performance">
+        <a href="index.html" class="block p-8 h-full">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">High-Performance Building</span>
+          </div>
+          <h3 class="text-xl font-headline leading-snug mb-3">Windows: the most misunderstood line item in a residential budget.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+            Clients routinely over-spend on granite countertops and under-spend on windows. Windows are the primary point of thermal failure in most homes. Here's how to think about glazing selection, U-factor, SHGC, and where window quality actually moves the needle on comfort.
+          </p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center gap-2">
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Jul 2025</span>
+              <span class="text-outline-variant text-xs">·</span>
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">11 min</span>
+            </div>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Entry: design -->
+      <article class="entry-card bg-surface rounded-xl border border-outline-variant/20 overflow-hidden" data-category="design">
+        <a href="index.html" class="block p-8 h-full">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Design Process</span>
+          </div>
+          <h3 class="text-xl font-headline leading-snug mb-3">How software engineering made me a better home designer.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+            Thirteen years building systems for a living taught me how to think about complexity, manage stakeholder expectations, and make decisions that age well. Those skills transfer more directly to residential design than I expected — and in some ways they're more valuable here, because you only get one shot.
+          </p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center gap-2">
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Jun 2025</span>
+              <span class="text-outline-variant text-xs">·</span>
+              <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">8 min</span>
+            </div>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Empty state (shown when filter has no results) -->
+      <div id="empty-state" class="hidden col-span-full py-16 text-center">
+        <span class="material-symbols-outlined text-outline text-4xl mb-4 block">article</span>
+        <p class="font-headline text-xl text-primary mb-2">No entries in this category yet.</p>
+        <p class="text-on-surface-variant font-body text-sm">Check back soon, or <button onclick="filterEntries('all')" class="underline decoration-[#7c5730] underline-offset-4 hover:text-secondary transition-colors">view all entries</button>.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About this journal -->
+<section class="py-20 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl">
+      <span class="font-label text-secondary-container tracking-widest text-xs font-bold uppercase block mb-4">About this journal</span>
+      <h2 class="text-3xl font-headline text-white mb-6 leading-snug">Everything here comes from direct experience. None of it is abstract.</h2>
+      <div class="space-y-4 text-white/75 font-body leading-relaxed">
+        <p>I write about what I've learned from designing and building my own family's off-grid home on 40 acres outside Spring City, Utah — and from the work I do with clients. I don't have opinions about home design from a distance. I live in the house I built, and I notice every day what works and what I would have done differently.</p>
+        <p>These entries are for people who are thinking seriously about building — who want to understand not just what to choose, but why the decision matters, and what happens when you get it wrong.</p>
+      </div>
+      <div class="mt-10 flex items-center gap-5">
+        <a href="about.html" class="inline-flex items-center gap-2 text-white font-label text-sm font-semibold tracking-wide border-b border-secondary-container pb-0.5 hover:text-secondary-container transition-colors duration-200">
+          About Tyler <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+        <a href="index.html#contact" class="inline-flex items-center gap-2 text-white/60 font-label text-sm tracking-wide hover:text-white transition-colors duration-200">
+          Start a project
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#313030] text-[#fcf9f6]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-20 max-w-screen-2xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
+      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">
+        Architectural design for those who value technical excellence alongside family comfort.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="space-y-4">
+<p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+<ul class="space-y-2">
+<!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>-->
+<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="https://www.linkedin.com/in/tylerrencher/">LinkedIn</a></li>
+</ul>
+</div>
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Resources</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="privacy.html">Privacy Policy</a></li>
+          <!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Journal</a></li>-->
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col justify-between items-end">
+      <div class="text-right">
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40">© 2026 Rencher Design</p>
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40 mt-1">Spring City, Utah</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = toggle.querySelectorAll('.hamburger-bar');
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', !isOpen);
+    if (!isOpen) {
+      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+      bars[1].style.opacity = '0';
+      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+
+  // Category filter
+  function filterEntries(category) {
+    const articles = document.querySelectorAll('#entry-grid article');
+    const buttons = document.querySelectorAll('.filter-btn');
+    const emptyState = document.getElementById('empty-state');
+    let visibleCount = 0;
+
+    articles.forEach(article => {
+      const match = category === 'all' || article.dataset.category === category;
+      article.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+
+    emptyState.classList.toggle('hidden', visibleCount > 0);
+
+    buttons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.filter === category);
+      if (!btn.classList.contains('active')) {
+        btn.classList.add('text-on-surface-variant');
+        btn.classList.remove('text-[#fcf9f6]');
+      } else {
+        btn.classList.remove('text-on-surface-variant');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
