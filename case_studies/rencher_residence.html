@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Case Study: The Rencher Residence | Rencher Design</title>
+<meta name="description" content="How I designed and built my own family's off-grid home on 40 acres outside Spring City, Utah — from raw land with no utilities to a comfortable, high-performance home for nine people."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tertiary-container": "#7c2e00", "on-secondary-fixed": "#2c1600",
+          "surface-variant": "#e5e2df", "on-tertiary": "#ffffff",
+          "surface-tint": "#5f5e5e", "outline-variant": "#d4c3be",
+          "secondary-fixed-dim": "#eebd8e", "on-tertiary-fixed-variant": "#7c2e00",
+          "error-container": "#ffdad6", "inverse-primary": "#c8c6c5",
+          "surface-container-low": "#f6f3f0", "surface-container": "#f0edea",
+          "tertiary-fixed": "#ffdbcd", "secondary-fixed": "#ffdcbd",
+          "surface-container-lowest": "#ffffff", "primary-fixed": "#e4e2e1",
+          "error": "#ba1a1a", "primary-fixed-dim": "#c8c6c5",
+          "on-surface": "#1c1c1a", "on-secondary": "#ffffff",
+          "inverse-on-surface": "#f3f0ed", "on-error-container": "#93000a",
+          "surface-dim": "#dcd9d7", "on-primary-container": "#b7b5b4",
+          "on-primary": "#ffffff", "on-tertiary-container": "#ff9c6e",
+          "primary-container": "#474747", "on-surface-variant": "#504441",
+          "on-secondary-fixed-variant": "#61401b", "surface": "#fcf9f6",
+          "on-tertiary-fixed": "#351000", "inverse-surface": "#31302f",
+          "surface-bright": "#fcf9f6", "on-primary-fixed": "#1b1c1c",
+          "outline": "#827470", "tertiary": "#571e00",
+          "surface-container-highest": "#e5e2df", "on-primary-fixed-variant": "#474747",
+          "background": "#fcf9f6", "secondary-container": "#fdcb9b",
+          "on-error": "#ffffff", "on-background": "#1c1c1a",
+          "tertiary-fixed-dim": "#ffb595", "primary": "#313030",
+          "on-secondary-container": "#79542d", "surface-container-high": "#eae8e5",
+          "secondary": "#7c5730"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif"],
+          "body": ["Plus Jakarta Sans"],
+          "label": ["Plus Jakarta Sans"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+
+  /* Photo placeholder */
+  .photo-slot {
+    background: repeating-linear-gradient(
+      45deg,
+      #f0edea,
+      #f0edea 10px,
+      #e5e2df 10px,
+      #e5e2df 20px
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #d4c3be;
+    border-radius: 0.5rem;
+  }
+
+  /* Editorial note styling — visible placeholder instructions */
+  .editorial-note {
+    background-color: #fffbf0;
+    border: 1px dashed #d4a020;
+    border-radius: 0.5rem;
+    padding: 0.875rem 1.125rem;
+    margin-bottom: 1.25rem;
+  }
+  .editorial-note p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #7a5a10;
+    line-height: 1.6;
+  }
+  .editorial-note strong { font-weight: 700; }
+
+  /* Section divider */
+  .section-rule { width: 2.5rem; height: 2px; background: #7c5730; margin-bottom: 1.25rem; }
+
+  /* Sticky TOC */
+  .toc-link { transition: color 0.15s, padding-left 0.15s; }
+  .toc-link:hover { color: #7c5730; padding-left: 0.25rem; }
+  .toc-link.active { color: #7c5730; font-weight: 600; }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Navigation -->
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm transition-opacity">
+  <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="../index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex space-x-10 items-center">
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../about.html">About</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../journal.html">Journal</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../services.html">Services</a>
+      <a class="text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]" href="../portfolio.html">Portfolio</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../process.html">Process</a>
+    </div>
+    <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='../index.html#contact'">
+      Begin Your Project
+    </button>
+
+    <!-- Mobile hamburger button -->
+    <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu drawer -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+    <div class="px-8 py-6 space-y-1">
+      <a href="../about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        About
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Journal
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Services
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">
+        Portfolio
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Process
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <div class="pt-4">
+        <a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">
+          Begin Your Project
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="py-20 bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="mb-4">
+      <a href="../portfolio.html" class="inline-flex items-center gap-1 text-secondary font-label text-xs tracking-wide hover:gap-2 transition-all"><span class="material-symbols-outlined text-sm">arrow_back</span>Portfolio</a>
+    </div>
+    <div class="max-w-3xl">
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="inline-block px-3 py-1 rounded bg-secondary-container text-on-secondary-container font-label text-[10px] tracking-widest uppercase font-semibold">Designer's Residence</span>
+        <span class="inline-block px-3 py-1 rounded border border-outline-variant/60 text-on-surface-variant font-label text-[10px] tracking-widest uppercase">Off-Grid</span>
+        <span class="inline-block px-3 py-1 rounded border border-outline-variant/60 text-on-surface-variant font-label text-[10px] tracking-widest uppercase">High-Performance</span>
+        <span class="inline-block px-3 py-1 rounded border border-outline-variant/60 text-on-surface-variant font-label text-[10px] tracking-widest uppercase">Spring City, Utah · 2023</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-headline leading-tight mb-5">The Rencher Residence</h1>
+      <p class="text-base md:text-xl text-on-surface-variant font-body font-light leading-relaxed">
+        I designed this home for my own family — nine people, 40 acres of raw land outside Spring City with no power, water, or sewer, and a county that was not familiar with off-grid electrical systems. Two of my children were born here. Every decision I made is one I live with every day.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Hero photo -->
+<div class="bg-surface-container border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8 py-6">    
+    <img
+          src="../images/rencher_residence/hero_cropped.jpg"
+          alt="The Rencher residence on property in Spring City, Utah — juniper-covered land with a view of the Sanpete Valley"
+          class="w-full object-cover object-center"
+          style="max-height: 560px;"
+        />
+  </div>
+</div>
+
+<!-- Main content: TOC sidebar + article -->
+<div class="max-w-screen-2xl mx-auto px-8 py-20">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+
+    <!-- Sticky TOC sidebar -->
+    <aside class="hidden lg:block lg:col-span-3">
+      <div class="sticky top-28 space-y-1">
+        <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-4">In this case study</p>
+        <nav class="space-y-2 border-l border-outline-variant/30 pl-4">
+          <a href="#the-land" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The land</a>
+          <a href="#the-brief" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The brief</a>
+          <a href="#site-and-orientation" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Site & orientation</a>
+          <a href="#the-design" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The design</a>
+          <a href="#building-envelope" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Building envelope</a>
+          <a href="#hvac" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">HVAC & comfort</a>
+          <a href="#off-grid-systems" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Off-grid systems</a>
+          <a href="#permitting" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Permitting</a>
+          <a href="#the-build" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The build</a>
+          <a href="#results" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Results & testing</a>
+          <a href="#lessons" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">What I'd do differently</a>
+        </nav>
+        <div class="pt-8">
+          <a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Begin Your Project</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Article body -->
+    <article class="lg:col-span-9 space-y-20">
+
+      <!-- ── THE LAND ── -->
+      <section id="the-land">
+        <div class="section-rule"></div>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">The Land</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">40 acres with no power, no water, and no sewer.</h2>
+
+        <!--<p>When we moved from the Seattle area to Sanpete county we came with nothing but a bank account full of money from the sale of our prior home. We didn't know anyone, we didn't own any land, we didn't have any land we were hoping to buy, we didn't know how to evaluate land, we didn't even know if we wanted to live close to people or far away from them. We were lucky to have gotten a place to rent.</p>
+        <br>
+        <p>I spent all my time before and after work learning to use CAD tools, learning everything I could about building off-grid, looking at houses and land with our realtor, and learning how to evaluate raw land for purchase. I had some experience previously with the full construction process while doing a permitted addition to my prior home so I knew a bit about what I was getting into, but the land side of things was completely new.</p>
+        <br>-->
+        <p>We found a large property a couple of miles outside of Spring City that worked with our budget and had great potential for off-grid living, enough water for small scale agriculture, privacy, and lots of room to raise our growing family. And the views. The views are incredible, but I don't have the skill to capture them with a camera. We loved the juniper trees, the smell of the sage brush, and the open fields on the property. The only reason we could afford it was the fact that it was so far from utilities most people wouldn't want to pay to run power about a mile and then deal with your own water, septic, and gas.</p>
+        <br>
+        <p>Everything was going smoothly with the design phase and with starting to put infrastructure into the property. No issues were identified by the zoning department, the plans were ready to submit to the bulding department, but at our meeting with the county commissioners to create the actual buildable lot they found that we did not have legal access to our land. The county maps shows that the county had an easement for the road that ran along the property, but it was only a prescriptive easement due to them having maintained that roadway for years. It applied only to the road surface itself, not to any land on the sides. Our land came up a couple feet short of the road surface so we had to acquire half of the road surface from our neighbor. If I had known about that problem in advance I probably would have passed on the land or lowered our offer considerably. That is no small problem. I was fortunate that my neighbor was a great guy and didn't try to take advantage of my desperate situation, but that doesn't happen every time.</p>
+        <br>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+          <div class="aspect-[4/3]">
+            <img
+            src="../images/rencher_residence/valley_wide.jpg"
+            alt="Raw land in the winter"
+            class="w-full object-cover object-center"
+            style="max-height: 560px;"
+          />
+          </div>
+          <div class="aspect-[4/3]">
+            <img
+            src="../images/rencher_residence/mountain_wide.jpg"
+            alt="Raw land in the winter"
+            class="w-full object-cover object-center"
+            style="max-height: 560px;"
+          />
+          </div>
+        </div>
+
+      <!-- ── THE BRIEF ── -->
+      <section id="the-brief">
+        <div class="section-rule"></div>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">The Brief</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">Energy independence without asking the family to give anything up.</h2>
+        <p>My wife and I toured a number of off-grid homes when we were deciding whether to build one. Every single home was making serious compromises to quality of life or was heavily reliant on propane. That wasn't what I wanted. I didn't want to have to tend a fire and generator all winter long. I wanted great lightning and a modern lifestyle in a large, comfortable house. I don't want "Little House on the Prarie" as my main residence. I want 2 dishwashers, 3 ovens, 2 refrigerators, 3 freezers, a washer and dryer, my air compressors, and all the hot water I can possibly enjoy.</p>
+        <br>
+        <p>That was the design challenge. How do you build a large modern home off-grid and control the costs of the project? There were plenty examples of modern net zero homes and small off-grid homes at that time, but nothing like what I wanted. I had one shot to do it and it had to be right the first time. My whole family was depending on me.</p>
+        <br>
+      </section>
+
+      <!-- ── SITE & ORIENTATION ── -->
+      <section id="site-and-orientation">
+        <div class="section-rule"></div>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Site & Orientation</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">Every site has a best answer. Finding it is the first design decision.</h2>
+        <p>We walked the property every day for about six months experiencing it through summer, fall, winter, day, and night. I noticed after a lttle while that the property had a microclimate and that it was more likely to be cloudy in the morning than the afternoon and evening. There was one spot that was consistently warmer and less windy than anywhere else. Every night there was a cool breeze from the East but the harsh South wind was less. It was also adjacent to the most fertile soil on the property for a garden. It had the great views of the 2 most prominent mountain peaks and no shading problems for solar. The house could be oriented 15 degrees West of South to interact with the land well, and to maintain high solar collection.</p>
+        <br>
+        <p>There were a few problems though. The land was a bit sloped, it was in the center of the property which made for a long driveway, and there was no view of the valley floor. With some thought, I found that we could take advantage of the slope to allow for a gravity fed septic system and excellent drainage for rain and snow melt. I found that if I designed a longer home, anchored the house to the elevation on the East, and had our excavator move the dirt spoil from the basement to the West it would build a berm large enough to provide a future lawn, a gradual slope down to the rest of the land, and would raise the house just enough to get the valley view! It would also provide more uninturrupted roof area for solar panels. As for the long driveway, that provides privacy. You can see the house from the road from only one spot.</p>
+        <br>
+        
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-3 mb-6">        
+        <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+          <img
+            src="../images/rencher_residence/plot_plan.jpg"
+            alt="Plot plan submitted for building permit"
+            class="w-full object-cover object-center"
+            style="max-height: 560px"
+          />
+          <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+            <p class="text-xs font-body text-on-surface-variant italic">This is the plot plan page from the plan set I drew for the house. You can see the contour lines showing the rapid change in land elevation in this location and how I took advantage of it.</p>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- ── THE DESIGN ── -->
+      <section id="the-design">
+        <div class="section-rule"></div>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">The Design</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">Designing for how we actually live — not how another family does.</h2>
+
+        <p>My family is always home. I work from home, my wife homeschools all of our children here, and we run our small farm from here. Some weeks the only time we leave the property is to go to Church on Sunday. We like to be together, but we also need room to be separate. We have lots of books, stored homeschool curriculum, bedding, food, clothes, and other things that all need a home. Everybody has twice a day chores with the animals so there's the coats and boots to handle. My wife cooks almost all our food and teaches cooking so she needs a large and open kitchen with a big pantry. We decided early on that the children would be sharing bedrooms. When they leave our home they will have roomates or a spouse, so its best they learn to get along with other people when they are young. That would mean 5 bedrooms. We would love a guest bedroom, but people rarely visit overnight so one of the childrens' bedrooms will have to flex to fill that need sometimes. My wife needed a space for sewing, school preparation, and crafts. Lots of requirements!</p>
+        <br> 
+        <p>The most important requirement to meet is my wife's need to watch the youngest children while she goes about her work. She spends most of her time in the kitchen, the main table for homeschool, master bedroom, and her office. The youngest children play in the family room. She parents with her ears so these spaces have to be close together and fairly open to each other. Regular chores meant that the mudroom and garage should be connected. The number of mud boots is just too many and the mess is too much to store them anywhere but the garage. I only want access to the house from the first floor, so the mudroom has to go on the main level. That pretty much defines the entire first floor.</p>
+        <br>
+        <p>The house would need extensive mechanical spaces. Water treatment and pressurization, HVAC, water heating, air circulation, central vac, and power storage and generation. Power storage was a genuine safety concern. The lithium batteries I was planning to use were pretty safe, but new chemistries in the future might not be. That much energy in a small space though is concerning no matter what and I absolutely did not want children in that area. So that meant a locked door on a fire resistant room. We also have extensive storage needs. With the amount of food we go through and the clothes we have in all sizes, we basically have a small Walmart of storage. The area under the porch is perfect for those needs. It is fairly cool year round, kids don't want to go in there, and a section can be locked off for power.</p>
+        <br>
+        <p>I didn't want a second story that would be visible above the trees to preserve the view of the surrounding properties. The big playroom we wanted for when the weather was bad, the children's bedrooms, the laundry, my office, and secondary bathrooms all had to go downstairs. Putting anything more upstairs would blowup the square footage of the entire house footprint and leave me with an empty basement. That created a new problem, the master bedroom was the only bedroom on the main level. With young children, sick children, and babies we don't want to be going up and down the stairs all night long. Our solution was a nursery inside the master suite that could be a closet in the future, or converted to a laundry room for single floor living.</p>
+        <br>
+        <p>Architecturally speaking the house is very plain. There are 4 reasons for this. One, we live in the middle of the woods, two, I needed the south facing roof to be long and flat with zero obstructions, three, we wanted a big wrap around porch with storage below, and four, simple houses are cheaper to build. We chose a simple gable for the front of the house to break up the roof, choose a bright color to make the porch pillars pop, and rock for the path to the front door, but that was it. These requirements forced the design into a rectangle which simplifies some things by constraining choice, but makes other things harder like getting natural light into some parts of the house.</p>
+        <br>
+
+        <!-- Floor plan + exterior photo side by side -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="aspect-[4/3]">
+              <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+                <img
+                  src="../images/rencher_residence/main_level_plan.jpg"
+                  alt="Plot plan submitted for building permit"
+                  class="w-full object-cover object-center"
+                  style="max-height: 560px"
+                />
+                <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+                  <p class="text-xs font-body text-on-surface-variant italic">This is the main level page from the plan set I drew for the house. It focuses on the room layout and the general dimensions as an overview.</p>
+                </div>
+              </div>
+            </div>
+          
+          <div class="aspect-[4/3]">
+              <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+                <img
+                  src="../images/rencher_residence/basement_plan.jpg"
+                  alt="Plot plan submitted for building permit"
+                  class="w-full object-cover object-center"
+                  style="max-height: 560px"
+                />
+                <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+                  <p class="text-xs font-body text-on-surface-variant italic">This is the basement level page from the plan set I drew for the house. It focuses on the room layout and the general dimensions as an overview.</p>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- Interior photo row -->
+        <div class="editorial-note">
+          <p><strong>Photos (2–4):</strong> Interior shots of the rooms that best represent the home. Kitchen, living area, and primary bedroom are most useful to prospective clients. Natural light shots are more persuasive than artificial light.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div class="photo-slot aspect-[4/3]">
+            <span class="material-symbols-outlined text-outline text-2xl mb-1">add_photo_alternate</span>
+            <p class="font-label text-[9px] tracking-widest uppercase text-outline">Kitchen</p>
+          </div>
+          <div class="photo-slot aspect-[4/3]">
+            <span class="material-symbols-outlined text-outline text-2xl mb-1">add_photo_alternate</span>
+            <p class="font-label text-[9px] tracking-widest uppercase text-outline">Living Room</p>
+          </div>
+          <div class="photo-slot aspect-[4/3]">
+            <span class="material-symbols-outlined text-outline text-2xl mb-1">add_photo_alternate</span>
+            <p class="font-label text-[9px] tracking-widest uppercase text-outline">Primary Bedroom / Suite</p>
+          </div>
+        </div>
+        <br>
+      </section>
+
+      <!-- ── BUILDING ENVELOPE ── -->
+      <section id="building-envelope">
+        <div class="section-rule"></div>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Building Envelope</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">The part of the house no one sees, and the part that determines whether you're comfortable.</h2>
+
+        <div class="editorial-note">
+          <p><strong>Write 2–4 paragraphs covering:</strong> Why you spent more time on air sealing than any other system. The wall assembly you chose — insulation type, R-values, where the thermal break sits. The specific locations where air sealing is hardest and most commonly failed: rim joists, top plates, window rough openings, electrical penetrations, recessed lights (if any). What continuous air barrier continuity means in practice and how you detailed it. Window selection — U-factor, SHGC, why you chose what you chose and what you'd do differently. The insulation strategy for the roof/attic or ceiling.</p>
+        </div>
+
+        <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/20 mb-6">
+          <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-4">Wall Assembly Summary</p>
+          <div class="editorial-note mb-0">
+            <p><strong>Fill in actual specs:</strong> Wall assembly layers from exterior to interior (e.g., siding → WRB → sheathing → framing + insulation → air barrier → drywall). Roof assembly. Foundation/slab insulation strategy. Window specs. Replace this note with a simple table or list of the actual numbers.</p>
+          </div>
+        </div>
+
+        <div class="editorial-note">
+          <p><strong>Optional diagram:</strong> A wall section detail — even a simplified version showing the layers and where the air barrier and thermal boundary sit. This is one of the most technically credible things you can show on this page.</p>
+        </div>
+      </section>
+
+      <!-- ── HVAC ── -->
+      <section id="hvac">
+        <div class="section-rule"></div>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">HVAC & Comfort</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">A standard forced-air system. Extraordinary comfort. The envelope is why.</h2>
+
+        <div class="editorial-note">
+          <p><strong>Write 1–3 paragraphs covering:</strong> What HVAC equipment you chose and why — system type, fuel source, sizing. How you performed the load calculation (Manual J or equivalent) and how the result compared to what a rule-of-thumb sizing would have produced. Duct design: where ducts run, how they're sealed, register placement philosophy. Ventilation strategy: how fresh air gets into the home (ERV/HRV, or other). The result: floor-to-ceiling temperature consistency, how the system runs day-to-day. Anything you'd change about the mechanical design.</p>
+        </div>
+
+        <!-- Comfort result callout -->
+        <div class="bg-primary text-white rounded-xl p-8 my-6">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-secondary-container text-3xl mt-1 flex-shrink-0">device_thermostat</span>
+            <div>
+              <p class="font-serif italic text-white/90 text-xl leading-relaxed mb-3">"In my home, the air temperature at the floor and the ceiling is nearly identical."</p>
+              <p class="text-white/60 text-sm font-body">In most homes, heat rises and cold settles. This is accepted as normal. It isn't inevitable — it's the result of a leaky envelope and an undersized or poorly designed system. A well-sealed, well-designed home feels fundamentally different.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── OFF-GRID SYSTEMS ── -->
+      <section id="off-grid-systems">
+        <div class="section-rule"></div>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Off-Grid Systems</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">Solar, battery storage, generator backup, and a complete water system — designed as a unified whole.</h2>
+
+        <div class="editorial-note">
+          <p><strong>Write 2–4 paragraphs covering:</strong> How you approached the load profile analysis — going appliance by appliance, accounting for seasonal variation, identifying the HVAC as the dominant winter load. How you sized the solar array for winter worst-case (not summer average) — what the peak sun hours looked like in December at your elevation and latitude. Battery bank: chemistry, capacity, autonomy days, how it performs in cold weather. Generator: sizing logic, fuel type, integration with the inverter/charger, how often it actually runs. Water system: source, treatment, storage, pressure, how it's managed. What surprised you about living with the system day-to-day.</p>
+        </div>
+
+        <!-- System specs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/20">
+            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-4">Electrical System</p>
+            <div class="editorial-note mb-0">
+              <p><strong>Fill in actual specs:</strong> Array size (kW), panel count, inverter make/model, battery bank (kWh, chemistry), generator (kW, fuel), charge controller type. Replace this note with actual numbers.</p>
+            </div>
+          </div>
+          <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/20">
+            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-4">Water System</p>
+            <div class="editorial-note mb-0">
+              <p><strong>Fill in actual specs:</strong> Water source (well, cistern, spring), storage capacity, pump type, pressure system, filtration stages, UV treatment if applicable. Replace this note with actual numbers.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="editorial-note">
+          <p><strong>Optional photo:</strong> The mechanical room, battery bank, inverter/charger, or solar array. These photos are surprisingly compelling to off-grid clients who want to see what a real system looks like installed.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="photo-slot aspect-[4/3]">
+            <span class="material-symbols-outlined text-outline text-3xl mb-2">battery_charging_full</span>
+            <p class="font-label text-[9px] tracking-widests uppercase text-outline">Battery Bank / Mechanical Room</p>
+          </div>
+          <div class="photo-slot aspect-[4/3]">
+            <span class="material-symbols-outlined text-outline text-3xl mb-2">solar_power</span>
+            <p class="font-label text-[9px] tracking-widest uppercase text-outline">Solar Array</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── PERMITTING ── -->
+      <section id="permitting">
+        <div class="section-rule"></div>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Permitting</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">The county had never reviewed an off-grid electrical system. We went first.</h2>
+
+        <div class="editorial-note">
+          <p><strong>Write 1–2 paragraphs covering:</strong> What it was like submitting plans to a jurisdiction with no established process for off-grid electrical. How you approached the reviewers — educating them patiently, speaking their language, making it easy to say yes. What the back-and-forth looked like and how long it took. What you learned about navigating bureaucratic processes that didn't apply neatly to your situation. Why this experience is directly relevant to clients who want to build in rural areas with unusual systems — and why having a designer who has been through it matters.</p>
+        </div>
+      </section>
+
+      <!-- ── THE BUILD ── -->
+      <section id="the-build">
+        <div class="section-rule"></div>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">The Build</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">Managing a complex build from the design side.</h2>
+
+        <div class="editorial-note">
+          <p><strong>Write 1–3 paragraphs covering:</strong> Who the general contractor was (or whether you owner-built any portion). What it was like managing the framing subcontractor — did they follow the drawings, what conversations were necessary. The HVAC sub: how detailed drawings helped (or where they pushed back). Any significant mid-build decisions or surprises. What you monitored during the build and why. Timeline from breaking ground to move-in. What the experience of building your own design taught you about the gap between drawings and execution — and how that changed how you design for clients.</p>
+        </div>
+
+        <div class="editorial-note">
+          <p><strong>Optional photos (2–4):</strong> Construction progress shots — framing, rough mechanicals, insulation before drywall. These are particularly valuable because they show what air sealing and envelope details look like in progress, before walls close up. If you have photos of the rim joist foam, top plate sealing, or window rough openings, those belong here.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="photo-slot aspect-square">
+            <span class="material-symbols-outlined text-outline text-2xl mb-1">construction</span>
+            <p class="font-label text-[9px] tracking-widest uppercase text-outline text-center px-2">Framing</p>
+          </div>
+          <div class="photo-slot aspect-square">
+            <span class="material-symbols-outlined text-outline text-2xl mb-1">construction</span>
+            <p class="font-label text-[9px] tracking-widest uppercase text-outline text-center px-2">Air sealing in progress</p>
+          </div>
+          <div class="photo-slot aspect-square">
+            <span class="material-symbols-outlined text-outline text-2xl mb-1">construction</span>
+            <p class="font-label text-[9px] tracking-widest uppercase text-outline text-center px-2">Mechanical rough-in</p>
+          </div>
+          <div class="photo-slot aspect-square">
+            <span class="material-symbols-outlined text-outline text-2xl mb-1">construction</span>
+            <p class="font-label text-[9px] tracking-widest uppercase text-outline text-center px-2">Insulation / pre-drywall</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── RESULTS & TESTING ── -->
+      <section id="results">
+        <div class="section-rule"></div>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Results & Testing</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">What the numbers say.</h2>
+
+        <div class="editorial-note">
+          <p><strong>This is the most important section for credibility.</strong> Write 2–3 paragraphs covering the actual measured results of the home. Key topics:</p>
+          <p><strong>Blower door test:</strong> What ACH50 result did you achieve? How does it compare to code minimum and to high-performance targets (Passive House is ≤0.6 ACH50; a well-built home might be 2–4)? What did the test reveal about where leakage was occurring?</p>
+          <p><strong>Temperature data:</strong> Actual floor-to-ceiling temperature differential measurements. Time of year, indoor vs. outdoor conditions. If you have a data logger or thermostat records, quote specific numbers.</p>
+          <p><strong>Energy production vs. consumption:</strong> How has the solar system performed vs. the design estimate? Worst month? Months when the generator has run and how often. Any surprises in actual load vs. projected load.</p>
+          <p><strong>Living experience:</strong> What do nine people actually notice about living in this home vs. previous homes?</p>
+        </div>
+
+        <!-- Results stats — placeholders for real numbers -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20 text-center">
+            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-2">Blower Door</p>
+            <p class="font-headline text-3xl text-primary mb-1">X.X</p>
+            <p class="text-xs text-on-surface-variant font-body">ACH50</p>
+            <div class="editorial-note mt-3 mb-0"><p>Replace X.X with your actual test result</p></div>
+          </div>
+          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20 text-center">
+            <p class="font-label text-[9px] tracking-widests uppercase text-on-surface-variant mb-2">Temp Differential</p>
+            <p class="font-headline text-3xl text-primary mb-1">~X°F</p>
+            <p class="text-xs text-on-surface-variant font-body">Floor to ceiling</p>
+            <div class="editorial-note mt-3 mb-0"><p>Replace with your measured floor-to-ceiling delta</p></div>
+          </div>
+          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20 text-center">
+            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-2">Solar Array</p>
+            <p class="font-headline text-3xl text-primary mb-1">X kW</p>
+            <p class="text-xs text-on-surface-variant font-body">Installed capacity</p>
+            <div class="editorial-note mt-3 mb-0"><p>Replace with actual array size</p></div>
+          </div>
+          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20 text-center">
+            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-2">Occupants</p>
+            <p class="font-headline text-3xl text-primary mb-1">9</p>
+            <p class="text-xs text-on-surface-variant font-body">Full-time residents</p>
+          </div>
+        </div>
+
+        <div class="editorial-note">
+          <p><strong>Optional:</strong> If you have any charts from your monitoring system showing monthly solar production vs. consumption, or indoor temperature logs, those belong here and would be extremely compelling to technically-minded clients.</p>
+        </div>
+      </section>
+
+      <!-- ── LESSONS LEARNED ── -->
+      <section id="lessons">
+        <div class="section-rule"></div>
+        <span class="font-label text-secondary tracking-widests text-xs font-bold uppercase block mb-3">What I'd Do Differently</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">Two years of living in a home you designed teaches you things no textbook does.</h2>
+
+        <div class="editorial-note">
+          <p><strong>Write 1–3 paragraphs covering:</strong> Honest reflection on what you'd change if you were designing the home today. This is one of the most credible things you can put on this page — it demonstrates that you've actually lived with your decisions and learned from them. Good candidates:</p>
+          <p>• Anything about the layout you wish were different after living in it</p>
+          <p>• Any mechanical or envelope detail you'd refine</p>
+          <p>• Anything about the off-grid system sizing or equipment selection</p>
+          <p>• Site decisions (orientation, home placement) you'd revisit</p>
+          <p>• Things you over-engineered vs. things you under-designed</p>
+          <p>Close with the reason this matters to clients: these lessons are baked into every project you take on. Your clients don't have to learn them the hard way.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="py-20 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl">
+      <h2 class="text-4xl font-headline mb-4 text-white">Ready to talk about your project?</h2>
+      <p class="text-white/70 font-body text-lg mb-8 leading-relaxed">This home is the case I make for what careful design produces. If you're planning a build — conventional, high-performance, or off-grid — I'd like to hear about your land and what you're imagining. The first conversation is free.</p>
+      <a href="index.html#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#313030] text-[#fcf9f6]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-4 md:px-12 py-12 md:py-20 max-w-screen-2xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
+      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">
+        Architectural design for those who value technical excellence and family comfort.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="space-y-4">
+<p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+<ul class="space-y-2">
+<!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>-->
+<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="https://www.linkedin.com/in/tylerrencher/">LinkedIn</a></li>
+</ul>
+</div>
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Resources</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../privacy.html">Privacy Policy</a></li>
+          <!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Journal</a></li>-->
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col justify-between items-end">
+      <div class="text-right">
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40">© 2026 Rencher Design</p>
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40 mt-1">Spring City, Utah</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = toggle.querySelectorAll('.hamburger-bar');
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', !isOpen);
+    if (!isOpen) {
+      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+      bars[1].style.opacity = '0';
+      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+
+  // TOC active state on scroll
+  const sections = document.querySelectorAll('article section[id]');
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

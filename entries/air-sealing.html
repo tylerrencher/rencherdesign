@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<!-- ═══════════════════════════════════════════════════
+     FILL IN: Page title and meta description
+     Title format: "Entry Title | Journal | Rencher Design"
+     Description: 1–2 sentence summary, ~150 characters
+     ═══════════════════════════════════════════════════ -->
+<title>Why Air Sealing Matters More Than Insulation | Journal | Rencher Design</title>
+<meta name="description" content="R-value gets all the attention. Air sealing is what actually determines whether your home is comfortable. Here's why — and what the numbers look like."/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tertiary-container": "#7c2e00", "on-secondary-fixed": "#2c1600",
+          "surface-variant": "#e5e2df", "on-tertiary": "#ffffff",
+          "surface-tint": "#5f5e5e", "outline-variant": "#d4c3be",
+          "secondary-fixed-dim": "#eebd8e", "on-tertiary-fixed-variant": "#7c2e00",
+          "error-container": "#ffdad6", "inverse-primary": "#c8c6c5",
+          "surface-container-low": "#f6f3f0", "surface-container": "#f0edea",
+          "tertiary-fixed": "#ffdbcd", "secondary-fixed": "#ffdcbd",
+          "surface-container-lowest": "#ffffff", "primary-fixed": "#e4e2e1",
+          "error": "#ba1a1a", "primary-fixed-dim": "#c8c6c5",
+          "on-surface": "#1c1c1a", "on-secondary": "#ffffff",
+          "inverse-on-surface": "#f3f0ed", "on-error-container": "#93000a",
+          "surface-dim": "#dcd9d7", "on-primary-container": "#b7b5b4",
+          "on-primary": "#ffffff", "on-tertiary-container": "#ff9c6e",
+          "primary-container": "#474747", "on-surface-variant": "#504441",
+          "on-secondary-fixed-variant": "#61401b", "surface": "#fcf9f6",
+          "on-tertiary-fixed": "#351000", "inverse-surface": "#31302f",
+          "surface-bright": "#fcf9f6", "on-primary-fixed": "#1b1c1c",
+          "outline": "#827470", "tertiary": "#571e00",
+          "surface-container-highest": "#e5e2df", "on-primary-fixed-variant": "#474747",
+          "background": "#fcf9f6", "secondary-container": "#fdcb9b",
+          "on-error": "#ffffff", "on-background": "#1c1c1a",
+          "tertiary-fixed-dim": "#ffb595", "primary": "#313030",
+          "on-secondary-container": "#79542d", "surface-container-high": "#eae8e5",
+          "secondary": "#7c5730"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif"],
+          "body": ["Plus Jakarta Sans"],
+          "label": ["Plus Jakarta Sans"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+
+  /* ── Reading progress bar ── */
+  #progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #7c5730;
+    width: 0%;
+    z-index: 100;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Prose typography ──
+     All body text inside .prose gets these styles.
+     You write plain HTML paragraphs — styling is automatic. */
+  .prose {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: #504441;
+  }
+  .prose p { margin-bottom: 1.5rem; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* Inline links within prose */
+  .prose a {
+    color: #7c5730;
+    text-decoration: underline;
+    text-decoration-color: #d4c3be;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .prose a:hover { text-decoration-color: #7c5730; }
+
+  /* Bold within prose */
+  .prose strong { color: #1c1c1a; font-weight: 600; }
+
+  /* ── Section headings within the article ──
+     Use <h2 class="entry-h2"> for major section breaks.
+     Use <h3 class="entry-h3"> for sub-points within a section. */
+  .entry-h2 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #1c1c1a;
+    line-height: 1.3;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d4c3be;
+  }
+  .entry-h3 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #313030;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Pull quote ──
+     Use <blockquote class="pull-quote"> for a standout quote.
+     Works best for a single compelling sentence. */
+  .pull-quote {
+    border-left: 4px solid #7c5730;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .pull-quote p {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    color: #313030;
+    margin: 0;
+  }
+
+  /* ── Callout / tip box ──
+     Use <div class="callout"> for a highlighted insight, warning, or aside.
+     Best used once or twice per entry, not repeatedly. */
+  .callout {
+    background: #f0edea;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    border-left: 3px solid #7c5730;
+  }
+  .callout p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #504441;
+    margin: 0;
+  }
+  .callout strong { color: #313030; }
+
+  /* ── Inline image — full width ──
+     Use <figure class="img-full"> for a wide photo spanning the column.
+     Add a <figcaption> for an optional caption below. */
+  .img-full {
+    margin: 2.5rem 0;
+  }
+  .img-full img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-full figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8125rem;
+    color: #827470;
+    margin-top: 0.625rem;
+    line-height: 1.5;
+  }
+
+  /* ── Inline image — half width, float left or right ──
+     Use <figure class="img-left"> or <figure class="img-right">
+     for a photo that sits beside text. Works best on desktop. */
+  .img-left, .img-right {
+    margin: 0.5rem 0 1.5rem 0;
+    max-width: 100%;
+  }
+  @media (min-width: 640px) {
+    .img-left {
+      float: left;
+      width: 46%;
+      margin: 0.25rem 2rem 1rem 0;
+    }
+    .img-right {
+      float: right;
+      width: 46%;
+      margin: 0.25rem 0 1rem 2rem;
+    }
+  }
+  .img-left img, .img-right img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-left figcaption, .img-right figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .clearfix::after { content: ''; display: table; clear: both; }
+
+  /* ── Two-photo side-by-side ──
+     Use <div class="img-pair"> wrapping two <figure> elements.
+     Best for before/after or comparison photos. */
+  .img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .img-pair figure { margin: 0; }
+  .img-pair img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-pair figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Three-photo row ──
+     Use <div class="img-trio"> wrapping three <figure> elements. */
+  .img-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    margin: 2.5rem 0;
+  }
+  .img-trio figure { margin: 0; }
+  .img-trio img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .img-trio figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Horizontal rule ──
+     A styled <hr> between major sections. */
+  .entry-rule {
+    border: none;
+    border-top: 1px solid #d4c3be;
+    margin: 3rem 0;
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Reading progress bar — fills automatically as user scrolls -->
+<div id="progress-bar"></div>
+
+<!-- ═══════════════════════════
+     NAVIGATION (do not modify)
+     ═══════════════════════════ -->
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm transition-opacity">
+  <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="../index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex space-x-10 items-center">
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../about.html">About</a>
+      <a class="text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]" href="../journal.html">Journal</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../services.html">Services</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../portfolio.html">Portfolio</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../process.html">Process</a>
+    </div>
+    <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='../index.html#contact'">
+      Begin Your Project
+    </button>
+
+    <!-- Mobile hamburger button -->
+    <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu drawer -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+    <div class="px-8 py-6 space-y-1">
+      <a href="../about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        About
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">
+        Journal
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Services
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Portfolio
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Process
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <div class="pt-4">
+        <a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">
+          Begin Your Project
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     Replace the src with your image path.
+     alt= should describe what's in the photo.
+     The image displays at full column width, cropped to
+     a 16:9 ratio. Tall portrait photos will be cropped —
+     prefer landscape orientation here.
+     ═══════════════════════════════════════════════════ -->
+<div class="w-full bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto">
+    <img
+      src="../images/journal/air-sealing-hero.jpg"
+      alt="Framing stage of a home under construction — top plates and rim joist visible before insulation, showing the locations where air sealing work happens"
+      class="w-full object-cover"
+      style="max-height: 560px;"
+    />
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ENTRY HEADER
+     Fill in: category, date, read time, title, lede.
+     Category options: High-Performance Building /
+       Off-Grid Living / Design Process / For Clients
+     Read time: count roughly 200 words per minute.
+     Lede: 2–3 sentences. The thing that makes someone
+       want to read the whole entry. Write it last.
+     ═══════════════════════════════════════════════════ -->
+<header class="py-14 bg-surface border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+
+    <!-- Back link -->
+    <a href="../journal.html" class="inline-flex items-center gap-1 text-secondary font-label text-xs tracking-wide hover:gap-2 transition-all mb-8 block">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>Journal
+    </a>
+
+    <div class="max-w-2xl">
+      <!-- Category + meta -->
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="font-label text-[10px] tracking-widest uppercase text-secondary font-bold">
+          High-Performance Building
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          March 2026
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          12 min read
+        </span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-4xl md:text-5xl font-headline leading-tight mb-6">
+        Why air sealing matters more than insulation — and why almost no one does it correctly.
+      </h1>
+
+      <!-- Lede -->
+      <p class="text-xl text-on-surface-variant font-body font-light leading-relaxed">
+        The insulation industry has done an excellent job convincing homeowners that R-value is the number that matters. It isn't. A wall with R-30 insulation and a single poorly detailed penetration loses more energy than a wall with R-15 insulation that has been properly sealed. I spent more time on air sealing in my own home than on any other system — and I'll tell you exactly why, and what it looks like to do it right.
+      </p>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE BODY
+     The <article> element contains all your writing.
+     Max width is constrained to ~680px for comfortable
+     reading line length. Write everything between the
+     opening and closing article tags below.
+
+     AVAILABLE ELEMENTS — copy and use as needed:
+
+     PARAGRAPH:
+       <p>Your text here.</p>
+
+     SECTION HEADING (major break):
+       <h2 class="entry-h2">Heading text</h2>
+
+     SUB-HEADING:
+       <h3 class="entry-h3">Sub-heading text</h3>
+
+     PULL QUOTE:
+       <blockquote class="pull-quote">
+         <p>"Your quote here."</p>
+       </blockquote>
+
+     CALLOUT BOX:
+       <div class="callout">
+         <p><strong>Label:</strong> Your callout text here.</p>
+       </div>
+
+     FULL-WIDTH PHOTO:
+       <figure class="img-full">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption text.</figcaption>
+       </figure>
+
+     PHOTO FLOATED LEFT (text wraps right):
+       <figure class="img-left">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     PHOTO FLOATED RIGHT (text wraps left):
+       <figure class="img-right">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     TWO PHOTOS SIDE BY SIDE:
+       <div class="img-pair">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Left photo caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Right photo caption.</figcaption>
+         </figure>
+       </div>
+
+     THREE PHOTOS IN A ROW:
+       <div class="img-trio">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-c.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+       </div>
+
+     HORIZONTAL RULE (section divider):
+       <hr class="entry-rule"/>
+
+     INLINE LINK (within prose):
+       <a href="../services.html">linked text</a>
+       (styling is automatic inside .prose)
+     ═══════════════════════════════════════════════════ -->
+
+<div class="py-16 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <article class="max-w-2xl mx-auto prose">
+
+      <!-- ─────────────────────────────────────────────
+           AIR SEALING ENTRY
+           ───────────────────────────────────────────── -->
+
+      <p>
+        Every homeowner I've ever talked to knows what insulation is. Almost none of them know what air sealing is. The insulation industry has marketing, branding, and forty years of R-value messaging behind it. Air sealing has a blower door test and a number that most people have never heard of. And yet, if I had to choose between a well-insulated home with poor air sealing and a modestly insulated home with an excellent air barrier, I'd choose the second one without hesitation.
+      </p>
+
+      <p>
+        This isn't a theoretical argument. I designed and built my own home with both things in mind, and I can tell you from daily experience what the result feels like. In winter, the air temperature at the floor and the ceiling of my living room is nearly identical. There are no drafts near the windows. The furnace runs quietly in the background and doesn't have to work hard to maintain temperature. None of that is expensive equipment or exotic systems — it's a standard forced-air system doing exactly what it should, in a building envelope that's not fighting against it.
+      </p>
+
+      <h2 class="entry-h2">What air sealing actually is</h2>
+
+      <p>
+        Insulation resists heat transfer by conduction — heat moving slowly through a solid material. The R-value number measures how well it does that. A higher R-value means the material slows conductive heat flow more effectively.
+      </p>
+
+      <p>
+        But heat also moves by convection — warm air physically moving from one place to another, carrying its energy with it. Insulation does almost nothing to stop convective heat loss. If air can move through or around your insulation, the insulation's R-value is largely irrelevant. You've installed an expensive filter that's letting the real problem pass right through it.
+      </p>
+
+      <p>
+        Air sealing is the practice of creating a continuous, unbroken barrier around the conditioned envelope of your home — the layer that separates inside from outside — that air cannot pass through. Not reduced. Not slowed. Cannot pass through. Every gap, penetration, transition, and junction is detailed and sealed. When it's done correctly, the only air entering or leaving the building is the air you intentionally introduce through a controlled ventilation system.
+      </p>
+
+      <blockquote class="pull-quote">
+        <p>"If air can move through your insulation, the R-value is largely irrelevant. You've installed an expensive filter that's letting the real problem pass right through it."</p>
+      </blockquote>
+
+      <p>
+        The practical implication is significant. A house with R-38 insulation in the ceiling but unsealed top plates, recessed lights, and plumbing penetrations loses a substantial fraction of that insulation's theoretical benefit every hour of every winter day. The insulation is doing its job. The air moving through the gaps around it is undoing it.
+      </p>
+
+      <h2 class="entry-h2">Where the air goes — the five locations that make or break a building</h2>
+
+      <p>
+        In my experience designing and building homes, air leakage concentrates in predictable locations. These aren't random — they're the places where the structure changes, where trades make penetrations, and where builders often don't think about air sealing because it wasn't on the drawings. If you want to understand why most homes leak, start here.
+      </p>
+
+      <h3 class="entry-h3">1. The rim joist</h3>
+
+      <p>
+        The rim joist sits at the intersection of the foundation wall and the floor framing. It's one of the most consistently problematic air leakage locations in residential construction because it's a junction of multiple materials — concrete, wood sill plate, rim board, and subfloor — none of which seal naturally against each other. Cold air infiltrates here in winter and warm humid air enters here in summer. The fix is spray foam — closed-cell applied continuously across the entire rim joist cavity — but it requires someone to think about it before the basement ceiling goes up.
+      </p>
+
+      <h3 class="entry-h3">2. The top plate</h3>
+
+      <p>
+        At the top of every exterior wall, the framing meets the ceiling plane. This junction is rarely airtight. Electrical wires pass through it. Plumbing vents pass through it. The framing members themselves may have gaps where they don't land squarely. In a two-story home or a home with an attic, this is the boundary between conditioned living space and an unconditioned attic that may be 130°F in July and −10°F in January. An unsealed top plate lets that unconditioned air directly into your wall cavities and insulation.
+      </p>
+
+      <h3 class="entry-h3">3. Electrical and plumbing penetrations</h3>
+
+      <p>
+        Every outlet box on an exterior wall is a hole in the envelope. Every pipe that passes through an exterior wall or floor is a gap around it. Individually, these are small. Collectively, across the entire perimeter of a house, they add up to a significant opening. The fix is simple — foam or caulk at every penetration before insulation goes in — but it requires a deliberate inspection pass before the walls close up, and most framers don't think of this as their job.
+      </p>
+
+      <h3 class="entry-h3">4. Window and door rough openings</h3>
+
+      <p>
+        The gap between a window frame and the rough opening framing around it is a direct path for air infiltration. It's often stuffed with fiberglass batt during installation — which, as we've established, does almost nothing to stop airflow. Proper detailing means foam or a continuous air barrier membrane lapped and sealed at every window and door opening, integrated with whatever water-resistive barrier is on the wall.
+      </p>
+
+      <h3 class="entry-h3">5. Recessed lighting (and why I avoid it)</h3>
+
+      <p>
+        A standard recessed light fixture installed in a ceiling below an attic or unconditioned space is, from an air sealing standpoint, a large intentional hole in your building envelope. The fixture housing is not airtight, and the electrical penetration into it compounds the problem. IC-rated and airtight-rated fixtures exist and perform considerably better, but the easiest solution is to avoid ceiling recessed lighting in locations where it penetrates the thermal boundary, and use surface-mounted or wall-mounted fixtures instead. I did this in my own home and have never regretted it.
+      </p>
+
+      <h2 class="entry-h2">How leakage is measured — the blower door test</h2>
+
+      <p>
+        The standard tool for measuring a building's air tightness is a blower door test. A large fan is temporarily mounted in an exterior door opening and calibrated to depressurize the building to 50 Pascals below outdoor pressure — a moderate pressure difference roughly equivalent to a 20 mph wind hitting all sides of the house simultaneously. The fan measures how much air it has to move to maintain that pressure difference. More air flow means more leakage.
+      </p>
+
+      <p>
+        The result is expressed in ACH50 — air changes per hour at 50 Pascals. This number represents how many times per hour the entire volume of air in the house would be replaced if the house were continuously exposed to that 50 Pascal pressure difference. A lower number is better.
+      </p>
+
+      <div class="callout">
+        <p><strong>A note on the 50 Pascal convention:</strong> Real buildings aren't continuously exposed to 50 Pascals of pressure difference — that's a test condition, not a normal operating condition. To estimate natural air change rate under typical conditions, a common rule of thumb is to divide the ACH50 result by 20. So a building testing at 5 ACH50 exchanges air at roughly 0.25 ACH under normal conditions — about once every four hours.</p>
+      </div>
+
+      <h3 class="entry-h3">What the targets mean in practice</h3>
+
+      <p>
+        Current code in most U.S. jurisdictions requires new construction to achieve 5 ACH50 or better — though this varies by climate zone and local amendments. That's the floor, not the goal. A thoughtfully built home without extraordinary effort should achieve 3 ACH50. A genuinely well-sealed home hits 1–2 ACH50. Passive House certification requires 0.6 ACH50 — a standard that requires treating air sealing as a primary design and construction objective, not an afterthought.
+      </p>
+
+      <p>
+        These numbers have real consequences for comfort. At 5 ACH50, you're meeting code. You'll likely have noticeable drafts near windows on cold windy days. The corners of rooms will be cooler than the center. The floors will be cold in winter because infiltration tends to enter low and exhaust high, creating a convective loop that keeps cold air near the floor. Your heating system will cycle more frequently and struggle to maintain consistent temperature.
+      </p>
+
+      <p>
+        At 1–2 ACH50, the building behaves fundamentally differently. Infiltration is low enough that the ventilation system — not random air movement — controls where fresh air comes from and where stale air goes. The thermal envelope holds its temperature with minimal mechanical assistance. The HVAC system runs in longer, quieter cycles and doesn't have to fight the building. That floor-to-ceiling temperature consistency I mentioned at the beginning becomes achievable because you've eliminated the convective loops that cold infiltration creates.
+      </p>
+
+      <figure class="img-full">
+        <img src="../images/journal/air-sealing-blower-door.jpg" alt="Blower door test setup in a doorway, fan mounted and sealed with a red frame, pressure gauge visible"/>
+        <figcaption>A blower door test in progress. The fan depressurizes the building to 50 Pascals and measures how much air flow is required to maintain that pressure — directly quantifying envelope leakage.</figcaption>
+      </figure>
+
+      <h2 class="entry-h2">The ventilation question</h2>
+
+      <p>
+        The most common objection I hear when discussing aggressive air sealing is some version of: "But don't houses need to breathe?" They don't. That phrase has been used for decades to justify inadequate construction — it conflates accidental infiltration with intentional ventilation, and treats an engineering failure as a feature.
+      </p>
+
+      <p>
+        What houses need is fresh air. Fresh air and air leakage are not the same thing. A leaky building delivers fresh air randomly — from wherever the wind is blowing, through whatever gaps exist, carrying outdoor pollutants, humidity, and allergens with it. A tight building delivers fresh air deliberately — through a mechanical ventilation system that introduces it at a controlled rate, from a known location, and often through a heat recovery ventilator (HRV) or energy recovery ventilator (ERV) that captures the energy from outgoing stale air to pre-condition the incoming fresh air.
+      </p>
+
+      <p>
+        The tighter the building, the more control you have over the air inside it. That's not a problem — it's the point.
+      </p>
+
+      <div class="callout">
+        <p><strong>HRV vs. ERV:</strong> A heat recovery ventilator transfers heat between the outgoing and incoming airstreams. An energy recovery ventilator transfers both heat and moisture. In dry climates, an HRV is typically preferred — you don't want to transfer the outdoor air's low humidity into the home in winter. In humid climates, an ERV helps manage moisture load. Climate and occupancy both matter here.</p>
+      </div>
+
+      <h2 class="entry-h2">What careful air sealing actually requires</h2>
+
+      <p>
+        None of this is technologically complicated. There are no exotic materials involved. Spray foam, acoustical sealant, backer rod, and air barrier membranes have been available for decades. The challenge is almost entirely one of attention and sequence — knowing where to seal, doing it at the right point in construction before access is lost, and verifying the result before the wall closes.
+      </p>
+
+      <p>
+        The verification part is critical, and it's where most construction processes break down. The best practice is to test early — often called a "rough-in blower door" test conducted after framing and rough mechanicals but before insulation and drywall. At this stage, you can still see every penetration, access every top plate, and reach every rim joist cavity. If the test reveals a problem, you can fix it for the cost of a tube of sealant and an hour of labor. The same fix after drywall installation may require opening walls.
+      </p>
+
+      <p>
+        In my own home, I treated air sealing as a dedicated inspection phase. After framing was complete, I walked the entire building — every exterior wall top plate, every rim joist bay, every window and door opening, every penetration — with foam and caulk before any insulation went in. Then I tested. Then I fixed what the test revealed. Then I insulated. In that sequence, the insulation is doing its job on top of an airtight foundation rather than covering up a leaky one.
+      </p>
+
+      <div class="img-pair">
+        <figure>
+          <img src="../images/journal/rim-joist-before.jpg" alt="Rim joist cavity before sealing — gap visible between sill plate and foundation wall"/>
+          <figcaption>Before sealing — the gap between sill plate and foundation is a continuous air path around the building perimeter.</figcaption>
+        </figure>
+        <figure>
+          <img src="../images/journal/rim-joist-after.jpg" alt="Rim joist cavity after closed-cell spray foam application — foam fills cavity completely"/>
+          <figcaption>After closed-cell spray foam — the cavity is filled and the air path eliminated. The foam also adds R-value and controls moisture.</figcaption>
+        </figure>
+      </div>
+
+      <h2 class="entry-h2">What this means for how I design for clients</h2>
+
+      <p>
+        The High-Performance drawing package I offer includes air sealing and envelope detail drawings because I've seen firsthand what happens when they're absent. Without drawings, air sealing decisions get made in the field by whoever happens to be on site that day — often a framer who isn't thinking about the thermal boundary, or an electrician who doesn't know that the penetration they just made is in an air barrier location.
+      </p>
+
+      <p>
+        With drawings, the locations of the air barrier are specified, the materials at each transition are called out, and the contractor has something to follow and the inspector has something to verify against. It also gives me something to review during build support — when I'm on a site visit and I see the rim joist cavities open before insulation, I know exactly what should be there before the framer closes them up.
+      </p>
+
+      <p>
+        The result isn't a more expensive home. It's a more comfortable one — and in the long run, a less expensive one to heat and cool. The materials cost almost nothing. The attention is what costs, and what makes the difference.
+      </p>
+
+      <blockquote class="pull-quote">
+        <p>"In my home, the floor and ceiling temperatures are nearly identical. That's not expensive equipment — it's a building envelope that isn't fighting the system trying to condition it."</p>
+      </blockquote>
+
+      <p>
+        If you're planning a build and you've spent time thinking about insulation R-values but haven't thought about air sealing targets, this is a good moment to reorder those priorities. Ask your designer what ACH50 result the building is targeting. Ask what the air barrier strategy is and where it's detailed on the drawings. If the answer is vague, that's useful information — and the right time to address it is before anything is built.
+      </p>
+
+      <!-- ─────────────────────────────────────────────
+           END OF ENTRY CONTENT
+           ───────────────────────────────────────────── -->
+
+    </article>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ENTRIES
+     Replace the three <article> cards below with links
+     to other journal entries. Update: title, category,
+     date, read time, description, and href on the <a>.
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-surface-container-low border-t border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl font-headline text-primary">More from the journal</h2>
+    </div>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Related entry 1 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="hvac-load-calculations.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">High-Performance Building</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">HVAC load calculations: why rules of thumb produce uncomfortable homes.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Square footage tells you almost nothing about how much heating and cooling a home actually needs. Manual J exists for a reason — here's what it is and why it matters.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Nov 2025 · 9 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Related entry 2 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="windows.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">High-Performance Building</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">Windows: the most misunderstood line item in a residential budget.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Clients routinely over-spend on granite countertops and under-spend on windows — the primary point of thermal failure in most homes.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Jul 2025 · 11 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Related entry 3 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="design-decisions.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">For Clients</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">Why design decisions are cheapest before anything is built.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Every decision in this entry — the continuity details, the penetration locations, the rim joist strategy — gets dramatically harder to change once framing is up. The best air sealing strategy is the one your designer worked through before anything was built.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Aug 2025 · 5 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="../journal.html" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all">
+        View all entries <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     CTA + FOOTER (do not modify)
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-xl">
+      <h2 class="text-3xl font-headline mb-3 text-white">Thinking about building?</h2>
+      <p class="text-white/70 font-body mb-7 leading-relaxed">The first conversation is free. Tell me about your land and what you're imagining.</p>
+      <a href="../index.html#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#313030] text-[#fcf9f6]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-4 md:px-12 py-12 md:py-20 max-w-screen-2xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
+      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">
+        Architectural design for those who value technical excellence alongside family comfort.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <!--<p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">LinkedIn</a></li>
+        </ul>-->
+      </div>
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Resources</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../privacy.html">Privacy Policy</a></li>
+          <!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Journal</a></li>-->
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col justify-between items-end">
+      <div class="text-right">
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40">© 2026 Rencher Design</p>
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40 mt-1">Spring City, Utah</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Mobile nav ──
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = toggle.querySelectorAll('.hamburger-bar');
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', !isOpen);
+    if (!isOpen) {
+      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+      bars[1].style.opacity = '0';
+      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+
+  // ── Reading progress bar ──
+  const bar = document.getElementById('progress-bar');
+  const article = document.querySelector('article');
+  window.addEventListener('scroll', () => {
+    const articleTop = article.getBoundingClientRect().top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(Math.max(scrolled / articleHeight, 0), 1);
+    bar.style.width = (pct * 100) + '%';
+  });
+</script>
+
+</body>
+</html>

@@ -110,7 +110,7 @@
     </button>
  
     <!-- Mobile hamburger button -->
-    <button id="menu-toggle" class="md:hidden flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+    <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
       <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
       <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
       <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
@@ -188,8 +188,8 @@
   <div class="max-w-screen-2xl mx-auto px-8">
     <div class="max-w-3xl">
       <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-4">About</span>
-      <h1 class="text-6xl font-headline leading-tight mb-6">Designed from experience,<br/>not from a textbook.</h1>
-      <p class="text-xl text-on-surface-variant font-body font-light leading-relaxed">
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-headline leading-tight mb-6">Designed from experience,<br/>not from a textbook.</h1>
+      <p class="text-base md:text-xl text-on-surface-variant font-body font-light leading-relaxed">
         I'm Tyler Rencher — home designer, software engineer, and the person who actually lives in the kind of home I design for you.
       </p>
     </div>
@@ -199,21 +199,21 @@
 <!-- Origin Story -->
 <section class="py-24 bg-surface">
   <div class="max-w-screen-2xl mx-auto px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
 
       <!-- Text -->
       <div class="lg:col-span-7 space-y-8">
         <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block">The Story</span>
-        <h2 class="text-4xl font-headline leading-snug">I told my dad I wanted to be an architect when I was seven years old.</h2>
+        <h2 class="text-4xl font-headline leading-snug">I told my dad I wanted to be an architect when I grew up.</h2>
         <div class="space-y-5 text-on-surface-variant text-lg font-body leading-relaxed font-light">
           <p>
-            That didn't happen, I never became an architect, but what I eventually learned was that I love to design things — Legos, computers, software, homes. The medium changed, but the instinct never did. I went on to spend thirteen years as a professional software engineer, solving complex problems that required systems thinking, careful planning, and the discipline to get things right before they became expensive to fix.
+            That didn't happen. What I learned about myself is that I love to design and build real things. I went on to spend thirteen years in my profession as a software engineer, solving complex problems that required systems thinking, careful planning, and the discipline to get things right before they became expensive to fix.
           </p>
           <p>
-            That discipline is exactly what designing a home demands.
+            Those skills are exactly what designing a home demands.
           </p>
           <p>
-            My family and I were living near Seattle when Covid changed everything. The commute that had been driving me crazy became irrelevant overnight, and the service failures and supply shortages that came with the pandemic crystallized something my wife and I had been quietly considering for years: we wanted to be somewhere rural, somewhere more self-reliant, somewhere that felt like ours.
+            My family and I were living near Seattle when Covid changed everything. The commute that had been driving me crazy diappeared overnight, and the public service failures and supply shortages that came with the pandemic crystallized something my wife and I had been quietly considering for years: we wanted to be somewhere rural, somewhere more self-reliant, somewhere that felt like ours.
           </p>
           <p>
             I wanted independence from utility providers — but my wife still wanted her normal appliances, good lighting, comfortable indoor temperatures year-round, and large windows that bring the outside in. That wasn't a compromise. That was a design challenge.
@@ -223,16 +223,16 @@
         <!-- Pull quote -->
         <blockquote class="border-l-4 border-secondary pl-6 my-10">
           <p class="pull-quote text-2xl text-primary leading-relaxed">
-            "I wanted to be independent of service providers as much as possible — without asking my family to give anything up."
+            "I wanted to live off-grid without asking my family to give up anything."
           </p>
         </blockquote>
 
         <div class="space-y-5 text-on-surface-variant text-lg font-body leading-relaxed font-light">
           <p>
-            We found 40 acres two miles outside of town — covered in juniper trees, with an unobstructed view of the valley and the two most prominent mountain peaks in the area. No power lines. No water. No sewer. Just land. Because we were going off-grid, we didn't need any of those things extended to us, which opened up land options that simply weren't available to everyone else.
+            We found 40 acres two miles outside of town — covered in juniper trees, with an unobstructed view of the North Sanpete valley and the two most prominent mountain peaks in the area. No power lines. No water. No sewer. Just land. Because we were going off-grid, we didn't need any of those things extended to us, which opened up land options that weren't available to everyone else.
           </p>
           <p>
-            I designed the home myself and managed the build from the ground up because I couldn't find anyone to help that had done it before.
+            I designed the home myself and managed the build from the ground up because I couldn't find anyone to help that had done it before. It took 18 months to learn CAD software, building codes, municipal codes, load calclations, and much, much more.
           </p>
         </div>
       </div>
@@ -275,7 +275,7 @@
             <span class="material-symbols-outlined text-secondary text-3xl mt-1">solar_power</span>
             <div>
               <p class="font-headline text-lg text-primary mb-1">Fully off-grid, fully modern</p>
-              <p class="text-sm text-on-surface-variant font-body">Solar, battery storage, and a complete water system. Normal appliances. Normal lifestyle. We choose to ration power on the stormiest winter days — not because we have to, but because it reminds us of the kind of home we live in.</p>
+              <p class="text-sm text-on-surface-variant font-body">Solar, battery storage, and a complete water system. Normal appliances. Normal lifestyle. We choose to ration power on the stormiest winter days — not because we have to, but because it is a good skill to build and a test of the house systems.</p>
             </div>
           </div>
 
@@ -283,7 +283,7 @@
             <span class="material-symbols-outlined text-secondary text-3xl mt-1">code</span>
             <div>
               <p class="font-headline text-lg text-primary mb-1">13 years in software</p>
-              <p class="text-sm text-on-surface-variant font-body">Professional .NET engineer. The systems thinking, planning discipline, and stakeholder management I built there turned out to be directly applicable to home design.</p>
+              <p class="text-sm text-on-surface-variant font-body">Professional .NET software engineer. The systems thinking, planning discipline, and stakeholder management muscle I built is directly applicable to home design.</p>
             </div>
           </div>
 
@@ -302,10 +302,10 @@
 
       <div class="space-y-6 text-on-surface-variant text-lg font-body leading-relaxed font-light">
         <p>
-          The first obstacle was legal. Despite the property sitting on a county road, we had no legal access to the land — the county held no easement for the road. We had to purchase half the road surface from our neighbor to establish legal access before we could do anything else.
+          The first obstacle was legal. Despite our property sitting on a county road, we had no legal access to the land — the county held no easement for the road. We had to purchase half the road surface from our neighbor to establish legal access before we could do anything else.
         </p>
         <p>
-          Getting the off-grid electrical system approved was its own challenge. Most people who build off-grid homes here do it quietly, after the fact. We went through the full permitting process from the beginning. The county was not familiar with off-grid electrical systems. They didn't know what was permitted by law or how to read the diagrams. We had to educate them patiently — and get what we needed at the same time.
+          Getting the off-grid electrical system approved was its own challenge. Most people who build off-grid homes here do it quietly, after the fact. We went through the full permitting process from the beginning. I had to work with them patiently and respectfully to get what we needed.
         </p>
         <p>
           That's where my software background mattered in ways I didn't expect. In software, I spent years managing complex projects that involved teams of people who didn't particularly care about what I was working on — but whose cooperation I needed anyway. You learn quickly how to make other people's problems your problems, how to speak their language, and how to get to yes without friction.
@@ -321,16 +321,16 @@
 <!-- What I'm Most Proud Of -->
 <section class="py-24 bg-primary text-white">
   <div class="max-w-screen-2xl mx-auto px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
       <div class="lg:col-span-6">
         <span class="font-label text-secondary-container tracking-widest text-xs font-bold uppercase block mb-4">What I'm Most Proud Of</span>
         <h2 class="text-4xl font-headline leading-snug mb-8 text-white">The air.</h2>
         <div class="space-y-5 text-white/75 text-lg font-body leading-relaxed font-light">
           <p>
-            In every home I've ever lived in, the floors were cold in winter, the air at the ceiling was hot, and the furnace was noisy. Most people assume that's just how houses are.
+            In every home I've ever lived in, the floors were cold in winter, the air at the ceiling was hot, and the furnace was noisy. Everybody I talk to assumes that's just how houses are, and they are right. But they don't have to be.
           </p>
           <p>
-            In my home, the air temperature at the floor and the ceiling is nearly identical. The floors are warm. The furnace runs quietly in the background. We use a standard forced-air system — nothing exotic. What made the difference was the building envelope.
+            In my home, the air temperature at the floor and the ceiling is nearly identical. The floors are warm. The furnace runs quietly in the background. We use a forced-air heat pump system — nothing exotic. What made the difference was the building envelope and HVAC sizing and duct design.
           </p>
           <p>
             I spent more time designing the air sealing strategy than any other part of the house. Continuous barriers. Careful detailing at every penetration, rim joist, top plate, and window opening. It is the least visible work in the entire project — and the thing that determines whether a home is actually comfortable to live in.
@@ -349,7 +349,7 @@
           <div class="border-t border-white/10 pt-8 space-y-6">
             <div class="flex items-start gap-4">
               <span class="material-symbols-outlined text-secondary-container text-2xl mt-1">check_circle</span>
-              <p class="text-white/70 text-sm font-body leading-relaxed">Defects are cheapest to fix in the design phase. As the build progresses, changes become exponentially more expensive.</p>
+              <p class="text-white/70 text-sm font-body leading-relaxed">Defects are cheapest to fix in the design phase. As the build progresses, changes become 10-100x more expensive.</p>
             </div>
             <div class="flex items-start gap-4">
               <span class="material-symbols-outlined text-secondary-container text-2xl mt-1">check_circle</span>
@@ -357,7 +357,7 @@
             </div>
             <div class="flex items-start gap-4">
               <span class="material-symbols-outlined text-secondary-container text-2xl mt-1">check_circle</span>
-              <p class="text-white/70 text-sm font-body leading-relaxed">The framer and HVAC subcontractors will make or break your project. I stay involved to keep them on plan.</p>
+              <p class="text-white/70 text-sm font-body leading-relaxed">Following the design details will make or break your project. I stay involved to keep your general contractor can build the details into the house.</p>
             </div>
           </div>
         </div>
@@ -380,18 +380,18 @@
           My process is designed to prevent that experience.
         </p>
         <p>
-          I'll ask you more questions than you expect early on. What does a typical Tuesday look like in your household? How does your family move through a kitchen? Do your kids do homework at the table or in a dedicated space? Where does the mud and gear go when you come in from outside? These questions might feel detailed, but they're what separate a house that functions from a house that fits. Take a look at my <a class="underline decoration-[#7c5730] underline-offset-4 hover:text-[#7c5730] transition-colors duration-200" href="prepare.html">preparation guide</a> to help you feel confident going into our first conversation.
+          I'll ask you more questions than you expect early on. What does a typical Tuesday look like in your household? How does your family move through a kitchen? Do your kids do homework at the table or in a dedicated space? Where do the muddy boots or backpacks go when you come in from outside? These questions might feel too specific or detailed, but they're what separate a house that functions from a house that fits. Take a look at my <a class="underline decoration-[#7c5730] underline-offset-4 hover:text-[#7c5730] transition-colors duration-200" href="prepare.html">preparation guide</a> to help you feel confident going into our first conversation.
         </p>
         <p>
-          The goal is to get as many decisions made as possible before anything is built — when changing your mind costs nothing. My clients still face decisions during the build. But they face far fewer of them, and none of the fundamental ones.
+          My goal is to help you make as many decisions as possible before anything is built — when changing your mind costs little. My clients still face decisions during the build. But they face far fewer of them, and none of the fundamental ones like "I didn't know there was going to be a beam there".
         </p>
         <p>
-          I also stay involved after the drawings are complete. Very few general contractors have experience building high-performance homes. Most can't execute the plans without guidance on the efficiency details. That's not a criticism — it's just a reality of the industry. I make myself available to answer your contractor's questions, review their approach on critical details, and make sure the framer and HVAC team hold to the plan. Your build should go smoother because I'm reachable.
+          I also stay involved after the drawings are complete. Very few general contractors have experience building high-performance homes. Most need some questions answered to execute the efficiency details in the plans. That's not a criticism — it's just a reality of the industry. I make myself available to answer your general contractor's questions. Your build should go smoother because I'm reachable.
         </p>
       </div>
 
       <!-- CTA -->
-      <div class="mt-16 bg-surface-container-low rounded-xl p-10 border border-outline-variant/20">
+      <div class="mt-10 md:mt-16 bg-surface-container-low rounded-xl p-6 md:p-10 border border-outline-variant/20">
         <h3 class="text-2xl font-headline mb-4">Ready to start the conversation?</h3>
         <p class="text-on-surface-variant font-body mb-8 leading-relaxed">
           I'm currently accepting a limited number of projects for Fall 2026 start dates. Tell me about your land and what you're imagining — even if it's still just a feeling.
@@ -406,11 +406,11 @@
 
 <!-- Footer -->
 <footer class="bg-[#313030] text-[#fcf9f6]">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-20 max-w-screen-2xl mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-4 md:px-12 py-12 md:py-20 max-w-screen-2xl mx-auto">
     <div class="space-y-6">
       <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
       <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">
-        Architectural design for those who value technical excellence alongside family comfort.
+        Architectural design for those who value technical excellence and family comfort.
       </p>
     </div>
     <div class="grid grid-cols-2 gap-8">

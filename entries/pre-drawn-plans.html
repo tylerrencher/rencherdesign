@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<!-- ═══════════════════════════════════════════════════
+     FILL IN: Page title and meta description
+     Title format: "Entry Title | Journal | Rencher Design"
+     Description: 1–2 sentence summary, ~150 characters
+     ═══════════════════════════════════════════════════ -->
+<title>Pre-Drawn Plans vs. Custom Design: An Honest Comparison | Journal | Rencher Design</title>
+<meta name="description" content="Stock plans from the internet can be a reasonable starting point — or an expensive mistake. Here's how to tell the difference, and what custom design actually gets you."/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tertiary-container": "#7c2e00", "on-secondary-fixed": "#2c1600",
+          "surface-variant": "#e5e2df", "on-tertiary": "#ffffff",
+          "surface-tint": "#5f5e5e", "outline-variant": "#d4c3be",
+          "secondary-fixed-dim": "#eebd8e", "on-tertiary-fixed-variant": "#7c2e00",
+          "error-container": "#ffdad6", "inverse-primary": "#c8c6c5",
+          "surface-container-low": "#f6f3f0", "surface-container": "#f0edea",
+          "tertiary-fixed": "#ffdbcd", "secondary-fixed": "#ffdcbd",
+          "surface-container-lowest": "#ffffff", "primary-fixed": "#e4e2e1",
+          "error": "#ba1a1a", "primary-fixed-dim": "#c8c6c5",
+          "on-surface": "#1c1c1a", "on-secondary": "#ffffff",
+          "inverse-on-surface": "#f3f0ed", "on-error-container": "#93000a",
+          "surface-dim": "#dcd9d7", "on-primary-container": "#b7b5b4",
+          "on-primary": "#ffffff", "on-tertiary-container": "#ff9c6e",
+          "primary-container": "#474747", "on-surface-variant": "#504441",
+          "on-secondary-fixed-variant": "#61401b", "surface": "#fcf9f6",
+          "on-tertiary-fixed": "#351000", "inverse-surface": "#31302f",
+          "surface-bright": "#fcf9f6", "on-primary-fixed": "#1b1c1c",
+          "outline": "#827470", "tertiary": "#571e00",
+          "surface-container-highest": "#e5e2df", "on-primary-fixed-variant": "#474747",
+          "background": "#fcf9f6", "secondary-container": "#fdcb9b",
+          "on-error": "#ffffff", "on-background": "#1c1c1a",
+          "tertiary-fixed-dim": "#ffb595", "primary": "#313030",
+          "on-secondary-container": "#79542d", "surface-container-high": "#eae8e5",
+          "secondary": "#7c5730"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif"],
+          "body": ["Plus Jakarta Sans"],
+          "label": ["Plus Jakarta Sans"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+
+  /* ── Reading progress bar ── */
+  #progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #7c5730;
+    width: 0%;
+    z-index: 100;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Prose typography ──
+     All body text inside .prose gets these styles.
+     You write plain HTML paragraphs — styling is automatic. */
+  .prose {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: #504441;
+  }
+  .prose p { margin-bottom: 1.5rem; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* Inline links within prose */
+  .prose a {
+    color: #7c5730;
+    text-decoration: underline;
+    text-decoration-color: #d4c3be;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .prose a:hover { text-decoration-color: #7c5730; }
+
+  /* Bold within prose */
+  .prose strong { color: #1c1c1a; font-weight: 600; }
+
+  /* ── Section headings within the article ──
+     Use <h2 class="entry-h2"> for major section breaks.
+     Use <h3 class="entry-h3"> for sub-points within a section. */
+  .entry-h2 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #1c1c1a;
+    line-height: 1.3;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d4c3be;
+  }
+  .entry-h3 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #313030;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Pull quote ──
+     Use <blockquote class="pull-quote"> for a standout quote.
+     Works best for a single compelling sentence. */
+  .pull-quote {
+    border-left: 4px solid #7c5730;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .pull-quote p {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    color: #313030;
+    margin: 0;
+  }
+
+  /* ── Callout / tip box ──
+     Use <div class="callout"> for a highlighted insight, warning, or aside.
+     Best used once or twice per entry, not repeatedly. */
+  .callout {
+    background: #f0edea;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    border-left: 3px solid #7c5730;
+  }
+  .callout p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #504441;
+    margin: 0;
+  }
+  .callout strong { color: #313030; }
+
+  /* ── Inline image — full width ──
+     Use <figure class="img-full"> for a wide photo spanning the column.
+     Add a <figcaption> for an optional caption below. */
+  .img-full {
+    margin: 2.5rem 0;
+  }
+  .img-full img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-full figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8125rem;
+    color: #827470;
+    margin-top: 0.625rem;
+    line-height: 1.5;
+  }
+
+  /* ── Inline image — half width, float left or right ──
+     Use <figure class="img-left"> or <figure class="img-right">
+     for a photo that sits beside text. Works best on desktop. */
+  .img-left, .img-right {
+    margin: 0.5rem 0 1.5rem 0;
+    max-width: 100%;
+  }
+  @media (min-width: 640px) {
+    .img-left {
+      float: left;
+      width: 46%;
+      margin: 0.25rem 2rem 1rem 0;
+    }
+    .img-right {
+      float: right;
+      width: 46%;
+      margin: 0.25rem 0 1rem 2rem;
+    }
+  }
+  .img-left img, .img-right img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-left figcaption, .img-right figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .clearfix::after { content: ''; display: table; clear: both; }
+
+  /* ── Two-photo side-by-side ──
+     Use <div class="img-pair"> wrapping two <figure> elements.
+     Best for before/after or comparison photos. */
+  .img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .img-pair figure { margin: 0; }
+  .img-pair img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-pair figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Three-photo row ──
+     Use <div class="img-trio"> wrapping three <figure> elements. */
+  .img-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    margin: 2.5rem 0;
+  }
+  .img-trio figure { margin: 0; }
+  .img-trio img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .img-trio figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Horizontal rule ──
+     A styled <hr> between major sections. */
+  .entry-rule {
+    border: none;
+    border-top: 1px solid #d4c3be;
+    margin: 3rem 0;
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Reading progress bar — fills automatically as user scrolls -->
+<div id="progress-bar"></div>
+
+<!-- ═══════════════════════════
+     NAVIGATION (do not modify)
+     ═══════════════════════════ -->
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm transition-opacity">
+  <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="../index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex space-x-10 items-center">
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../about.html">About</a>
+      <a class="text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]" href="../journal.html">Journal</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../services.html">Services</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../portfolio.html">Portfolio</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../process.html">Process</a>
+    </div>
+    <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='../index.html#contact'">
+      Begin Your Project
+    </button>
+
+    <!-- Mobile hamburger button -->
+    <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu drawer -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+    <div class="px-8 py-6 space-y-1">
+      <a href="../about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        About
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">
+        Journal
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Services
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Portfolio
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Process
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <div class="pt-4">
+        <a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">
+          Begin Your Project
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     Replace the src with your image path.
+     alt= should describe what's in the photo.
+     The image displays at full column width, cropped to
+     a 16:9 ratio. Tall portrait photos will be cropped —
+     prefer landscape orientation here.
+     ═══════════════════════════════════════════════════ -->
+<div class="w-full bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto">
+    <img
+      src="../images/journal/pre-drawn-plans-hero.jpg"
+      alt="Stack of printed house plan sets on a desk alongside a laptop showing a house plan website — the choice between stock and custom design"
+      class="w-full object-cover"
+      style="max-height: 560px;"
+    />
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ENTRY HEADER
+     Fill in: category, date, read time, title, lede.
+     Category options: High-Performance Building /
+       Off-Grid Living / Design Process / For Clients
+     Read time: count roughly 200 words per minute.
+     Lede: 2–3 sentences. The thing that makes someone
+       want to read the whole entry. Write it last.
+     ═══════════════════════════════════════════════════ -->
+<header class="py-14 bg-surface border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+
+    <!-- Back link -->
+    <a href="../journal.html" class="inline-flex items-center gap-1 text-secondary font-label text-xs tracking-wide hover:gap-2 transition-all mb-8 block">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>Journal
+    </a>
+
+    <div class="max-w-2xl">
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="font-label text-[10px] tracking-widest uppercase text-secondary font-bold">
+          For Clients
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          April 2026
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          13 min read
+        </span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-headline leading-tight mb-6">
+        Pre-drawn plans vs. custom design: an honest comparison.
+      </h1>
+
+      <p class="text-xl text-on-surface-variant font-body font-light leading-relaxed">
+        Stock house plans from the internet cost a few hundred to a few thousand dollars and look like a bargain next to custom design fees. Sometimes they are a reasonable choice. Often they create problems that cost far more than the custom design would have. Here's how to think about which situation you're actually in — and what you're actually getting in each case.
+      </p>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE BODY
+     The <article> element contains all your writing.
+     Max width is constrained to ~680px for comfortable
+     reading line length. Write everything between the
+     opening and closing article tags below.
+
+     AVAILABLE ELEMENTS — copy and use as needed:
+
+     PARAGRAPH:
+       <p>Your text here.</p>
+
+     SECTION HEADING (major break):
+       <h2 class="entry-h2">Heading text</h2>
+
+     SUB-HEADING:
+       <h3 class="entry-h3">Sub-heading text</h3>
+
+     PULL QUOTE:
+       <blockquote class="pull-quote">
+         <p>"Your quote here."</p>
+       </blockquote>
+
+     CALLOUT BOX:
+       <div class="callout">
+         <p><strong>Label:</strong> Your callout text here.</p>
+       </div>
+
+     FULL-WIDTH PHOTO:
+       <figure class="img-full">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption text.</figcaption>
+       </figure>
+
+     PHOTO FLOATED LEFT (text wraps right):
+       <figure class="img-left">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     PHOTO FLOATED RIGHT (text wraps left):
+       <figure class="img-right">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     TWO PHOTOS SIDE BY SIDE:
+       <div class="img-pair">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Left photo caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Right photo caption.</figcaption>
+         </figure>
+       </div>
+
+     THREE PHOTOS IN A ROW:
+       <div class="img-trio">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-c.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+       </div>
+
+     HORIZONTAL RULE (section divider):
+       <hr class="entry-rule"/>
+
+     INLINE LINK (within prose):
+       <a href="../services.html">linked text</a>
+       (styling is automatic inside .prose)
+     ═══════════════════════════════════════════════════ -->
+
+<div class="py-16 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <article class="max-w-2xl mx-auto prose">
+
+      <p>
+        I want to be direct about something before I write a single word of this entry: I'm a custom home designer, and I have an obvious financial interest in arguing that custom design is better than buying a plan from the internet. So read this with that in mind. I've tried to be genuinely honest about when pre-drawn plans are a reasonable choice, because the clients I work best with are people who made a thoughtful, informed decision to hire me — not people who feel like they didn't have an alternative.
+      </p>
+
+      <h2 class="entry-h2">What pre-drawn plans actually are</h2>
+
+      <p>
+        The major online plan retailers — House Plans, Dream Home Source, Architectural Designs, and dozens of others — sell drawing sets produced for a generic buyer in a generic location. A designer somewhere sat down and drew a house that they thought would appeal to a broad market: attractive from the street, organized in a sensible way, with rooms that feel about the right size. The plan was drawn once and has since been sold to hundreds or thousands of buyers across the country.
+      </p>
+
+      <p>
+        These aren't bad drawings. Many of them are genuinely well-designed homes. What they are is designed for nobody in particular — not for your lot, not for your climate, not for your family's specific daily rhythms, and not for your local building department's requirements. Whether that matters depends on your situation.
+      </p>
+
+      <h2 class="entry-h2">When pre-drawn plans are a reasonable choice</h2>
+
+      <p>
+        There are situations where a stock plan is a defensible starting point, and I'd rather acknowledge them than pretend they don't exist.
+      </p>
+
+      <h3 class="entry-h3">Flat, unconstrained land with no significant orientation requirements</h3>
+
+      <p>
+        If you're building on a flat lot in a subdivision where every lot faces the same direction, has the same setbacks, and has similar utility connections, a stock plan designed for that general configuration will fit the land with minimal modification. The site isn't imposing any constraints that a generic plan couldn't accommodate. This describes a meaningful fraction of new residential construction — particularly in established suburban areas — and for those projects, a stock plan is less of a compromise than it would be on a rural acreage with a specific view, solar potential, or topography to work with.
+      </p>
+
+      <h3 class="entry-h3">Very conventional construction with standard mechanical systems</h3>
+
+      <p>
+        If you're building a straightforward home with conventional framing, standard mechanical systems, typical insulation, and no particular performance goals beyond code compliance, a stock plan's lack of performance detailing isn't a meaningful gap. The plan will produce a home that's similar to what a stock plan designer assumed — which is to say, a home that performs like a typical American house. If that's acceptable, the plan is adequate.
+      </p>
+
+      <h3 class="entry-h3">As a starting point for discussion, not a finished product</h3>
+
+      <p>
+        Some clients use stock plans well by treating them as a reference rather than a final document. They find a plan that's close to what they want, hire a designer to adapt it significantly, and end up with something that's better than either the original plan or a fully custom design started from scratch — because the stock plan accelerated the early layout decisions. This can work, though the cost of significant modifications often approaches the cost of a custom design started from a blank sheet.
+      </p>
+
+      <h2 class="entry-h2">The risks that don't show up in the purchase price</h2>
+
+      <p>
+        The upfront cost of a stock plan is visible. The downstream costs are not — and they tend to be significantly larger, particularly for buyers who discover them mid-construction rather than at the point of purchase.
+      </p>
+
+      <h3 class="entry-h3">The plan may not match your local code</h3>
+
+      <p>
+        Stock plans are drawn to satisfy building codes as they existed in the designer's jurisdiction when the plan was produced. Your jurisdiction may have different requirements — for ceiling height, egress windows, structural design loads, energy code compliance, radon mitigation, fire separation, or dozens of other provisions. The gap between what the plan shows and what your building department requires must be bridged before a permit is issued, and bridging it after the fact often requires hiring a local designer or engineer anyway. The stock plan fee doesn't disappear — it becomes a sunk cost on top of whatever the code compliance work actually costs.
+      </p>
+
+      <h3 class="entry-h3">The foundation may not fit the land</h3>
+
+      <p>
+        Stock plans are drawn for a generic site condition — typically a flat lot with a specific soil bearing capacity assumed. If your land has meaningful slope, ledge, expansive soils, high water table, or any other site condition that differs from the assumption, the foundation detail in the stock plan may be entirely wrong. Foundation modification requires structural engineering, which requires a local professional, which costs money. And the cost of that work is highest if the modification is discovered after construction has begun.
+      </p>
+
+      <h3 class="entry-h3">The orientation doesn't suit the land</h3>
+
+      <p>
+        A plan designed with the garage on the left and the living room facing south may be excellent in that configuration — and genuinely uncomfortable if the lot requires flipping it, rotating it 90 degrees, or placing it in a way that puts the kitchen windows facing west into afternoon sun and the primary bedroom facing the neighbor's driveway. Solar orientation, views, prevailing wind, noise sources, and neighboring structures all affect how a plan should sit on its site. A stock plan assumes none of those conditions. Adapting it to your specific site may require significant modification.
+      </p>
+
+      <h2 class="entry-h2">"We'll just have the contractor move a wall."</h2>
+
+      <p>
+        This is the sentence that costs people the most money in residential construction, and I've heard some version of it from nearly every client who bought a stock plan and tried to adapt it themselves. The reasoning feels sound: the plan is 90% right, there's one thing that needs to change, and it seems like a small adjustment. Sometimes it is. More often, it isn't, for reasons that aren't visible from looking at the floor plan.
+      </p>
+
+      <blockquote class="pull-quote">
+        <p>"Moving a wall on a plan costs nothing. Moving a wall in a framed building costs real money. Moving a wall in a finished building can cost more than the wall is worth."</p>
+      </blockquote>
+
+      <h3 class="entry-h3">Walls carry loads</h3>
+
+      <p>
+        In most homes, many interior walls are not just space dividers — they're load-bearing, carrying the weight of the floor or roof above them. Moving a load-bearing wall requires replacing it with a beam sized to carry the load it was carrying, supported by posts at each end that need to transfer that load to the foundation. That's structural engineering, it's lumber and steel, and it's labor. A wall that looks like a partition on a floor plan may be carrying half the roof. The floor plan doesn't tell you which walls those are. A structural engineer will, and a contractor will have a number for what moving it costs.
+      </p>
+
+      <h3 class="entry-h3">Walls contain mechanical systems</h3>
+
+      <p>
+        Walls that have been in the plan for any length of time tend to acquire mechanical systems — electrical wire runs, plumbing drain stacks, HVAC duct drops, and ventilation runs. Moving the wall means rerouting every system in it. In a rough-framed building before walls are closed, this is expensive but manageable. In a finished building, it means opening walls, rerouting everything through finished spaces, and patching and finishing every surface that was opened. The scope of a "simple" wall move expands significantly once the mechanical implications are understood.
+      </p>
+
+      <h3 class="entry-h3">The drawing set doesn't reflect the change</h3>
+
+      <p>
+        This is the problem that creates the most downstream risk, and it's the one most buyers of stock plans don't think about. If you tell your contractor to move a wall but don't update the drawing set, the mechanical contractors who come after the framer are working from drawings that show the wall in its original location. The electrician runs wire to where the switch was supposed to be — not where it ended up. The HVAC contractor sizes the duct drop for the room as originally dimensioned, not as built. The inconsistency between what was built and what the drawings show creates a chain of small errors that surface at the worst possible times — during inspections, during installation of finish work, and during the first winter when the mechanical system doesn't perform the way it should.
+      </p>
+
+      <div class="callout">
+        <p><strong>A real example of how this compounds:</strong> A buyer purchases a stock plan and asks the framer to move the kitchen toward the back of the house by four feet to capture a view. The framer obliges. The electrician works from the original plan and places outlets and switches where the original kitchen was — now in the dining room. The HVAC contractor places the kitchen hood duct run where the original plan showed it — now four feet from where the hood actually is. Fixing those two problems after drywall is a four-figure job for each trade. The total cost of not updating the drawings often exceeds the cost of a set of revised drawings before construction began.</p>
+      </div>
+
+      <h2 class="entry-h2">What custom design actually costs — and what it includes</h2>
+
+      <p>
+        The honest case against custom design is straightforward: it costs more upfront. A stock plan for $1,500 versus a custom drawing package for $8,000 is a $6,500 difference that's visible immediately. The case for custom design requires looking at what that difference actually buys, and whether the downstream costs of the stock plan approach close the gap.
+      </p>
+
+      <p>
+        Here's what I think custom design actually provides — from someone who designs custom homes for a living and has also built one himself:
+      </p>
+
+      <h3 class="entry-h3">A home designed for your land</h3>
+
+      <p>
+        The site is the first constraint in every project, and it's the constraint that stock plans ignore entirely. Where the sun rises relative to your lot. Where the view is. Where the prevailing wind comes from. Which direction the approach from the road comes from. Where the septic field needs to go. The home's relationship to its land is set permanently by the siting decision — and a custom design can optimize that relationship in ways that a stock plan adapted to fit simply cannot.
+      </p>
+
+      <h3 class="entry-h3">A home designed for your family</h3>
+
+      <p>
+        Stock plans are designed for a household that doesn't exist — an average household in an average arrangement with average patterns of daily life. Your family is not average. How many children, at what ages, with what activities. Whether you homeschool, work from home, host extended family, keep livestock, run a shop, do serious cooking, or have elderly parents in the picture. The floor plan that works for your family's actual life is discoverable — but only through a discovery process that asks the right questions and then translates the answers into spatial decisions. A stock plan skips that process.
+      </p>
+
+      <h3 class="entry-h3">Decisions made before pressure exists</h3>
+
+      <p>
+        Every decision that gets made during construction was a decision that wasn't made during design. Construction-phase decisions are expensive in time, in money, and in stress — because contractors are waiting, because changes require rework, and because the options available at that point are constrained by what's already been built. Custom design front-loads the decision-making into the phase when it costs nothing: a pencil line moved on paper, a conversation about whether the kitchen should open to the living room or have separation, a discussion about whether the primary suite needs a nursery adjacent to it. Those decisions made in design are free. Made mid-construction, they're change orders.
+      </p>
+
+      <h3 class="entry-h3">Budget allocated deliberately across the project</h3>
+
+      <p>
+        A stock plan specifies what the house is, but it doesn't help you decide where in that house your budget should be concentrated. A custom design process does — because it involves conversations about what you actually value and what you're willing to trade off. More window area in the kitchen, smaller closets in the secondary bedrooms. Higher-quality HVAC system, standard exterior siding. Detailed millwork in the entry, simple cabinets in the utility spaces. Every budget involves tradeoffs, and the tradeoffs that produce a home you're satisfied with are the ones that match your actual priorities rather than a generic allocation. Custom design is the process that surfaces those priorities and makes the tradeoffs deliberately.
+      </p>
+
+      <h3 class="entry-h3">Performance details in the drawings</h3>
+
+      <p>
+        Stock plans don't include air sealing details, because air sealing details are not required for a permit in most jurisdictions and because the buyer of a stock plan hasn't asked for them. They don't include load-calculated HVAC specifications, because those require knowing the building's actual envelope performance. They don't include detailed electrical plans with circuit-level specifications, because those require knowing how the space will actually be used. If any of these things matter to you — if you want a home that's genuinely comfortable rather than code-compliant, genuinely energy-efficient rather than merely insulated — the drawings need to specify them. Stock plans don't.
+      </p>
+
+      <h3 class="entry-h3">Availability through the build</h3>
+
+      <p>
+        When a contractor has a question during construction — and they will have questions — the person who designed the home is the person best positioned to answer it. With a stock plan from a website, that person doesn't exist. The designer who drew the plan is somewhere else, has been paid, and has no ongoing obligation to the project. Your contractor is calling you, and you're calling the internet, and you're making decisions on the fly that the design process should have resolved. With a custom designer still engaged in the project, the question gets a considered answer from someone who understands the design intent and can tell the contractor what the drawings actually specify and why.
+      </p>
+
+      <hr class="entry-rule"/>
+
+      <h2 class="entry-h2">A summary — and an honest recommendation</h2>
+
+      <p>
+        Pre-drawn plans make sense when: the site is simple and unconstrained, the construction is conventional, performance goals are modest, and the buyer understands the gap between what the plan provides and what their local code and site actually require.
+      </p>
+
+      <p>
+        They become risky when: the site has meaningful constraints, the buyer intends to modify the plan significantly, performance matters, or the buyer assumes that a contractor can "just handle" the details without updated drawings. In those cases, the gap between the plan purchase price and the total project cost is filled by change orders, field modifications, and compromises that accumulate over the construction timeline.
+      </p>
+
+      <p>
+        Custom design costs more upfront. It produces a home that was designed for the land it's on, the family that will live in it, and the performance level the owner actually cares about. It produces decisions made before they're urgent and a budget allocated deliberately rather than by default. And it produces a drawing set that accurately reflects the building as it should be built — which is the foundation for a build that goes the way it should.
+      </p>
+
+      <p>
+        Whether that's worth the additional cost depends on your project, your land, your family, and what kind of home you're trying to build. If you're not sure which situation you're in, the first conversation is free.
+      </p>
+
+    </article>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ENTRIES
+     Replace the three <article> cards below with links
+     to other journal entries. Update: title, category,
+     date, read time, description, and href on the <a>.
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-surface-container-low border-t border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl font-headline text-primary">More from the journal</h2>
+    </div>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Related entry 1 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="design-decisions.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">For Clients</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">Design is cheap. Change orders are not.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Every decision you make before breaking ground costs nothing to change. Every decision you make mid-framing costs thousands.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Feb 2026 · 9 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 2 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="what-i-did-wrong.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Design Process</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">What I got wrong building my own home.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">The mistakes that cost real money, real time, or that I still live with every day — and what I'd do differently.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Jan 2026 · 14 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 3 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="hvac-load-calculations.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">High-Performance Building</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">HVAC sizing: why rules of thumb produce uncomfortable homes.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Square footage tells you almost nothing about how much heating and cooling a home actually needs. Manual J exists for a reason.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Nov 2025 · 10 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="../journal.html" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all">
+        View all entries <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     CTA + FOOTER (do not modify)
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-xl">
+      <h2 class="text-3xl font-headline mb-3 text-white">Thinking about building?</h2>
+      <p class="text-white/70 font-body mb-7 leading-relaxed">The first conversation is free. Tell me about your land and what you're imagining.</p>
+      <a href="../index.html#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#313030] text-[#fcf9f6]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-4 md:px-12 py-12 md:py-20 max-w-screen-2xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
+      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">
+        Architectural design for those who value technical excellence alongside family comfort.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <!--<p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">LinkedIn</a></li>
+        </ul>-->
+      </div>
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Resources</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../privacy.html">Privacy Policy</a></li>
+          <!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Journal</a></li>-->
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col justify-between items-end">
+      <div class="text-right">
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40">© 2026 Rencher Design</p>
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40 mt-1">Spring City, Utah</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Mobile nav ──
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = toggle.querySelectorAll('.hamburger-bar');
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', !isOpen);
+    if (!isOpen) {
+      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+      bars[1].style.opacity = '0';
+      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+
+  // ── Reading progress bar ──
+  const bar = document.getElementById('progress-bar');
+  const article = document.querySelector('article');
+  window.addEventListener('scroll', () => {
+    const articleTop = article.getBoundingClientRect().top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(Math.max(scrolled / articleHeight, 0), 1);
+    bar.style.width = (pct * 100) + '%';
+  });
+</script>
+
+</body>
+</html>
