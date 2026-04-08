@@ -39,11 +39,7 @@
           "on-secondary-container": "#79542d", "surface-container-high": "#eae8e5",
           "secondary": "#7c5730"
         },
-        fontFamily: {
-          "headline": ["Noto Serif"],
-          "body": ["Plus Jakarta Sans"],
-          "label": ["Plus Jakarta Sans"]
-        },
+        fontFamily: { "headline": ["Noto Serif"], "body": ["Plus Jakarta Sans"], "label": ["Plus Jakarta Sans"] },
         borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
       },
     },
@@ -53,104 +49,72 @@
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
   body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
   h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
-
-  /* Photo placeholder */
-  .photo-slot {
-    background: repeating-linear-gradient(
-      45deg,
-      #f0edea,
-      #f0edea 10px,
-      #e5e2df 10px,
-      #e5e2df 20px
-    );
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px dashed #d4c3be;
-    border-radius: 0.5rem;
-  }
-
-  /* Editorial note styling — visible placeholder instructions */
-  .editorial-note {
-    background-color: #fffbf0;
-    border: 1px dashed #d4a020;
-    border-radius: 0.5rem;
-    padding: 0.875rem 1.125rem;
-    margin-bottom: 1.25rem;
-  }
-  .editorial-note p {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.75rem;
-    color: #7a5a10;
-    line-height: 1.6;
-  }
-  .editorial-note strong { font-weight: 700; }
-
-  /* Section divider */
   .section-rule { width: 2.5rem; height: 2px; background: #7c5730; margin-bottom: 1.25rem; }
-
-  /* Sticky TOC */
   .toc-link { transition: color 0.15s, padding-left 0.15s; }
   .toc-link:hover { color: #7c5730; padding-left: 0.25rem; }
   .toc-link.active { color: #7c5730; font-weight: 600; }
+  /* Lightbox */
+  #lightbox {
+    position: fixed; inset: 0; background: rgba(28,28,26,0.93);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999; cursor: zoom-out; padding: 1.5rem;
+    opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+  }
+  #lightbox.is-open { opacity: 1; pointer-events: all; }
+  #lightbox img {
+    max-width: 100%; max-height: 100vh; width: auto; height: auto;
+    border-radius: 4px; box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    transform: scale(0.92); transition: transform 0.25s ease; cursor: zoom-out;
+  }
+  #lightbox.is-open img { transform: scale(1); }
+  #lightbox-close {
+    position: absolute; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem;
+    border-radius: 50%; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    color: white; font-size: 1.25rem; display: flex; align-items: center;
+    justify-content: center; cursor: pointer; transition: background 0.15s;
+  }
+  #lightbox-close:hover { background: rgba(255,255,255,0.22); }
+  #lightbox-caption {
+    position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.55); font-size: 0.8125rem;
+    font-family: 'Plus Jakarta Sans', sans-serif; text-align: center;
+  }
+  .zoomable { cursor: zoom-in; transition: opacity 0.15s; }
+  .zoomable:hover { opacity: 0.88; }
 </style>
 </head>
 <body class="bg-surface text-on-surface antialiased">
 
 <!-- Navigation -->
-<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm transition-opacity">
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm">
   <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
     <a href="../index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
-
-    <!-- Desktop nav -->
     <div class="hidden md:flex space-x-10 items-center">
       <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../about.html">About</a>
       <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../journal.html">Journal</a>
       <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../services.html">Services</a>
       <a class="text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]" href="../portfolio.html">Portfolio</a>
       <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../process.html">Process</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../index.html#contact">Contact</a>
     </div>
     <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='../index.html#contact'">
       Begin Your Project
     </button>
-
-    <!-- Mobile hamburger button -->
     <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
       <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
       <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
       <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
     </button>
   </nav>
-
-  <!-- Mobile menu drawer -->
   <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
     <div class="px-8 py-6 space-y-1">
-      <a href="../about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
-        About
-        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
-      </a>
-      <a href="../journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
-        Journal
-        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
-      </a>
-      <a href="../services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
-        Services
-        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
-      </a>
-      <a href="../portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">
-        Portfolio
-        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
-      </a>
-      <a href="../process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
-        Process
-        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
-      </a>
-      <div class="pt-4">
-        <a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">
-          Begin Your Project
-        </a>
-      </div>
+      <a href="../about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">About<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Journal<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Services<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">Portfolio<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Process<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../index.html#contact" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Contact<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <div class="pt-4"><a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Begin Your Project</a></div>
     </div>
   </div>
 </header>
@@ -159,7 +123,9 @@
 <section class="py-20 bg-surface-container-low border-b border-outline-variant/20">
   <div class="max-w-screen-2xl mx-auto px-8">
     <div class="mb-4">
-      <a href="../portfolio.html" class="inline-flex items-center gap-1 text-secondary font-label text-xs tracking-wide hover:gap-2 transition-all"><span class="material-symbols-outlined text-sm">arrow_back</span>Portfolio</a>
+      <a href="../portfolio.html" class="inline-flex items-center gap-1 text-secondary font-label text-xs tracking-wide hover:gap-2 transition-all">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>Portfolio
+      </a>
     </div>
     <div class="max-w-3xl">
       <div class="flex flex-wrap gap-2 mb-5">
@@ -178,36 +144,37 @@
 
 <!-- Hero photo -->
 <div class="bg-surface-container border-b border-outline-variant/20">
-  <div class="max-w-screen-2xl mx-auto px-8 py-6">    
+  <div class="max-w-screen-2xl mx-auto px-8 py-6">
     <img
-          src="../images/rencher_residence/hero_cropped.jpg"
-          alt="The Rencher residence on property in Spring City, Utah — juniper-covered land with a view of the Sanpete Valley"
-          class="w-full object-cover object-center"
-          style="max-height: 560px;"
-        />
+      src="../images/rencher_residence/hero_cropped.jpg"
+      alt="The Rencher Residence on property outside Spring City, Utah"
+      class="zoomable w-full object-cover object-center rounded-lg"
+      style="max-height: 560px;"
+      data-caption="The Rencher Residence — Spring City, Utah, 2023."
+    />
   </div>
 </div>
 
-<!-- Main content: TOC sidebar + article -->
+<!-- Main content -->
 <div class="max-w-screen-2xl mx-auto px-8 py-20">
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
 
-    <!-- Sticky TOC sidebar -->
+    <!-- Sticky TOC -->
     <aside class="hidden lg:block lg:col-span-3">
       <div class="sticky top-28 space-y-1">
         <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-4">In this case study</p>
         <nav class="space-y-2 border-l border-outline-variant/30 pl-4">
-          <a href="#the-land" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The land</a>
-          <a href="#the-brief" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The brief</a>
-          <a href="#site-and-orientation" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Site & orientation</a>
-          <a href="#the-design" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The design</a>
-          <a href="#building-envelope" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Building envelope</a>
-          <a href="#hvac" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">HVAC & comfort</a>
-          <a href="#off-grid-systems" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Off-grid systems</a>
-          <a href="#permitting" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Permitting</a>
-          <a href="#the-build" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The build</a>
-          <a href="#results" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Results & testing</a>
-          <a href="#lessons" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">What I'd do differently</a>
+          <a href="#the-land"             class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The land</a>
+          <a href="#the-brief"            class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The brief</a>
+          <a href="#site-and-orientation" class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Site &amp; orientation</a>
+          <a href="#the-design"           class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The design</a>
+          <a href="#building-envelope"    class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Building envelope</a>
+          <a href="#hvac"                 class="toc-link block text-sm font-body text-on-surface-variant py-0.5">HVAC &amp; comfort</a>
+          <a href="#off-grid-systems"     class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Off-grid systems</a>
+          <a href="#permitting"           class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Permitting</a>
+          <a href="#the-build"            class="toc-link block text-sm font-body text-on-surface-variant py-0.5">The build</a>
+          <a href="#results"              class="toc-link block text-sm font-body text-on-surface-variant py-0.5">Results</a>
+          <a href="#lessons"              class="toc-link block text-sm font-body text-on-surface-variant py-0.5">What I&apos;d do differently</a>
         </nav>
         <div class="pt-8">
           <a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Begin Your Project</a>
@@ -215,7 +182,7 @@
       </div>
     </aside>
 
-    <!-- Article body -->
+    <!-- Article -->
     <article class="lg:col-span-9 space-y-20">
 
       <!-- ── THE LAND ── -->
@@ -224,66 +191,77 @@
         <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">The Land</span>
         <h2 class="text-3xl font-headline leading-snug mb-6">40 acres with no power, no water, and no sewer.</h2>
 
-        <!--<p>When we moved from the Seattle area to Sanpete county we came with nothing but a bank account full of money from the sale of our prior home. We didn't know anyone, we didn't own any land, we didn't have any land we were hoping to buy, we didn't know how to evaluate land, we didn't even know if we wanted to live close to people or far away from them. We were lucky to have gotten a place to rent.</p>
-        <br>
-        <p>I spent all my time before and after work learning to use CAD tools, learning everything I could about building off-grid, looking at houses and land with our realtor, and learning how to evaluate raw land for purchase. I had some experience previously with the full construction process while doing a permitted addition to my prior home so I knew a bit about what I was getting into, but the land side of things was completely new.</p>
-        <br>-->
-        <p>We found a large property a couple of miles outside of Spring City that worked with our budget and had great potential for off-grid living, enough water for small scale agriculture, privacy, and lots of room to raise our growing family. And the views. The views are incredible, but I don't have the skill to capture them with a camera. We loved the juniper trees, the smell of the sage brush, and the open fields on the property. The only reason we could afford it was the fact that it was so far from utilities most people wouldn't want to pay to run power about a mile and then deal with your own water, septic, and gas.</p>
-        <br>
-        <p>Everything was going smoothly with the design phase and with starting to put infrastructure into the property. No issues were identified by the zoning department, the plans were ready to submit to the bulding department, but at our meeting with the county commissioners to create the actual buildable lot they found that we did not have legal access to our land. The county maps shows that the county had an easement for the road that ran along the property, but it was only a prescriptive easement due to them having maintained that roadway for years. It applied only to the road surface itself, not to any land on the sides. Our land came up a couple feet short of the road surface so we had to acquire half of the road surface from our neighbor. If I had known about that problem in advance I probably would have passed on the land or lowered our offer considerably. That is no small problem. I was fortunate that my neighbor was a great guy and didn't try to take advantage of my desperate situation, but that doesn't happen every time.</p>
-        <br>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">We found a large property a couple of miles outside of Spring City that worked with our budget and had great potential for off-grid living, enough water for small-scale agriculture, privacy, and room to raise our growing family. The views are incredible, but I don't have the skill to capture them with a camera. We loved the juniper trees, the smell of the sage brush, and the open fields. The only reason we could afford it was the fact that it was so far from utilities — most people wouldn't want to pay to run power about a mile and then deal with their own water, septic, and gas. That distance was exactly what we were looking for.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">Everything was going smoothly with the design phase and with starting to put infrastructure into the property. No issues were identified by the zoning department, the plans were ready to submit to the building department — but at our meeting with the county commissioners to create the actual buildable lot, they found that we did not have legal access to our land. The county maps showed that the county had an proper easement for the road running along the property, but it turned out to only be a prescriptive easement due to them having maintained that roadway for years. It applied only to the road surface itself, not to any land on the sides. Our land came up a couple of feet short of the road surface, so we had to acquire half of the road surface from our neighbor.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-6">If I had known about that problem in advance I probably would have passed on the land or lowered our offer considerably — it was no small problem. I was fortunate that my neighbor was a reasonable person and didn't take advantage of my situation, but that doesn't always happen. Buyers of rural land should verify legal access explicitly and independently before making an offer. Not even county maps are completely trustworthy.</p>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-          <div class="aspect-[4/3]">
-            <img
-            src="../images/rencher_residence/valley_wide.jpg"
-            alt="Raw land in the winter"
-            class="w-full object-cover object-center"
-            style="max-height: 560px;"
-          />
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/valley_wide.jpg" alt="View across the valley from the property" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="The valley view to the West — visible from the main living areas."/>
           </div>
-          <div class="aspect-[4/3]">
-            <img
-            src="../images/rencher_residence/mountain_wide.jpg"
-            alt="Raw land in the winter"
-            class="w-full object-cover object-center"
-            style="max-height: 560px;"
-          />
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/mountain_wide.jpg" alt="View of the mountain peaks from the property" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="The two most prominent peaks in the area, visible from the kitchen and living room windows."/>
           </div>
         </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20">
+            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-1">Acreage</p>
+            <p class="font-headline text-2xl text-primary">40</p>
+            <p class="text-xs text-on-surface-variant font-body mt-0.5">Outside Spring City</p>
+          </div>
+          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20">
+            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-1">At purchase</p>
+            <p class="font-headline text-xl text-primary">No utilities</p>
+            <p class="text-xs text-on-surface-variant font-body mt-0.5">Power, water, sewer — none</p>
+          </div>
+          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20">
+            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-1">Occupants</p>
+            <p class="font-headline text-2xl text-primary">9</p>
+            <p class="text-xs text-on-surface-variant font-body mt-0.5">Full-time, 2 born here</p>
+          </div>
+          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20">
+            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-1">Completed</p>
+            <p class="font-headline text-2xl text-primary">2023</p>
+            <p class="text-xs text-on-surface-variant font-body mt-0.5">Full county permit</p>
+          </div>
+        </div>
+      </section>
 
       <!-- ── THE BRIEF ── -->
       <section id="the-brief">
         <div class="section-rule"></div>
         <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">The Brief</span>
         <h2 class="text-3xl font-headline leading-snug mb-6">Energy independence without asking the family to give anything up.</h2>
-        <p>My wife and I toured a number of off-grid homes when we were deciding whether to build one. Every single home was making serious compromises to quality of life or was heavily reliant on propane. That wasn't what I wanted. I didn't want to have to tend a fire and generator all winter long. I wanted great lightning and a modern lifestyle in a large, comfortable house. I don't want "Little House on the Prarie" as my main residence. I want 2 dishwashers, 3 ovens, 2 refrigerators, 3 freezers, a washer and dryer, my air compressors, and all the hot water I can possibly enjoy.</p>
-        <br>
-        <p>That was the design challenge. How do you build a large modern home off-grid and control the costs of the project? There were plenty examples of modern net zero homes and small off-grid homes at that time, but nothing like what I wanted. I had one shot to do it and it had to be right the first time. My whole family was depending on me.</p>
-        <br>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">My wife and I toured a number of off-grid homes when we were deciding whether to build one. Every single home was making serious compromises to quality of life or was heavily reliant on propane. That wasn't what I wanted. I didn't want to tend a fire and generator all winter long. I wanted great lighting and a modern lifestyle in a large, comfortable house. I don't want "Little House on the Prairie" as my main residence. I want two dishwashers, three ovens, two refrigerators, three freezers, a washer and dryer, my air compressors, and all the hot water I can possibly enjoy.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed">That was the design challenge: how do you build a large modern home off-grid and control the costs? There were plenty of examples of modern net-zero homes and small off-grid homes at that time, but nothing like what I wanted. I had one shot to do it and it had to be right the first time.</p>
       </section>
 
       <!-- ── SITE & ORIENTATION ── -->
       <section id="site-and-orientation">
         <div class="section-rule"></div>
-        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Site & Orientation</span>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Site &amp; Orientation</span>
         <h2 class="text-3xl font-headline leading-snug mb-6">Every site has a best answer. Finding it is the first design decision.</h2>
-        <p>We walked the property every day for about six months experiencing it through summer, fall, winter, day, and night. I noticed after a lttle while that the property had a microclimate and that it was more likely to be cloudy in the morning than the afternoon and evening. There was one spot that was consistently warmer and less windy than anywhere else. Every night there was a cool breeze from the East but the harsh South wind was less. It was also adjacent to the most fertile soil on the property for a garden. It had the great views of the 2 most prominent mountain peaks and no shading problems for solar. The house could be oriented 15 degrees West of South to interact with the land well, and to maintain high solar collection.</p>
-        <br>
-        <p>There were a few problems though. The land was a bit sloped, it was in the center of the property which made for a long driveway, and there was no view of the valley floor. With some thought, I found that we could take advantage of the slope to allow for a gravity fed septic system and excellent drainage for rain and snow melt. I found that if I designed a longer home, anchored the house to the elevation on the East, and had our excavator move the dirt spoil from the basement to the West it would build a berm large enough to provide a future lawn, a gradual slope down to the rest of the land, and would raise the house just enough to get the valley view! It would also provide more uninturrupted roof area for solar panels. As for the long driveway, that provides privacy. You can see the house from the road from only one spot.</p>
-        <br>
-        
-        <div class="grid grid-cols-1 md:grid-cols-1 gap-3 mb-6">        
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">We walked the property every day for about six months, experiencing it through summer, fall, winter, day, and night. After a while I noticed the property had a microclimate and it was more likely to be cloudy in the morning than the afternoon and evening. There was one spot that was consistently warmer and less windy than anywhere else. Every night there was a cool breeze from the East and the South wind was milder. That same spot was adjacent to the most fertile soil for a garden, had unobstructed views of the two most prominent mountain peaks, no shading problems for solar, and allowed the house to be oriented 15 degrees West of South to work with the land while maintaining high solar collection.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-6">There were problems. The land was sloped, it was in the center of the property which meant a long driveway, and there was no view of the valley floor. I found that I could take advantage of the slope for a gravity-fed septic system and excellent drainage. If I designed a longer home anchored to the elevation on the East, and had the excavator move the basement spoil to the West, it would build a berm large enough to create a future lawn, a gradual slope to the rest of the land, and would raise the house just enough to get the valley view — while also providing more uninterrupted roof area for solar. The long driveway became an asset: you can see the house from the road from only one spot.</p>
+
         <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
           <img
             src="../images/rencher_residence/plot_plan.jpg"
             alt="Plot plan submitted for building permit"
-            class="w-full object-cover object-center"
-            style="max-height: 560px"
+            class="zoomable w-full object-cover object-center"
+            style="max-height: 520px;"
+            data-caption="Plot plan from the permit set. The contour lines show the rapid change in elevation and how the berm and siting decisions were coordinated."
           />
           <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
-            <p class="text-xs font-body text-on-surface-variant italic">This is the plot plan page from the plan set I drew for the house. You can see the contour lines showing the rapid change in land elevation in this location and how I took advantage of it.</p>
+            <p class="text-xs font-body text-on-surface-variant italic">Plot plan from the permit set. The contour lines show the rapid change in land elevation — the excavated basement spoil was moved West to build the berm and capture the valley view.</p>
           </div>
-        </div>
         </div>
       </section>
 
@@ -293,111 +271,98 @@
         <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">The Design</span>
         <h2 class="text-3xl font-headline leading-snug mb-6">Designing for how we actually live — not how another family does.</h2>
 
-        <p>My family is always home. I work from home, my wife homeschools all of our children here, and we run our small farm from here. Some weeks the only time we leave the property is to go to Church on Sunday. We like to be together, but we also need room to be separate. We have lots of books, stored homeschool curriculum, bedding, food, clothes, and other things that all need a home. Everybody has twice a day chores with the animals so there's the coats and boots to handle. My wife cooks almost all our food and teaches cooking so she needs a large and open kitchen with a big pantry. We decided early on that the children would be sharing bedrooms. When they leave our home they will have roomates or a spouse, so its best they learn to get along with other people when they are young. That would mean 5 bedrooms. We would love a guest bedroom, but people rarely visit overnight so one of the childrens' bedrooms will have to flex to fill that need sometimes. My wife needed a space for sewing, school preparation, and crafts. Lots of requirements!</p>
-        <br> 
-        <p>The most important requirement to meet is my wife's need to watch the youngest children while she goes about her work. She spends most of her time in the kitchen, the main table for homeschool, master bedroom, and her office. The youngest children play in the family room. She parents with her ears so these spaces have to be close together and fairly open to each other. Regular chores meant that the mudroom and garage should be connected. The number of mud boots is just too many and the mess is too much to store them anywhere but the garage. I only want access to the house from the first floor, so the mudroom has to go on the main level. That pretty much defines the entire first floor.</p>
-        <br>
-        <p>The house would need extensive mechanical spaces. Water treatment and pressurization, HVAC, water heating, air circulation, central vac, and power storage and generation. Power storage was a genuine safety concern. The lithium batteries I was planning to use were pretty safe, but new chemistries in the future might not be. That much energy in a small space though is concerning no matter what and I absolutely did not want children in that area. So that meant a locked door on a fire resistant room. We also have extensive storage needs. With the amount of food we go through and the clothes we have in all sizes, we basically have a small Walmart of storage. The area under the porch is perfect for those needs. It is fairly cool year round, kids don't want to go in there, and a section can be locked off for power.</p>
-        <br>
-        <p>I didn't want a second story that would be visible above the trees to preserve the view of the surrounding properties. The big playroom we wanted for when the weather was bad, the children's bedrooms, the laundry, my office, and secondary bathrooms all had to go downstairs. Putting anything more upstairs would blowup the square footage of the entire house footprint and leave me with an empty basement. That created a new problem, the master bedroom was the only bedroom on the main level. With young children, sick children, and babies we don't want to be going up and down the stairs all night long. Our solution was a nursery inside the master suite that could be a closet in the future, or converted to a laundry room for single floor living.</p>
-        <br>
-        <p>Architecturally speaking the house is very plain. There are 4 reasons for this. One, we live in the middle of the woods, two, I needed the south facing roof to be long and flat with zero obstructions, three, we wanted a big wrap around porch with storage below, and four, simple houses are cheaper to build. We chose a simple gable for the front of the house to break up the roof, choose a bright color to make the porch pillars pop, and rock for the path to the front door, but that was it. These requirements forced the design into a rectangle which simplifies some things by constraining choice, but makes other things harder like getting natural light into some parts of the house.</p>
-        <br>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">My family is always home. I work from home, my wife homeschools all of our children, and we run a small farm here. Some weeks the only time we leave the property is for church on Sunday. We like to be together, but we also need room to be separate. We have books, stored curriculum, bedding, food, clothes in all sizes, and equipment — all needing a home. Chores twice a day with the animals means lots of coats and muddy boots that I don't want inside. My wife cooks almost all our food and teaches cooking, so she needs a large open kitchen with a big pantry. We decided early that the children would share bedrooms — when they leave home they'll have roommates or a spouse, so learning to share is useful. That meant five bedrooms. A guest room would be nice but people rarely visit overnight, so a children's bedroom would flex for that. My wife needed space for sewing, school preparation, and crafts.</p>
 
-        <!-- Floor plan + exterior photo side by side -->
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">The most important requirement was my wife's ability to watch the youngest children while going about her work. She spends most of her time in the kitchen, at the main table, in the master bedroom, and in her office. The youngest children play in the family room. She parents with her ears, so those spaces have to be close together and fairly open. Regular chores meant the mudroom and garage should connect — the mud boot count is too high and they are too messy to store them anywhere but the garage. House access only from the first floor meant the mudroom goes on the main level. Those decisions defined the entire first floor.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">The house needed extensive mechanical spaces — water treatment, HVAC, water heating, air circulation, central vac, and power storage. Power storage was a genuine safety concern: that much energy in a small space is concerning regardless of battery chemistry, and I didn't want children near it. That space needed a locked door on a fire-resistant room. The space under the porch was perfect for bulk storage — cool year-round, unappealing to children, and could include a section lockable for power equipment.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">I didn't want a second story visible above the trees to preserve the view from neighboring properties. The large playroom, children's bedrooms, laundry, my office, and secondary bathrooms all went downstairs. The master bedroom was then the only bedroom on the main level. With young children and babies, we don't want to be up and down the stairs all night. The solution was a nursery inside the master suite — it can become a closet in the future, or convert to laundry for single-floor living when that season comes.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-6">Architecturally the house is very plain, for four reasons: we live in the woods; I needed the south-facing roof long and flat with zero obstructions for solar; we wanted a big wrap-around porch with storage below; and simple houses are cheaper to build. A simple gable on the front breaks up the roof, a bright color makes the porch pillars pop, and a rock facade dresses up the path to the front door. The rectangle simplifies some things by constraining choice, but makes others harder — like getting natural light into parts of the house that a more complex footprint could reach easily.</p>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <div class="aspect-[4/3]">
-              <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
-                <img
-                  src="../images/rencher_residence/main_level_plan.jpg"
-                  alt="Plot plan submitted for building permit"
-                  class="w-full object-cover object-center"
-                  style="max-height: 560px"
-                />
-                <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
-                  <p class="text-xs font-body text-on-surface-variant italic">This is the main level page from the plan set I drew for the house. It focuses on the room layout and the general dimensions as an overview.</p>
-                </div>
-              </div>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/main_level_plan.jpg" alt="Main level floor plan" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="Main level — kitchen, living, master suite, nursery, mudroom, and garage all on one floor."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">Main level plan from the permit set. Click to enlarge.</p>
             </div>
-          
-          <div class="aspect-[4/3]">
-              <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
-                <img
-                  src="../images/rencher_residence/basement_plan.jpg"
-                  alt="Plot plan submitted for building permit"
-                  class="w-full object-cover object-center"
-                  style="max-height: 560px"
-                />
-                <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
-                  <p class="text-xs font-body text-on-surface-variant italic">This is the basement level page from the plan set I drew for the house. It focuses on the room layout and the general dimensions as an overview.</p>
-                </div>
-              </div>
+          </div>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/basement_plan.jpg" alt="Basement level floor plan" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="Basement — children's bedrooms, family room, laundry, office, and mechanical spaces."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">Basement level plan from the permit set. Click to enlarge.</p>
             </div>
+          </div>
         </div>
 
-        <!-- Interior photo row -->
-        <div class="editorial-note">
-          <p><strong>Photos (2–4):</strong> Interior shots of the rooms that best represent the home. Kitchen, living area, and primary bedroom are most useful to prospective clients. Natural light shots are more persuasive than artificial light.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/kitchen.jpg" alt="Kitchen with dual ranges" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="Kitchen looking South — dual ranges, drawer-primary cabinetry nearing the end of construction."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">Kitchen looking South — dual ranges nearing end of construction.</p>
+            </div>
+          </div>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/kitchen_2.jpg" alt="Kitchen looking North" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="Kitchen looking North — open connection to dining and living areas keeps the cook part of the household conversation."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">Kitchen looking North — open to dining and living areas.</p>
+            </div>
+          </div>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/family_room.jpg" alt="Basement family room" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="Basement family room with wood-burning fireplace — where the children play on days when the weather keeps them inside."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">Basement family room with wood-burning fireplace.</p>
+            </div>
+          </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          <div class="photo-slot aspect-[4/3]">
-            <span class="material-symbols-outlined text-outline text-2xl mb-1">add_photo_alternate</span>
-            <p class="font-label text-[9px] tracking-widest uppercase text-outline">Kitchen</p>
-          </div>
-          <div class="photo-slot aspect-[4/3]">
-            <span class="material-symbols-outlined text-outline text-2xl mb-1">add_photo_alternate</span>
-            <p class="font-label text-[9px] tracking-widest uppercase text-outline">Living Room</p>
-          </div>
-          <div class="photo-slot aspect-[4/3]">
-            <span class="material-symbols-outlined text-outline text-2xl mb-1">add_photo_alternate</span>
-            <p class="font-label text-[9px] tracking-widest uppercase text-outline">Primary Bedroom / Suite</p>
-          </div>
-        </div>
-        <br>
       </section>
 
       <!-- ── BUILDING ENVELOPE ── -->
       <section id="building-envelope">
         <div class="section-rule"></div>
         <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Building Envelope</span>
-        <h2 class="text-3xl font-headline leading-snug mb-6">The part of the house no one sees, and the part that determines whether you're comfortable.</h2>
+        <h2 class="text-3xl font-headline leading-snug mb-6">The part of the house no one sees — and the part that determines whether you're comfortable.</h2>
 
-        <div class="editorial-note">
-          <p><strong>Write 2–4 paragraphs covering:</strong> Why you spent more time on air sealing than any other system. The wall assembly you chose — insulation type, R-values, where the thermal break sits. The specific locations where air sealing is hardest and most commonly failed: rim joists, top plates, window rough openings, electrical penetrations, recessed lights (if any). What continuous air barrier continuity means in practice and how you detailed it. Window selection — U-factor, SHGC, why you chose what you chose and what you'd do differently. The insulation strategy for the roof/attic or ceiling.</p>
-        </div>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">The building envelope is the perimeter of the conditioned area. That can vary, but in my home it goes from the foundation footer underground, up to the top of the main level wall, bridges to the drywall ceiling, then back down the other side to the footer, and across the basement slab. Every intersection needs to be detailed correctly to prevent air leakage. Some locations — like the footer-to-slab and stem wall intersections — seal adequately with standard construction methods. Others require deliberate work: the sheathing sealed to the concrete, the sheathing itself coated to prevent air movement, and the bridge from sheathing across the top plate to the drywall sealed — a junction that's particularly challenging because multiple contractors are involved. All penetrations through the drywall ceiling will leak air into the attic. Windows leak if not sealed properly to the framing.</p>
 
-        <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/20 mb-6">
-          <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-4">Wall Assembly Summary</p>
-          <div class="editorial-note mb-0">
-            <p><strong>Fill in actual specs:</strong> Wall assembly layers from exterior to interior (e.g., siding → WRB → sheathing → framing + insulation → air barrier → drywall). Roof assembly. Foundation/slab insulation strategy. Window specs. Replace this note with a simple table or list of the actual numbers.</p>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">Some design details changed as the build progressed. We switched from fiber cement lap siding to stucco. Rigid foam costs got expensive enough that it was scrapped in the basement. I discovered the air sealing tape I was using didn't stick reliably to concrete and had to switch to a specialized sealant. The final system: highly flexible sealant sealing the ZIP System sheathing to the concrete; ZIP sheathing for the exterior with all seams taped; all window and door openings flashed with ZIP tape for air and water sealing; sheathing sealed to the top plate with sealant; and a drywall gasket applied to the interior of the top plate to seal when drywall was installed. The ceiling has almost 100 electrical penetrations on the main level. I sealed individual containers above each one to create an air barrier at every penetration — a project I'll cover separately in a journal entry.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-6">The insulation is a continuous layer of 2" XPS rigid foam on the entire exterior of the main house (R-10), with wall cavities filled with dense-packed blown-in fiberglass for (R-22). The true total wall R-value is about R-25 accounting for thermal bridging at studs — not impressive by high-performance standards, but effective and affordable in my climate when paired with the air sealing. The ceiling is insulated to R-60. I used double-pane windows ordered with a solar heat gain coating — on a sunny day they're heaters, and the heat doesn't turn on at all when it's above 20°F and sunny outside. In summer, the roof overhang keeps the windows fully shaded all day.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/house_envelope.jpg" alt="Main house air sealed separately from garage" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="The house body is treated as a separate envelope from the garage — independently air sealed and insulated on all sides."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">House body air sealed and insulated independently from the garage.</p>
+            </div>
           </div>
-        </div>
-
-        <div class="editorial-note">
-          <p><strong>Optional diagram:</strong> A wall section detail — even a simplified version showing the layers and where the air barrier and thermal boundary sit. This is one of the most technically credible things you can show on this page.</p>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/exterior_wall_detail.jpg" alt="Exterior wall construction detail" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="Wall section detail from the permit drawings — ZIP sheathing, rigid foam, furring, and stucco layers."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">Exterior wall detail from the permit set.</p>
+            </div>
+          </div>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/exterior_foam.jpg" alt="Exterior wrapped in rigid foam" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="The entire exterior wrapped in 2&quot; of continuous rigid foam before stucco."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">2" of continuous rigid foam wraps the entire exterior before stucco.</p>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- ── HVAC ── -->
       <section id="hvac">
         <div class="section-rule"></div>
-        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">HVAC & Comfort</span>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">HVAC &amp; Comfort</span>
         <h2 class="text-3xl font-headline leading-snug mb-6">A standard forced-air system. Extraordinary comfort. The envelope is why.</h2>
 
-        <div class="editorial-note">
-          <p><strong>Write 1–3 paragraphs covering:</strong> What HVAC equipment you chose and why — system type, fuel source, sizing. How you performed the load calculation (Manual J or equivalent) and how the result compared to what a rule-of-thumb sizing would have produced. Duct design: where ducts run, how they're sealed, register placement philosophy. Ventilation strategy: how fresh air gets into the home (ERV/HRV, or other). The result: floor-to-ceiling temperature consistency, how the system runs day-to-day. Anything you'd change about the mechanical design.</p>
-        </div>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">My home contains many smaller rooms off of other rooms within a large footprint. Standard mini-splits would have been too large for individual rooms and would short-cycle constantly, never running in their efficient range. Sizing them to a single unit per level would mean slow temperature recovery in remote rooms. I went with ducted mini-splits instead: a blower unit inside the house connected to outdoor heat pump units — the same physical arrangement as a standard forced-air system, but with heat pump efficiency. All ductwork runs inside the floor joists supporting the main level, completely within the building envelope. No energy is lost through ducts running in the unconditioned attic.</p>
 
-        <!-- Comfort result callout -->
-        <div class="bg-primary text-white rounded-xl p-8 my-6">
-          <div class="flex items-start gap-4">
-            <span class="material-symbols-outlined text-secondary-container text-3xl mt-1 flex-shrink-0">device_thermostat</span>
-            <div>
-              <p class="font-serif italic text-white/90 text-xl leading-relaxed mb-3">"In my home, the air temperature at the floor and the ceiling is nearly identical."</p>
-              <p class="text-white/60 text-sm font-body">In most homes, heat rises and cold settles. This is accepted as normal. It isn't inevitable — it's the result of a leaky envelope and an undersized or poorly designed system. A well-sealed, well-designed home feels fundamentally different.</p>
-            </div>
-          </div>
-        </div>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">The house uses two units: a 1.5-ton unit for the basement and a 2.5-ton unit for the main level. A house this size by rule of thumb would get 7–10 tons of capacity. I have 4 tons total and I only need 3 tons, but that's just how it had to be. Everyone told me it wouldn't work. I had to sign a waiver before the HVAC company would do the install so they couldn't be held liable for rework costs if capacity was insufficient. I was right — but I was right because I did the math, not because I guessed. I had local historical climate data to determine worst-case scenarios. I knew how tight the house was supposed to be, how it was insulated, and how many windows and doors it would have. That let me calculate room-by-room heat gain and loss and select units from manufacturer performance tables that would meet my actual load requirements. That process is what I produce for every client in the High-Performance drawing package.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed">Building a house this tight required controlled ventilation — otherwise the air inside becomes stale. I installed an ERV (Energy Recovery Ventilator) that uses a heat transfer core to allow incoming and outgoing airstreams to pass near each other without mixing, transferring energy from the conditioned exhaust to the incoming fresh air. In winter, fresh air enters pre-warmed rather than at outdoor temperature. The house gets fresh air continuously without exhausting conditioned air.</p>
       </section>
 
       <!-- ── OFF-GRID SYSTEMS ── -->
@@ -406,37 +371,46 @@
         <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Off-Grid Systems</span>
         <h2 class="text-3xl font-headline leading-snug mb-6">Solar, battery storage, generator backup, and a complete water system — designed as a unified whole.</h2>
 
-        <div class="editorial-note">
-          <p><strong>Write 2–4 paragraphs covering:</strong> How you approached the load profile analysis — going appliance by appliance, accounting for seasonal variation, identifying the HVAC as the dominant winter load. How you sized the solar array for winter worst-case (not summer average) — what the peak sun hours looked like in December at your elevation and latitude. Battery bank: chemistry, capacity, autonomy days, how it performs in cold weather. Generator: sizing logic, fuel type, integration with the inverter/charger, how often it actually runs. Water system: source, treatment, storage, pressure, how it's managed. What surprised you about living with the system day-to-day.</p>
-        </div>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">Sizing an off-grid electrical system requires balancing peak demand, sustained demand, and seasonal variation in both production and consumption. What you find quickly is that Thanksgiving and Christmas are your worst-case scenarios — high demand during low production. Running a generator during those periods is expected and designed for. It's far cheaper to use a generator occasionally to recharge batteries than to size the solar array for the absolute worst case.</p>
 
-        <!-- System specs -->
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">I used building simulation software to calculate heat loss under various weather conditions and ran multiple simulated winters. I combined that with appliance-by-appliance load estimation cross-checked against actual utility bills from prior homes, then wrote software to simulate how various combinations of array size and battery capacity would perform across different winter scenarios. I found that beyond a certain point, increasing battery bank size stopped helping. Increasing array size always helps but returns diminish. The most cost-effective system balances all three: array, battery, and planned generator runtime. My analysis showed I needed to plan for up to 200 hours of generator runtime in a bad winter, with as few as 20 in a good one. Most solar estimators and designers don't know how to design a system that performs well in winter — they focus on annual generation and time-of-day production rather than real winter days, sizing by the same rules of thumb that plague other trades.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-6">The biggest surprise was the well pump. With only a single pressure tank, the pump cycles on frequently to maintain house pressure — drawing more power per year than anything else in the house. The water system is something I'd approach differently in a new build, covered in the lessons section below.</p>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/20">
             <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-4">Electrical System</p>
-            <div class="editorial-note mb-0">
-              <p><strong>Fill in actual specs:</strong> Array size (kW), panel count, inverter make/model, battery bank (kWh, chemistry), generator (kW, fuel), charge controller type. Replace this note with actual numbers.</p>
-            </div>
+            <ul class="space-y-1 text-sm text-on-surface-variant font-body">
+              <li>56 roof-mounted panels — 20 kW</li>
+              <li>16 ground-mounted panels — 6 kW</li>
+              <li>2 × SolArk 15K inverters</li>
+              <li>2 × Fortress eVault MAX LiFePO4 — 37 kWh</li>
+              <li>7 × home-built LiFePO4 packs — 100 kWh</li>
+              <li>Diesel generator — 20 kW prime output</li>
+            </ul>
           </div>
           <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/20">
             <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-4">Water System</p>
-            <div class="editorial-note mb-0">
-              <p><strong>Fill in actual specs:</strong> Water source (well, cistern, spring), storage capacity, pump type, pressure system, filtration stages, UV treatment if applicable. Replace this note with actual numbers.</p>
-            </div>
+            <ul class="space-y-1 text-sm text-on-surface-variant font-body">
+              <li>400-foot well</li>
+              <li>Variable frequency drive pump controller</li>
+              <li>Peroxide injection — 4-stage filtration</li>
+            </ul>
           </div>
         </div>
 
-        <div class="editorial-note">
-          <p><strong>Optional photo:</strong> The mechanical room, battery bank, inverter/charger, or solar array. These photos are surprisingly compelling to off-grid clients who want to see what a real system looks like installed.</p>
-        </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div class="photo-slot aspect-[4/3]">
-            <span class="material-symbols-outlined text-outline text-3xl mb-2">battery_charging_full</span>
-            <p class="font-label text-[9px] tracking-widests uppercase text-outline">Battery Bank / Mechanical Room</p>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/electrical_wide.jpg" alt="Off-grid electrical installation" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="Battery rack, inverters, and combination panels in the locked electrical room."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">Battery rack, inverters, and combination panels in the electrical room.</p>
+            </div>
           </div>
-          <div class="photo-slot aspect-[4/3]">
-            <span class="material-symbols-outlined text-outline text-3xl mb-2">solar_power</span>
-            <p class="font-label text-[9px] tracking-widest uppercase text-outline">Solar Array</p>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/panels.jpg" alt="Solar panels on roof" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="The roof was sized to accommodate three rows of solar panels across almost the entire south-facing surface."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">Three rows of panels across almost the entire south-facing roof surface.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -445,107 +419,113 @@
       <section id="permitting">
         <div class="section-rule"></div>
         <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Permitting</span>
-        <h2 class="text-3xl font-headline leading-snug mb-6">The county had never reviewed an off-grid electrical system. We went first.</h2>
+        <h2 class="text-3xl font-headline leading-snug mb-6">The county was not experienced in reviewing an off-grid electrical system.</h2>
 
-        <div class="editorial-note">
-          <p><strong>Write 1–2 paragraphs covering:</strong> What it was like submitting plans to a jurisdiction with no established process for off-grid electrical. How you approached the reviewers — educating them patiently, speaking their language, making it easy to say yes. What the back-and-forth looked like and how long it took. What you learned about navigating bureaucratic processes that didn't apply neatly to your situation. Why this experience is directly relevant to clients who want to build in rural areas with unusual systems — and why having a designer who has been through it matters.</p>
-        </div>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">Being a fully permitted build was a different experience. The county building inspectors knew that many solar and battery installations in the county had never been inspected. At first they were not going to approve any off-grid plans. I eventually convinced them by getting a solar contractor involved — the law allows a homeowner to do their own work as long as it's inspected, but I was on a timeline and going to court to fight would have been expensive and slow. That solar contractor turned out to be the single most frustrating part of the entire build. He was in my opinion completely incompetent — a salesman, not an installer. I drove everything myself, caught a catastrophic wiring error that would have destroyed $15,000 in equipment, and ultimately rewired the entire system to get it working correctly.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed">Once that hurdle was cleared, everything went fairly normally. I had to prove that the house didn't need standard house wrap because of the ZIP System, and that exterior foam was acceptable. I used building code and manufacturer technical documents to convince the county officials. The key is to discuss out-of-the-ordinary details competently and with confidence — with your evidence already in hand. Building officials are usually just trying to do their job. They're used to doing things a certain way. They're not opposed to learning something new, but they prefer evidence from sources they already trust, and they need time to consider it. Expecting fast turn around with new ideas is not realistic.</p>
       </section>
 
       <!-- ── THE BUILD ── -->
       <section id="the-build">
         <div class="section-rule"></div>
-        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">The Build</span>
+        <span class="font-label text-secondary tracking-widests text-xs font-bold uppercase block mb-3">The Build</span>
         <h2 class="text-3xl font-headline leading-snug mb-6">Managing a complex build from the design side.</h2>
 
-        <div class="editorial-note">
-          <p><strong>Write 1–3 paragraphs covering:</strong> Who the general contractor was (or whether you owner-built any portion). What it was like managing the framing subcontractor — did they follow the drawings, what conversations were necessary. The HVAC sub: how detailed drawings helped (or where they pushed back). Any significant mid-build decisions or surprises. What you monitored during the build and why. Timeline from breaking ground to move-in. What the experience of building your own design taught you about the gap between drawings and execution — and how that changed how you design for clients.</p>
-        </div>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">I couldn't find a general contractor who could build the home I wanted, so I used one I trusted and wrote some tasks out of our contract that I would control completely — water, solar, and permitting. I tried to make everything else as standard as possible from his perspective. We walked through the unique design details and talked about how to fit them into the standard construction schedule. That conversation produced some changes to the wall assembly details that simplified the process while still hitting my performance numbers — and actually saved some money.</p>
 
-        <div class="editorial-note">
-          <p><strong>Optional photos (2–4):</strong> Construction progress shots — framing, rough mechanicals, insulation before drywall. These are particularly valuable because they show what air sealing and envelope details look like in progress, before walls close up. If you have photos of the rim joist foam, top plate sealing, or window rough openings, those belong here.</p>
-        </div>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">My general contractor had been a framer for years. Once I showed him the differences between normal framing and what I needed, he understood immediately and I could trust him to execute it. The HVAC was more disappointing. The contractor didn't follow the duct design I had produced because it was too different from what he was used to — duct sizes were outside of ordinary, designed to be quiet and to limit airflow to rooms that didn't need it. By that point in the build I was exhausted and the solar contractor situation was consuming my attention. I let schedule pressure and contractor resistance wear me down and didn't require my design be followed. The system isn't as good as it should be as a result. I should have made better use of my general contractor to help me get that done right.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-6">The build went relatively smoothly all things considered — we moved in nine months from permit issuance, which is a quick timeline. My contractor told me afterward that it had gone about as smoothly as a normal build. For me as the designer, the best moment was seeing the house turn out to look exactly like the 3D models I had produced. When the drywall was up and the exterior was finished, I took my wife on a tour. She was shocked that she knew her way around perfectly. Everything looked exactly like she had been expecting.</p>
+
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div class="photo-slot aspect-square">
-            <span class="material-symbols-outlined text-outline text-2xl mb-1">construction</span>
-            <p class="font-label text-[9px] tracking-widest uppercase text-outline text-center px-2">Framing</p>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/foundation.jpg" alt="Foundation with waterproofing" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="The foundation — the black coating is all the waterproofing needed in the high desert."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">Foundation with waterproofing.</p>
+            </div>
           </div>
-          <div class="photo-slot aspect-square">
-            <span class="material-symbols-outlined text-outline text-2xl mb-1">construction</span>
-            <p class="font-label text-[9px] tracking-widest uppercase text-outline text-center px-2">Air sealing in progress</p>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/garage_insulation.jpg" alt="Garage insulation" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="The garage is insulated similarly to the main house — it has never frozen even at −20°F."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">Garage insulation — never frozen even at −20°F.</p>
+            </div>
           </div>
-          <div class="photo-slot aspect-square">
-            <span class="material-symbols-outlined text-outline text-2xl mb-1">construction</span>
-            <p class="font-label text-[9px] tracking-widest uppercase text-outline text-center px-2">Mechanical rough-in</p>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/air_sealing.jpg" alt="Air sealing at top plate" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="Air sealing at the top plate and drywall intersection — the most critical and most commonly missed junction in the building envelope."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">Air sealing at the top plate and drywall junction in the master suite.</p>
+            </div>
           </div>
-          <div class="photo-slot aspect-square">
-            <span class="material-symbols-outlined text-outline text-2xl mb-1">construction</span>
-            <p class="font-label text-[9px] tracking-widest uppercase text-outline text-center px-2">Insulation / pre-drywall</p>
+          <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+            <img src="../images/rencher_residence/model.jpg" alt="3D exterior rendering" class="zoomable w-full object-cover object-center aspect-[4/3]" data-caption="The 3D model from the design phase — the finished house matched closely enough that my wife knew her way around on her first walk-through."/>
+            <div class="bg-surface-container-low px-5 py-3 border-t border-outline-variant/20">
+              <p class="text-xs font-body text-on-surface-variant italic">3D model from the design phase — the finished house matched it closely.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ── RESULTS & TESTING ── -->
+      <!-- ── RESULTS ── -->
       <section id="results">
         <div class="section-rule"></div>
-        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Results & Testing</span>
-        <h2 class="text-3xl font-headline leading-snug mb-6">What the numbers say.</h2>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">Results</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">What the numbers say — and what it feels like to live here.</h2>
 
-        <div class="editorial-note">
-          <p><strong>This is the most important section for credibility.</strong> Write 2–3 paragraphs covering the actual measured results of the home. Key topics:</p>
-          <p><strong>Blower door test:</strong> What ACH50 result did you achieve? How does it compare to code minimum and to high-performance targets (Passive House is ≤0.6 ACH50; a well-built home might be 2–4)? What did the test reveal about where leakage was occurring?</p>
-          <p><strong>Temperature data:</strong> Actual floor-to-ceiling temperature differential measurements. Time of year, indoor vs. outdoor conditions. If you have a data logger or thermostat records, quote specific numbers.</p>
-          <p><strong>Energy production vs. consumption:</strong> How has the solar system performed vs. the design estimate? Worst month? Months when the generator has run and how often. Any surprises in actual load vs. projected load.</p>
-          <p><strong>Living experience:</strong> What do nine people actually notice about living in this home vs. previous homes?</p>
-        </div>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-6">My official goal for the house was to test below 2.0 ACH50. My real goal was 1.0. My secret goal was 0.80. The air leakage test came back at 1.03 ACH50. I hit my official goal but barely missed my real one. We searched for the remaining leakage with a FLIR camera and found a few small defects, but nothing that closed the gap significantly. A couple of days after the test I discovered that some floor drains had been uncovered, but no water had been poured in. These open drains allowed air to vent through the plumbing system. We didn't re-test after filling them, but based on the size of those openings, the result would likely have been 0.85 ACH50 if we had. Not bad for a first-time build that included a wood burning fireplace and chimney.</p>
 
-        <!-- Results stats — placeholders for real numbers -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20 text-center">
-            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-2">Blower Door</p>
-            <p class="font-headline text-3xl text-primary mb-1">X.X</p>
-            <p class="text-xs text-on-surface-variant font-body">ACH50</p>
-            <div class="editorial-note mt-3 mb-0"><p>Replace X.X with your actual test result</p></div>
-          </div>
-          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20 text-center">
-            <p class="font-label text-[9px] tracking-widests uppercase text-on-surface-variant mb-2">Temp Differential</p>
-            <p class="font-headline text-3xl text-primary mb-1">~X°F</p>
-            <p class="text-xs text-on-surface-variant font-body">Floor to ceiling</p>
-            <div class="editorial-note mt-3 mb-0"><p>Replace with your measured floor-to-ceiling delta</p></div>
-          </div>
-          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20 text-center">
-            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-2">Solar Array</p>
-            <p class="font-headline text-3xl text-primary mb-1">X kW</p>
-            <p class="text-xs text-on-surface-variant font-body">Installed capacity</p>
-            <div class="editorial-note mt-3 mb-0"><p>Replace with actual array size</p></div>
-          </div>
-          <div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/20 text-center">
-            <p class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant mb-2">Occupants</p>
-            <p class="font-headline text-3xl text-primary mb-1">9</p>
-            <p class="text-xs text-on-surface-variant font-body">Full-time residents</p>
+        <!-- Results callout -->
+        <div class="bg-primary text-white rounded-xl p-8 mb-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="text-center">
+              <p class="font-label text-[9px] tracking-widest uppercase text-secondary-container mb-2">Blower door</p>
+              <p class="font-headline text-4xl text-white">1.03</p>
+              <p class="text-white/60 text-xs font-body mt-1">ACH50 measured</p>
+            </div>
+            <div class="text-center">
+              <p class="font-label text-[9px] tracking-widest uppercase text-secondary-container mb-2">HVAC installed</p>
+              <p class="font-headline text-4xl text-white">4T</p>
+              <p class="text-white/60 text-xs font-body mt-1">vs. 7–10T by rule of thumb</p>
+            </div>
+            <div class="text-center">
+              <p class="font-label text-[9px] tracking-widest uppercase text-secondary-container mb-2">Winter thermostat</p>
+              <p class="font-headline text-4xl text-white">70°F</p>
+              <p class="text-white/60 text-xs font-body mt-1">vs. 68° in prior homes</p>
+            </div>
+            <div class="text-center">
+              <p class="font-label text-[9px] tracking-widest uppercase text-secondary-container mb-2">Est. annual utility savings</p>
+              <p class="font-headline text-4xl text-white">$4,400</p>
+              <p class="text-white/60 text-xs font-body mt-1">vs. standard construction</p>
+            </div>
           </div>
         </div>
 
-        <div class="editorial-note">
-          <p><strong>Optional:</strong> If you have any charts from your monitoring system showing monthly solar production vs. consumption, or indoor temperature logs, those belong here and would be extremely compelling to technically-minded clients.</p>
-        </div>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">In our past homes we kept the thermostat at 68°F in winter and 78°F in summer to save money. We wore sweaters all winter and bundled babies because the floors were cold. Now we keep the house at 70°F in winter and 74°F in summer — and 74°F feels cold enough that going lower makes people uncomfortable. In winter everyone dresses normally. Babies play on warm floors in normal clothes. The leather couch isn't a sticky mess in summer or a cold rock in winter. I would pay for this level of comfort even if it didn't save money on utilities. It is worth it.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5">A full winter's power consumption data confirms the system is working as designed. The four largest loads: well pump (2.45 MWh), main level HVAC (1.17 MWh), basement HVAC (1.07 MWh), and water heater (0.86 MWh) — totaling 5.55 MWh, or 45% of total household consumption. The well pump drawing more than either HVAC unit was the biggest surprise and something I'd address differently in a new build.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed">To put the energy performance in context: I compared our consumption with a friend in an all-electric grid-connected home — 4 occupants, 1,200 square feet. They use more power in winter than we do despite our household being nine people in 5,000 square feet. A home of our size built to standard practices would use roughly 6,000 kWh per month in winter — about $722/month in utilities if grid-connected. Our home, if grid-connected, would run about $289/month with all utilities included. High-performance design saves approximately $4,400 annually compared to standard construction. Those savings pay back the additional design and construction cost in a few years. For our off-grid system, the high performance design has made my house possible to build.</p>
       </section>
 
       <!-- ── LESSONS LEARNED ── -->
       <section id="lessons">
         <div class="section-rule"></div>
-        <span class="font-label text-secondary tracking-widests text-xs font-bold uppercase block mb-3">What I'd Do Differently</span>
-        <h2 class="text-3xl font-headline leading-snug mb-6">Two years of living in a home you designed teaches you things no textbook does.</h2>
+        <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-3">What I&apos;d Do Differently</span>
+        <h2 class="text-3xl font-headline leading-snug mb-6">Years of living in a home you designed teaches you things no textbook does.</h2>
 
-        <div class="editorial-note">
-          <p><strong>Write 1–3 paragraphs covering:</strong> Honest reflection on what you'd change if you were designing the home today. This is one of the most credible things you can put on this page — it demonstrates that you've actually lived with your decisions and learned from them. Good candidates:</p>
-          <p>• Anything about the layout you wish were different after living in it</p>
-          <p>• Any mechanical or envelope detail you'd refine</p>
-          <p>• Anything about the off-grid system sizing or equipment selection</p>
-          <p>• Site decisions (orientation, home placement) you'd revisit</p>
-          <p>• Things you over-engineered vs. things you under-designed</p>
-          <p>Close with the reason this matters to clients: these lessons are baked into every project you take on. Your clients don't have to learn them the hard way.</p>
-        </div>
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5"><strong class="text-on-surface">The garage should have been four feet deeper.</strong> I had a shop as part of the initial build plan but scrapped it when materials costs rose. The garage was designed for parking and some storage — not for working on vehicles. I feel that constraint regularly.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5"><strong class="text-on-surface">I would have done fiber cement lap siding.</strong> The stucco is fine, but lap siding looks classic and is what I always intended. It was a cost decision during the build.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5"><strong class="text-on-surface">I wish the solar array were ground-mounted.</strong> The roof mount is fine for production, but the low pitch — 4:12 — means snow sits on the panels rather than sliding off. Manual clearing in winter is required and can be dangerous.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5"><strong class="text-on-surface">I would address the water system differently.</strong> Either a deeper well or installed storage. The well doesn't have enough to be completely comfortable. Storage would also allow a standard well pump rather than the VFD controller, reducing power usage by possibly 50%.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5"><strong class="text-on-surface">I would not use a diesel generator in a client design.</strong> Diesel engines require significant preheating, they don't like being run lightly loaded, and they cannot be integrated seamlessly with modern inverters for full automation the way propane can. I manage the generator manually through a multi-step startup and shutdown sequence. For clients I recommend propane — it can be fully automated, often shares a fuel supply already on the property, and integrates cleanly with modern inverters. I might choose diesel for myself again, but I'd do it knowing what I was signing up for.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed mb-5"><strong class="text-on-surface">I would rough in a dryer duct to the exterior.</strong> Our condensing dryer doesn't do a great job and needs frequent maintenance. Adding a ducted dryer now will be expensive. During the build, roughing in the penetration and stub-out would have cost about $100.</p>
+
+        <p class="text-on-surface-variant font-body leading-relaxed"><strong class="text-on-surface">I would have demanded that my HVAC duct design be followed.</strong> I had the right analysis, the right numbers, and a design that would have produced a better result. I let schedule pressure, contractor resistance, and my lack of confidence stand in the way of my goals. The HVAC is the only system in the house that doesn't perform as well as it should — and it's the only one where I didn't hold my ground.</p>
       </section>
 
     </article>
@@ -558,7 +538,7 @@
     <div class="max-w-2xl">
       <h2 class="text-4xl font-headline mb-4 text-white">Ready to talk about your project?</h2>
       <p class="text-white/70 font-body text-lg mb-8 leading-relaxed">This home is the case I make for what careful design produces. If you're planning a build — conventional, high-performance, or off-grid — I'd like to hear about your land and what you're imagining. The first conversation is free.</p>
-      <a href="index.html#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
+      <a href="../index.html#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
     </div>
   </div>
 </section>
@@ -568,23 +548,19 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-4 md:px-12 py-12 md:py-20 max-w-screen-2xl mx-auto">
     <div class="space-y-6">
       <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
-      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">
-        Architectural design for those who value technical excellence and family comfort.
-      </p>
+      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">Architectural design for those who value technical excellence and family comfort.</p>
     </div>
     <div class="grid grid-cols-2 gap-8">
       <div class="space-y-4">
-<p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
-<ul class="space-y-2">
-<!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>-->
-<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="https://www.linkedin.com/in/tylerrencher/">LinkedIn</a></li>
-</ul>
-</div>
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="https://www.linkedin.com/in/tylerrencher/">LinkedIn</a></li>
+        </ul>
+      </div>
       <div class="space-y-4">
         <p class="font-label text-xs tracking-widest uppercase text-secondary">Resources</p>
         <ul class="space-y-2">
           <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../privacy.html">Privacy Policy</a></li>
-          <!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Journal</a></li>-->
         </ul>
       </div>
     </div>
@@ -597,18 +573,25 @@
   </div>
 </footer>
 
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button id="lightbox-close" aria-label="Close">&#x2715;</button>
+  <img id="lightbox-img" src="" alt=""/>
+  <p id="lightbox-caption"></p>
+</div>
+
 <script>
   // Mobile nav
   const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  const bars = toggle.querySelectorAll('.hamburger-bar');
+  const menu   = document.getElementById('mobile-menu');
+  const bars   = toggle.querySelectorAll('.hamburger-bar');
   toggle.addEventListener('click', () => {
     const isOpen = !menu.classList.contains('hidden');
     menu.classList.toggle('hidden');
     toggle.setAttribute('aria-expanded', !isOpen);
     if (!isOpen) {
       bars[0].style.transform = 'translateY(8px) rotate(45deg)';
-      bars[1].style.opacity = '0';
+      bars[1].style.opacity   = '0';
       bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
     } else {
       bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
@@ -635,7 +618,31 @@
     });
   }, { rootMargin: '-20% 0px -70% 0px' });
   sections.forEach(s => observer.observe(s));
-</script>
 
+  // Lightbox
+  (function () {
+    const overlay  = document.getElementById('lightbox');
+    const img      = document.getElementById('lightbox-img');
+    const caption  = document.getElementById('lightbox-caption');
+    const closeBtn = document.getElementById('lightbox-close');
+    document.querySelectorAll('img.zoomable').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        img.src = thumb.src;
+        img.alt = thumb.alt;
+        caption.textContent = thumb.dataset.caption || '';
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function close() {
+      overlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+      setTimeout(() => { img.src = ''; }, 250);
+    }
+    overlay.addEventListener('click', (e) => { if (e.target === overlay || e.target === img) close(); });
+    closeBtn.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('is-open')) close(); });
+  })();
+</script>
 </body>
 </html>

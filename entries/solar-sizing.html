@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<!-- ═══════════════════════════════════════════════════
+     FILL IN: Page title and meta description
+     Title format: "Entry Title | Journal | Rencher Design"
+     Description: 1–2 sentence summary, ~150 characters
+     ═══════════════════════════════════════════════════ -->
+<title>Sizing a Solar Array: Why the Number Your Contractor Gives You Is Probably Wrong | Journal | Rencher Design</title>
+<meta name="description" content="Most solar quotes are sized for average daily production in good conditions. They're not sized for January, which is the month that determines whether your system works."/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tertiary-container": "#7c2e00", "on-secondary-fixed": "#2c1600",
+          "surface-variant": "#e5e2df", "on-tertiary": "#ffffff",
+          "surface-tint": "#5f5e5e", "outline-variant": "#d4c3be",
+          "secondary-fixed-dim": "#eebd8e", "on-tertiary-fixed-variant": "#7c2e00",
+          "error-container": "#ffdad6", "inverse-primary": "#c8c6c5",
+          "surface-container-low": "#f6f3f0", "surface-container": "#f0edea",
+          "tertiary-fixed": "#ffdbcd", "secondary-fixed": "#ffdcbd",
+          "surface-container-lowest": "#ffffff", "primary-fixed": "#e4e2e1",
+          "error": "#ba1a1a", "primary-fixed-dim": "#c8c6c5",
+          "on-surface": "#1c1c1a", "on-secondary": "#ffffff",
+          "inverse-on-surface": "#f3f0ed", "on-error-container": "#93000a",
+          "surface-dim": "#dcd9d7", "on-primary-container": "#b7b5b4",
+          "on-primary": "#ffffff", "on-tertiary-container": "#ff9c6e",
+          "primary-container": "#474747", "on-surface-variant": "#504441",
+          "on-secondary-fixed-variant": "#61401b", "surface": "#fcf9f6",
+          "on-tertiary-fixed": "#351000", "inverse-surface": "#31302f",
+          "surface-bright": "#fcf9f6", "on-primary-fixed": "#1b1c1c",
+          "outline": "#827470", "tertiary": "#571e00",
+          "surface-container-highest": "#e5e2df", "on-primary-fixed-variant": "#474747",
+          "background": "#fcf9f6", "secondary-container": "#fdcb9b",
+          "on-error": "#ffffff", "on-background": "#1c1c1a",
+          "tertiary-fixed-dim": "#ffb595", "primary": "#313030",
+          "on-secondary-container": "#79542d", "surface-container-high": "#eae8e5",
+          "secondary": "#7c5730"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif"],
+          "body": ["Plus Jakarta Sans"],
+          "label": ["Plus Jakarta Sans"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+
+  /* ── Reading progress bar ── */
+  #progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #7c5730;
+    width: 0%;
+    z-index: 100;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Prose typography ──
+     All body text inside .prose gets these styles.
+     You write plain HTML paragraphs — styling is automatic. */
+  .prose {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: #504441;
+  }
+  .prose p { margin-bottom: 1.5rem; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* Inline links within prose */
+  .prose a {
+    color: #7c5730;
+    text-decoration: underline;
+    text-decoration-color: #d4c3be;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .prose a:hover { text-decoration-color: #7c5730; }
+
+  /* Bold within prose */
+  .prose strong { color: #1c1c1a; font-weight: 600; }
+
+  /* ── Section headings within the article ──
+     Use <h2 class="entry-h2"> for major section breaks.
+     Use <h3 class="entry-h3"> for sub-points within a section. */
+  .entry-h2 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #1c1c1a;
+    line-height: 1.3;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d4c3be;
+  }
+  .entry-h3 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #313030;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Pull quote ──
+     Use <blockquote class="pull-quote"> for a standout quote.
+     Works best for a single compelling sentence. */
+  .pull-quote {
+    border-left: 4px solid #7c5730;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .pull-quote p {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    color: #313030;
+    margin: 0;
+  }
+
+  /* ── Callout / tip box ──
+     Use <div class="callout"> for a highlighted insight, warning, or aside.
+     Best used once or twice per entry, not repeatedly. */
+  .callout {
+    background: #f0edea;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    border-left: 3px solid #7c5730;
+  }
+  .callout p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #504441;
+    margin: 0;
+  }
+  .callout strong { color: #313030; }
+
+  /* ── Inline image — full width ──
+     Use <figure class="img-full"> for a wide photo spanning the column.
+     Add a <figcaption> for an optional caption below. */
+  .img-full {
+    margin: 2.5rem 0;
+  }
+  .img-full img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-full figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8125rem;
+    color: #827470;
+    margin-top: 0.625rem;
+    line-height: 1.5;
+  }
+
+  /* ── Inline image — half width, float left or right ──
+     Use <figure class="img-left"> or <figure class="img-right">
+     for a photo that sits beside text. Works best on desktop. */
+  .img-left, .img-right {
+    margin: 0.5rem 0 1.5rem 0;
+    max-width: 100%;
+  }
+  @media (min-width: 640px) {
+    .img-left {
+      float: left;
+      width: 46%;
+      margin: 0.25rem 2rem 1rem 0;
+    }
+    .img-right {
+      float: right;
+      width: 46%;
+      margin: 0.25rem 0 1rem 2rem;
+    }
+  }
+  .img-left img, .img-right img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-left figcaption, .img-right figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .clearfix::after { content: ''; display: table; clear: both; }
+
+  /* ── Two-photo side-by-side ──
+     Use <div class="img-pair"> wrapping two <figure> elements.
+     Best for before/after or comparison photos. */
+  .img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .img-pair figure { margin: 0; }
+  .img-pair img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-pair figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Three-photo row ──
+     Use <div class="img-trio"> wrapping three <figure> elements. */
+  .img-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    margin: 2.5rem 0;
+  }
+  .img-trio figure { margin: 0; }
+  .img-trio img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .img-trio figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Horizontal rule ──
+     A styled <hr> between major sections. */
+  .entry-rule {
+    border: none;
+    border-top: 1px solid #d4c3be;
+    margin: 3rem 0;
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Reading progress bar — fills automatically as user scrolls -->
+<div id="progress-bar"></div>
+
+<!-- ═══════════════════════════
+     NAVIGATION (do not modify)
+     ═══════════════════════════ -->
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm">
+  <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="../index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+    <div class="hidden md:flex space-x-10 items-center">
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../services.html">Services</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../process.html">Process</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../portfolio.html">Portfolio</a>
+      <a class="text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]" href="../journal.html">Journal</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../about.html">About</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../index.html#contact">Contact</a>
+    </div>
+    <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='../index.html#contact'">
+      Begin Your Project
+    </button>
+    <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+    </button>
+  </nav>
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+    <div class="px-8 py-6 space-y-1">
+      <a href="../services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Services<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Process<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Portfolio<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">Journal<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">About<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <div class="pt-4"><a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Begin Your Project</a></div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     Replace the src with your image path.
+     alt= should describe what's in the photo.
+     The image displays at full column width, cropped to
+     a 16:9 ratio. Tall portrait photos will be cropped —
+     prefer landscape orientation here.
+     ═══════════════════════════════════════════════════ -->
+<div class="w-full bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto">
+    <img
+      src="../images/journal/solar-sizing-hero.jpg"
+      alt="Solar panels on a residential roof with snow accumulation in winter — the condition most solar quotes don't account for"
+      class="w-full object-cover"
+      style="max-height: 560px;"
+    />
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ENTRY HEADER
+     Fill in: category, date, read time, title, lede.
+     Category options: High-Performance Building /
+       Off-Grid Living / Design Process / For Clients
+     Read time: count roughly 200 words per minute.
+     Lede: 2–3 sentences. The thing that makes someone
+       want to read the whole entry. Write it last.
+     ═══════════════════════════════════════════════════ -->
+<header class="py-14 bg-surface border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+
+    <!-- Back link -->
+    <a href="../journal.html" class="inline-flex items-center gap-1 text-secondary font-label text-xs tracking-wide hover:gap-2 transition-all mb-8 block">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>Journal
+    </a>
+
+    <div class="max-w-2xl">
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="font-label text-[10px] tracking-widest uppercase text-secondary font-bold">
+          Off-Grid Living
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          June 2026
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          14 min read
+        </span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-headline leading-tight mb-6">
+        Sizing a solar array: why the number your contractor gives you is probably wrong.
+      </h1>
+
+      <p class="text-xl text-on-surface-variant font-body font-light leading-relaxed">
+        Most solar quotes are sized for average daily production in good conditions. They're not sized for January, which is the month that determines whether your system works. Here's how to think about the number that actually matters.
+      </p>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE BODY
+     The <article> element contains all your writing.
+     Max width is constrained to ~680px for comfortable
+     reading line length. Write everything between the
+     opening and closing article tags below.
+
+     AVAILABLE ELEMENTS — copy and use as needed:
+
+     PARAGRAPH:
+       <p>Your text here.</p>
+
+     SECTION HEADING (major break):
+       <h2 class="entry-h2">Heading text</h2>
+
+     SUB-HEADING:
+       <h3 class="entry-h3">Sub-heading text</h3>
+
+     PULL QUOTE:
+       <blockquote class="pull-quote">
+         <p>"Your quote here."</p>
+       </blockquote>
+
+     CALLOUT BOX:
+       <div class="callout">
+         <p><strong>Label:</strong> Your callout text here.</p>
+       </div>
+
+     FULL-WIDTH PHOTO:
+       <figure class="img-full">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption text.</figcaption>
+       </figure>
+
+     PHOTO FLOATED LEFT (text wraps right):
+       <figure class="img-left">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     PHOTO FLOATED RIGHT (text wraps left):
+       <figure class="img-right">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     TWO PHOTOS SIDE BY SIDE:
+       <div class="img-pair">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Left photo caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Right photo caption.</figcaption>
+         </figure>
+       </div>
+
+     THREE PHOTOS IN A ROW:
+       <div class="img-trio">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-c.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+       </div>
+
+     HORIZONTAL RULE (section divider):
+       <hr class="entry-rule"/>
+
+     INLINE LINK (within prose):
+       <a href="../services.html">linked text</a>
+       (styling is automatic inside .prose)
+     ═══════════════════════════════════════════════════ -->
+
+<div class="py-16 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <article class="max-w-2xl mx-auto prose">
+
+      <p>
+        I have 26 kW of solar installed on my property — 20 kW on the roof and 6 kW on a ground mount. My home has nine full-time occupants. We run two dishwashers, two ranges, a washer and dryer, a heat pump HVAC system, a hybrid water heater, three chest freezers, two refrigerators, and the full complement of electronics and lighting that a large family generates. We have been off-grid since 2023. I went into this knowing more than most homeowners do about how solar systems actually perform — because I did the analysis myself before a single panel was ordered. Most people don't do that analysis, and the quotes they receive from solar contractors reflect it.
+      </p>
+
+      <p>
+        This entry is for anyone who is planning an off-grid or heavily solar-dependent home and wants to understand how the sizing actually works — so they can evaluate what they're being told rather than accepting a number on faith.
+      </p>
+
+      <h2 class="entry-h2">The number most quotes are based on</h2>
+
+      <p>
+        When a solar contractor quotes you a system, they typically start with your annual energy consumption — usually pulled from twelve months of utility bills — and then size an array to produce that much energy over the course of a year. The calculation is straightforward: if your household uses 12,000 kWh per year and your location receives an average of 5 peak sun hours per day, they calculate how many panels at a given wattage will produce 12,000 kWh annually and quote you that system.
+      </p>
+
+      <p>
+        This approach has a fundamental problem: it optimizes for the annual average, not for the worst month. And in a solar-powered home — especially an off-grid one — the worst month is the only month that actually matters for system adequacy. If your system produces 200% of what you need in July and 40% of what you need in December, you do not have a system that works. You have a system that produces a lot of surplus energy in summer that you cannot store or use, and a system that fails in winter when you need it most.
+      </p>
+
+      <blockquote class="pull-quote">
+        <p>"If your system produces 200% of what you need in July and 40% of what you need in December, you do not have a system that works."</p>
+      </blockquote>
+
+      <p>
+        The annual-average approach made more sense when solar was primarily being used to reduce a grid-connected electricity bill. In that context, annual production is a reasonable proxy for annual savings — surplus production in summer earns credits, deficit in winter is covered by the grid. But for an off-grid home, the grid isn't there to cover the deficit. The battery has to cover it, and the battery has to be charged by the solar array. If the array can't charge the battery fast enough during December's short cloudy days, you run the generator. How often you run it depends entirely on whether your system was sized for December, not for the annual average.
+      </p>
+
+      <h2 class="entry-h2">What actually determines winter production</h2>
+
+      <p>
+        Solar production in winter is lower than summer for three separate reasons, and understanding all three matters for sizing the system correctly.
+      </p>
+
+      <h3 class="entry-h3">Shorter days</h3>
+
+      <p>
+        Peak sun hours — the standard metric for solar resource — are lower in winter simply because the days are shorter. At 39 degrees north latitude (roughly central Utah), December has about 3.8 peak sun hours on a clear day. July has about 7.2. That alone means winter daily production is roughly half of summer daily production from the same array, before accounting for anything else.
+      </p>
+
+      <h3 class="entry-h3">Lower sun angle</h3>
+
+      <p>
+        In winter, the sun rises lower in the sky and never gets as high overhead as it does in summer. A fixed roof-mounted array is typically tilted at an angle that produces well in spring and fall but is further from optimal in both midsummer and midwinter — tilted too shallow for the low winter sun and too steep for the high summer sun. At a 4:12 roof pitch (about 18 degrees), which is what I have, the panels are significantly less efficient in December than they would be on a steeper roof or on an adjustable ground mount. A properly tilted ground-mounted array at latitude tilt — around 39 degrees for central Utah — captures meaningfully more winter production than a shallow roof mount.
+      </p>
+
+      <h3 class="entry-h3">Weather and cloud cover</h3>
+
+      <p>
+        Winter in most parts of the country is cloudier than summer. Cloud cover reduces production more than most people expect — a fully overcast day might produce 10–25% of clear-sky production, depending on cloud thickness. Partly cloudy days are less predictable. For sizing purposes, you need to use actual historical data for your specific location rather than theoretical clear-sky production, because the difference between "five peak sun hours on a clear day" and "what December actually looks like" can be substantial.
+      </p>
+
+      <div class="callout">
+        <p><strong>Where to find your actual data:</strong> NREL's PVWatts calculator (pvwatts.nrel.gov) is the standard tool for estimating solar production by location and system configuration. It uses decades of historical weather data and accounts for actual cloud cover patterns. If your solar contractor isn't using PVWatts or equivalent data for their sizing, that's a signal worth noting.</p>
+      </div>
+
+      <h2 class="entry-h2">What actually determines winter demand</h2>
+
+      <p>
+        The production side is half the picture. The demand side — how much energy your household actually needs in winter — is equally important, and it's where most off-grid system designs fall apart.
+      </p>
+
+      <h3 class="entry-h3">Heating load is the dominant variable</h3>
+
+      <p>
+        In most off-grid homes, the single largest electrical load in winter is space heating. If you're heating with a heat pump — which is what I recommend for most high-efficiency off-grid homes — the heating system draws significantly more power in January than in any other month. And that load is directly correlated with the coldest, darkest weather: the days when your solar production is lowest are almost always the days when your heating load is highest. This correlation is the central challenge of off-grid system design.
+      </p>
+
+      <p>
+        The saving grace is that heat pumps are more efficient than resistance heaters — for every unit of electrical energy they consume, they deliver two to four units of heat, depending on the outdoor temperature. At very cold temperatures (below about 20°F), heat pump efficiency drops and heating load rises simultaneously. This is the worst-case scenario and needs to be specifically accounted for in the system design.
+      </p>
+
+      <p>
+        In my home, the well pump actually draws more energy over the course of a winter than either HVAC unit — 2.45 MWh vs. 1.17 MWh and 1.07 MWh for the two heat pump systems. That was a surprise and illustrates why generic assumptions about load composition can mislead a system design. Every home's load profile is different, and the only way to size the system correctly is to know your specific loads.
+      </p>
+
+      <h3 class="entry-h3">The load profile, not just the total</h3>
+
+      <p>
+        Total annual consumption is a useful number for bill calculations. It's nearly useless for off-grid system design. What matters is the load profile: how much energy the household draws hour by hour, day by day, and month by month. A household that uses 1,000 kWh in a month mostly during the day — running appliances while the sun is up — has a very different battery and array requirement than a household that uses the same 1,000 kWh but mostly at night, when the array is producing nothing and the load is drawing down the battery.
+      </p>
+
+      <p>
+        For a properly sized system, you want to know: what is the household's peak demand in the worst winter month, and when in the day does that demand occur? The answer determines both the array size needed to replenish the battery during short winter days and the battery size needed to carry the household through the night and through cloudy stretches.
+      </p>
+
+      <h2 class="entry-h2">The battery question is separate from the array question</h2>
+
+      <p>
+        Battery and array are related but distinct. The array determines how fast you can capture energy. The battery determines how long you can run on stored energy. Both need to be sized, and they interact with each other in ways that a simple annual-production calculation doesn't capture.
+      </p>
+
+      <h3 class="entry-h3">Autonomy days is the wrong metric</h3>
+
+      <p>
+        You'll often hear battery banks described in terms of "days of autonomy" — how many days the battery can power the home without any solar input. This metric sounds useful but is often misleading in practice. A system with three days of autonomy sounds robust, but if your household draws 20 kWh per day in winter, three days of autonomy requires 60 kWh of usable battery capacity — a significant and expensive system. And if you're going to run the generator after three days anyway, you may not need three full days of autonomy — you may need to know how much capacity carries you through a typical cloudy stretch in your specific climate.
+      </p>
+
+      <p>
+        In my analysis of my own system, I found that the critical scenario isn't a single catastrophically bad day. It's a string of mediocre days — six or eight days of partial cloud cover where the array is producing 30–60% of rated capacity and the battery is slowly depleting. The worst two consecutive production days I've seen on my system produced about 16 kWh total. That's notable, but recoverable. What runs the batteries down is ten days of okay-but-not-great production during a cold stretch in January.
+      </p>
+
+      <h3 class="entry-h3">Battery sizing for the actual scenario</h3>
+
+      <p>
+        Rather than sizing for theoretical autonomy days, I'd encourage you to think about this question: given your array size and your location's actual winter weather patterns, how long is a typical period of below-average production, and how much of a deficit does that create relative to your daily load? The battery needs to carry that deficit. Then the generator covers the remainder, with the understanding that some amount of generator runtime is a designed part of the system — not a failure mode.
+      </p>
+
+      <p>
+        This is a meaningful reframe. An off-grid system designed to eliminate generator use entirely is much larger and more expensive than one designed to minimize generator use to an acceptable level. For most households, the economically optimal system involves some generator runtime during bad winter stretches — typically measured in tens of hours per year rather than hundreds. My analysis before building suggested I should plan for up to 200 generator-hours in a bad winter. The actual worst winter I've experienced required less than that.
+      </p>
+
+      <h2 class="entry-h2">What a correct sizing analysis actually looks like</h2>
+
+      <p>
+        A properly done off-grid system design starts from the load, not from the array. You build up from the individual loads in the home — appliance by appliance, accounting for wattage, daily hours of use, and seasonal variation — to arrive at a daily energy budget for each month of the year. You then model the available solar production for each month using actual historical weather data for your specific location. The gap between production and demand in the worst months tells you how much battery capacity and generator runtime you need, and that in turn tells you what array size produces the best balance across cost, battery size, and generator use.
+      </p>
+
+      <p>
+        This is not a quick calculation. It's the kind of analysis that takes hours to do correctly, requires software or significant spreadsheet work, and produces a system design that actually reflects your home, your location, and your family's habits. The fact that most solar contractors don't do it isn't because they don't know it's necessary — it's because most of their customers are grid-connected and don't need it. Their tools and habits are calibrated for that market, not for off-grid design.
+      </p>
+
+      <figure class="img-full">
+        <img src="../images/journal/solar-production-chart.jpg" alt="Monthly solar production vs. household load chart showing the winter deficit that must be covered by battery and generator"/>
+        <figcaption>The key visualization for off-grid sizing: monthly production vs. monthly load. The winter months where load exceeds production define the system's critical design constraint — not the annual total.</figcaption>
+      </figure>
+
+      <h2 class="entry-h2">The questions to ask your contractor</h2>
+
+      <p>
+        If you're getting solar quotes for an off-grid or heavily solar-dependent home, these are the questions worth asking before you accept a system design:
+      </p>
+
+      <p>
+        <strong class="text-on-surface">What is the system sized to produce in December, not annually?</strong> If the contractor can't answer this question specifically, the system was sized from annual production numbers, not from a winter analysis. That's a problem for an off-grid home.
+      </p>
+
+      <p>
+        <strong class="text-on-surface">What data source did you use for solar resource estimation?</strong> The answer should be PVWatts, NREL data, or similar historical weather-based modeling. "Industry experience" or "average for your region" are not acceptable answers for an off-grid system.
+      </p>
+
+      <p>
+        <strong class="text-on-surface">What is the assumed daily load in December, and how did you derive it?</strong> If the answer is "we use your annual average divided by 365," the load estimate doesn't account for the fact that winter loads are substantially higher than summer loads in a climate with real winters.
+      </p>
+
+      <p>
+        <strong class="text-on-surface">What generator runtime does this system assume?</strong> A contractor who says "none" for an off-grid home in a northern climate is either oversizing the system dramatically or hasn't done the analysis. Generator runtime is a designed part of most well-functioning off-grid systems.
+      </p>
+
+      <p>
+        <strong class="text-on-surface">How was the battery bank sized?</strong> If the answer references "days of autonomy" without explaining what load and what production scenario the autonomy calculation is based on, it's a rule-of-thumb answer rather than an analysis.
+      </p>
+
+      <h2 class="entry-h2">What I produce for off-grid clients</h2>
+
+      <p>
+        The Off-Grid System Design I offer produces a load profile analysis — every significant load in the home, estimated by season, with peak demand accounted for separately from average demand. It produces a production model for the specific location using NREL data, accounting for the actual roof pitch and orientation rather than an idealized tilt. And it produces a system specification: array size, battery capacity, and generator sizing — with an honest estimate of what generator runtime looks like in a good winter versus a bad one.
+      </p>
+
+      <p>
+        That analysis is what I did for my own home before I ordered a single panel. My system has performed within the range I predicted. The worst months have been harder than the best-case scenario and easier than the worst-case scenario, which is exactly what a well-designed system looks like. It doesn't mean nothing ever goes wrong. It means the system is doing what it was designed to do, in the conditions it was designed for — including January.
+      </p>
+
+    </article>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ENTRIES
+     Replace the three <article> cards below with links
+     to other journal entries. Update: title, category,
+     date, read time, description, and href on the <a>.
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-surface-container-low border-t border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl font-headline text-primary">More from the journal</h2>
+    </div>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Related entry 1 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="what-i-did-right.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Design Process</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">What I got right building my own home.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Two years of daily feedback from nine full-time occupants. The decisions that held up — and why they worked, including the off-grid electrical system.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Jan 2026 · 11 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 2 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="hvac-load-calculations.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">High-Performance Building</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">HVAC sizing: why rules of thumb produce uncomfortable homes.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">The same problem that plagues solar sizing — optimizing for the average rather than the worst case — shows up in HVAC design too. Here's how to fix it.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Nov 2025 · 10 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 3 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="still-not-sure.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Design Process</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">What I'm still not sure about.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Including the diesel generator question — and why I wouldn't recommend it to clients even though I'd probably choose it again for myself.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Jan 2026 · 10 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="../journal.html" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all">
+        View all entries <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     CTA + FOOTER (do not modify)
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-xl">
+      <h2 class="text-3xl font-headline mb-3 text-white">Thinking about building?</h2>
+      <p class="text-white/70 font-body mb-7 leading-relaxed">The first conversation is free. Tell me about your land and what you're imagining.</p>
+      <a href="../index.html#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-[#313030] text-[#fcf9f6]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-20 max-w-screen-2xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
+      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">Architectural design for those who value technical excellence alongside family comfort.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Navigate</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../index.html">Home</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../services.html">Services</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widests uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../portfolio.html">Portfolio</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../journal.html">Journal</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../about.html">About</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col justify-between items-end">
+      <div class="text-right">
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40">© 2026 Rencher Design</p>
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40 mt-1">Spring City, Utah</p>
+      </div>
+      <div class="mt-8 md:mt-0 flex gap-4">
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">architecture</span>
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">foundation</span>
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">home_storage</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Mobile nav ──
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = toggle.querySelectorAll('.hamburger-bar');
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', !isOpen);
+    if (!isOpen) {
+      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+      bars[1].style.opacity = '0';
+      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+
+  // ── Reading progress bar ──
+  const bar = document.getElementById('progress-bar');
+  const article = document.querySelector('article');
+  window.addEventListener('scroll', () => {
+    const articleTop = article.getBoundingClientRect().top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(Math.max(scrolled / articleHeight, 0), 1);
+    bar.style.width = (pct * 100) + '%';
+  });
+</script>
+
+</body>
+</html>
