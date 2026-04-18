@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<!-- ═══════════════════════════════════════════════════
+     FILL IN: Page title and meta description
+     Title format: "Entry Title | Journal | Rencher Design"
+     Description: 1–2 sentence summary, ~150 characters
+     ═══════════════════════════════════════════════════ -->
+<title>What I'm Still Not Sure About | Journal | Rencher Design</title>
+<meta name="description" content="The decisions where years of living in the home hasn't produced a clear answer — the tradeoffs that are genuinely hard and where the right choice depends on what you value."/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tertiary-container": "#7c2e00", "on-secondary-fixed": "#2c1600",
+          "surface-variant": "#e5e2df", "on-tertiary": "#ffffff",
+          "surface-tint": "#5f5e5e", "outline-variant": "#d4c3be",
+          "secondary-fixed-dim": "#eebd8e", "on-tertiary-fixed-variant": "#7c2e00",
+          "error-container": "#ffdad6", "inverse-primary": "#c8c6c5",
+          "surface-container-low": "#f6f3f0", "surface-container": "#f0edea",
+          "tertiary-fixed": "#ffdbcd", "secondary-fixed": "#ffdcbd",
+          "surface-container-lowest": "#ffffff", "primary-fixed": "#e4e2e1",
+          "error": "#ba1a1a", "primary-fixed-dim": "#c8c6c5",
+          "on-surface": "#1c1c1a", "on-secondary": "#ffffff",
+          "inverse-on-surface": "#f3f0ed", "on-error-container": "#93000a",
+          "surface-dim": "#dcd9d7", "on-primary-container": "#b7b5b4",
+          "on-primary": "#ffffff", "on-tertiary-container": "#ff9c6e",
+          "primary-container": "#474747", "on-surface-variant": "#504441",
+          "on-secondary-fixed-variant": "#61401b", "surface": "#fcf9f6",
+          "on-tertiary-fixed": "#351000", "inverse-surface": "#31302f",
+          "surface-bright": "#fcf9f6", "on-primary-fixed": "#1b1c1c",
+          "outline": "#827470", "tertiary": "#571e00",
+          "surface-container-highest": "#e5e2df", "on-primary-fixed-variant": "#474747",
+          "background": "#fcf9f6", "secondary-container": "#fdcb9b",
+          "on-error": "#ffffff", "on-background": "#1c1c1a",
+          "tertiary-fixed-dim": "#ffb595", "primary": "#313030",
+          "on-secondary-container": "#79542d", "surface-container-high": "#eae8e5",
+          "secondary": "#7c5730"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif"],
+          "body": ["Plus Jakarta Sans"],
+          "label": ["Plus Jakarta Sans"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+
+  /* ── Reading progress bar ── */
+  #progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #7c5730;
+    width: 0%;
+    z-index: 100;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Prose typography ──
+     All body text inside .prose gets these styles.
+     You write plain HTML paragraphs — styling is automatic. */
+  .prose {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: #504441;
+  }
+  .prose p { margin-bottom: 1.5rem; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* Inline links within prose */
+  .prose a {
+    color: #7c5730;
+    text-decoration: underline;
+    text-decoration-color: #d4c3be;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .prose a:hover { text-decoration-color: #7c5730; }
+
+  /* Bold within prose */
+  .prose strong { color: #1c1c1a; font-weight: 600; }
+
+  /* ── Section headings within the article ──
+     Use <h2 class="entry-h2"> for major section breaks.
+     Use <h3 class="entry-h3"> for sub-points within a section. */
+  .entry-h2 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #1c1c1a;
+    line-height: 1.3;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d4c3be;
+  }
+  .entry-h3 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #313030;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Pull quote ──
+     Use <blockquote class="pull-quote"> for a standout quote.
+     Works best for a single compelling sentence. */
+  .pull-quote {
+    border-left: 4px solid #7c5730;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .pull-quote p {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    color: #313030;
+    margin: 0;
+  }
+
+  /* ── Callout / tip box ──
+     Use <div class="callout"> for a highlighted insight, warning, or aside.
+     Best used once or twice per entry, not repeatedly. */
+  .callout {
+    background: #f0edea;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    border-left: 3px solid #7c5730;
+  }
+  .callout p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #504441;
+    margin: 0;
+  }
+  .callout strong { color: #313030; }
+
+  /* ── Inline image — full width ──
+     Use <figure class="img-full"> for a wide photo spanning the column.
+     Add a <figcaption> for an optional caption below. */
+  .img-full {
+    margin: 2.5rem 0;
+  }
+  .img-full img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-full figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8125rem;
+    color: #827470;
+    margin-top: 0.625rem;
+    line-height: 1.5;
+  }
+
+  /* ── Inline image — half width, float left or right ──
+     Use <figure class="img-left"> or <figure class="img-right">
+     for a photo that sits beside text. Works best on desktop. */
+  .img-left, .img-right {
+    margin: 0.5rem 0 1.5rem 0;
+    max-width: 100%;
+  }
+  @media (min-width: 640px) {
+    .img-left {
+      float: left;
+      width: 46%;
+      margin: 0.25rem 2rem 1rem 0;
+    }
+    .img-right {
+      float: right;
+      width: 46%;
+      margin: 0.25rem 0 1rem 2rem;
+    }
+  }
+  .img-left img, .img-right img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-left figcaption, .img-right figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .clearfix::after { content: ''; display: table; clear: both; }
+
+  /* ── Two-photo side-by-side ──
+     Use <div class="img-pair"> wrapping two <figure> elements.
+     Best for before/after or comparison photos. */
+  .img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .img-pair figure { margin: 0; }
+  .img-pair img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-pair figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Three-photo row ──
+     Use <div class="img-trio"> wrapping three <figure> elements. */
+  .img-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    margin: 2.5rem 0;
+  }
+  .img-trio figure { margin: 0; }
+  .img-trio img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .img-trio figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Horizontal rule ──
+     A styled <hr> between major sections. */
+  .entry-rule {
+    border: none;
+    border-top: 1px solid #d4c3be;
+    margin: 3rem 0;
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Reading progress bar — fills automatically as user scrolls -->
+<div id="progress-bar"></div>
+
+<!-- ═══════════════════════════
+     NAVIGATION (do not modify)
+     ═══════════════════════════ -->
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm transition-opacity">
+  <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="../index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex space-x-10 items-center">
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../about.html">About</a>
+      <a class="text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]" href="../journal.html">Journal</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../services.html">Services</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../portfolio.html">Portfolio</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../process.html">Process</a>
+    </div>
+    <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='../index.html#contact'">
+      Begin Your Project
+    </button>
+
+    <!-- Mobile hamburger button -->
+    <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu drawer -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+    <div class="px-8 py-6 space-y-1">
+      <a href="../about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        About
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">
+        Journal
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Services
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Portfolio
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <a href="../process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">
+        Process
+        <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+      </a>
+      <div class="pt-4">
+        <a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">
+          Begin Your Project
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     Replace the src with your image path.
+     alt= should describe what's in the photo.
+     The image displays at full column width, cropped to
+     a 16:9 ratio. Tall portrait photos will be cropped —
+     prefer landscape orientation here.
+     ═══════════════════════════════════════════════════ -->
+<div class="w-full bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto">
+    <img
+      src="../images/journal/design-sketch.jpg"
+      alt="Architectural sketch on tracing paper with pencil marks and erased lines — the iterative process of working through design decisions"
+      class="w-full object-cover"
+      style="max-height: 560px;"
+    />
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ENTRY HEADER
+     Fill in: category, date, read time, title, lede.
+     Category options: High-Performance Building /
+       Off-Grid Living / Design Process / For Clients
+     Read time: count roughly 200 words per minute.
+     Lede: 2–3 sentences. The thing that makes someone
+       want to read the whole entry. Write it last.
+     ═══════════════════════════════════════════════════ -->
+<header class="py-14 bg-surface border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+
+    <!-- Back link -->
+    <a href="../journal.html" class="inline-flex items-center gap-1 text-secondary font-label text-xs tracking-wide hover:gap-2 transition-all mb-8 block">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>Journal
+    </a>
+
+    <div class="max-w-2xl">
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="font-label text-[10px] tracking-widest uppercase text-secondary font-bold">
+          Design Process
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          January 2026
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          10 min read
+        </span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-headline leading-tight mb-6">
+        What I'm still not sure about.
+      </h1>
+
+      <p class="text-xl text-on-surface-variant font-body font-light leading-relaxed">
+        Some decisions produce clear answers quickly. Others don't. This entry covers the choices where years of living in my home hasn't settled the question — where I'd still be genuinely uncertain if I were starting over, and where the right answer depends more on what a particular family values than on any objective measure of performance.
+      </p>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE BODY
+     The <article> element contains all your writing.
+     Max width is constrained to ~680px for comfortable
+     reading line length. Write everything between the
+     opening and closing article tags below.
+
+     AVAILABLE ELEMENTS — copy and use as needed:
+
+     PARAGRAPH:
+       <p>Your text here.</p>
+
+     SECTION HEADING (major break):
+       <h2 class="entry-h2">Heading text</h2>
+
+     SUB-HEADING:
+       <h3 class="entry-h3">Sub-heading text</h3>
+
+     PULL QUOTE:
+       <blockquote class="pull-quote">
+         <p>"Your quote here."</p>
+       </blockquote>
+
+     CALLOUT BOX:
+       <div class="callout">
+         <p><strong>Label:</strong> Your callout text here.</p>
+       </div>
+
+     FULL-WIDTH PHOTO:
+       <figure class="img-full">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption text.</figcaption>
+       </figure>
+
+     PHOTO FLOATED LEFT (text wraps right):
+       <figure class="img-left">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     PHOTO FLOATED RIGHT (text wraps left):
+       <figure class="img-right">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     TWO PHOTOS SIDE BY SIDE:
+       <div class="img-pair">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Left photo caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Right photo caption.</figcaption>
+         </figure>
+       </div>
+
+     THREE PHOTOS IN A ROW:
+       <div class="img-trio">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-c.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+       </div>
+
+     HORIZONTAL RULE (section divider):
+       <hr class="entry-rule"/>
+
+     INLINE LINK (within prose):
+       <a href="../services.html">linked text</a>
+       (styling is automatic inside .prose)
+     ═══════════════════════════════════════════════════ -->
+
+<div class="py-16 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <article class="max-w-2xl mx-auto prose">
+
+      <p>
+        This is the third of three entries about my own home. The first covered what I got right. The second covered what I got wrong. This one is different — these aren't mistakes, exactly, and they aren't triumphs. They're the decisions that remain genuinely open. Living in the house since April 2023 hasn't produced an answer one way or the other, because the tradeoffs are real and balanced, or because the right answer depends on values that vary from family to family, or because I simply don't have enough data yet.
+      </p>
+      <p>
+        I find these questions more interesting to think about than either the wins or the losses. They're where the real complexity of residential design lives.
+      </p>
+
+      <h2 class="entry-h2">The generator question</h2>
+      <p>
+        I have a diesel generator. It works. It's reliable, it produces good power, and diesel fuel stores well for long periods without the degradation issues that gasoline has. But I wouldn't recommend diesel to most clients. I might choose it for myself again, but I'm not sure.
+      </p>
+      <p>
+        Diesel is a fuel that I want to have on hand for my truck, tractor, heavy equipment, and generator. It is easily portable and available everywhere. We don't use propane for anything. It isn't easily portable, but it is available. Most rural and off-grid homes already heat and cook with it, which means the generator can share a fuel supply that's being managed for other reasons anyway. A propane generator also integrates with modern inverters seamlessly. For an all-electric home on a shared propane supply, that integration is probably the right choice. I wanted diesel because I thought I was going to be putting a lot more hours on my generator than I do. I've put 80 hours on it in 3 winters. I was also concerned about the longevity of propane generator motors. I know the diesel will run forever if maintained. Propane generators are way cheaper though. About $8,000 vs $20,000. So it's a matter of priorities.
+      </p>
+
+      <h2 class="entry-h2">Exterior foam insulation</h2>
+      <p>
+        I used foam on the exterior walls as part of my insulation strategy. The thermal performance is excellent. But the foam has caused complications during construction that I'm still managing, and it requries the trades to work diffently than they normally do. There are good reasons to use exterior foam — it breaks the thermal bridge at studs in a way that continuous cavity insulation can't — but there are also good reasons to consider SIP framing or site built SIP framing. That forces the framer to work with new materials and methods, but every other trade is the same as normal.
+      </p>
+
+      <h2 class="entry-h2">Vented vs. fully sealed and conditioned attic</h2>
+      <p>
+        I have a vented attic. This is the standard approach and it works. But a fully sealed and conditioned attic — where the insulation is applied to the roof deck rather than the attic floor, and the attic space is within the conditioned envelope — has real advantages in certain configurations. Mechanical equipment in a conditioned attic operates in controlled temperatures rather than in summer heat that can exceed 130°F or winter cold that approaches outdoor temperatures. Ductwork in a conditioned attic doesn't lose energy through its walls to an unconditioned space. The air sealing boundary is at the roof rather than the attic floor which is was easier to air seal. But it does make roofing more complicated.
+      </p>
+      <p>
+        I've gone back and forth on this. The vented approach is cheaper, simpler, and well-understood by everyone in the trades. The conditioned approach has meaningful performance advantages in the right configuration. If I were designing the home today I'd think harder about which approach actually suited the building geometry and mechanical layout before defaulting to vented. I think for my home I would still come to the same conclusion, vented. That would be because I'm off grid and there would be less volume of air to condition. It's the same reason I didn't choose 10' ceilings. In another home I would probably lean toward conditioned attic and would do more with interior ceiling height and style changes.
+      </p>
+
+      <h2 class="entry-h2">Under-porch storage rooms</h2>
+      <p>
+        I built storage rooms under the porch. They provide useful storage, but they've caused more problems than I anticipated — drainage, moisture management, access complications, and the ongoing challenge of maintaining a space that's neither fully interior nor fully exterior. In retrospect, a cold storage section of the basement underneath conditioned space would probably have served the same purpose with fewer complications, at roughly similar cost. I'm not certain of this — the under-porch approach has advantages in terms of access and separation from the main living space — but I'd think about it differently if I were starting over. That approach would have helped me with adding another bedroom to the main level of the house.
+      </p>
+
+      <h2 class="entry-h2">Room geometry and acoustics</h2>
+      <p>
+        I wrote in the previous entry about the acoustic problems in my home. What I'm still uncertain about is how much of that was avoidable given the other constraints of the design. I think I would have put a dog leg into the kitchen, dining area, living area combination great room that we have. That would have broken up the room more but still let my wife hear what was going on.
+      </p>
+      <p>
+        What I know: any room that's roughly cubical, or that's a series of cubes in a line, will have acoustic problems. What I'm still working out: how to address this systematically in future designs without making every room feel like a recording studio. I don't have a reliable formula yet, but I do know how to use modeling tools to check whether there are significan problems before committing to a design.
+      </p>
+
+      <h2 class="entry-h2">Small practical questions I still wonder about</h2>
+
+      <h3 class="entry-h3">Projector wiring and built-in speakers</h3>
+      <p>
+        I wish I had pulled wire for a projector and roughed in for in-ceiling speakers in the main living space. I didn't because I wasn't sure I wanted either at the time. At this point I still don't have them — not because I don't want them, but because adding them to a finished ceiling is enough of a job that it keeps getting deferred. If I had roughed it in, I'd have made the decision one way or the other by now. Wire is cheap. The decision to not pull it isn't free — it just defers the cost to a less convenient time.
+      </p>
+
+      <h3 class="entry-h3">Security camera infrastructure</h3>
+      <p>
+        I didn't have a complete security camera plan when I designed the house and I wish I did — not because security is a pressing concern, but because the infrastructure (wire runs, mounting locations, power) is much easier to plan during construction than after. Having thought through the camera positions and run the infrastructure would have left me more flexibility than I have now.
+      </p>
+
+      <h3 class="entry-h3">Small rooms with exterior doors</h3>
+      <p>
+        Any small room with an exterior door and a relatively airtight interior door to the main house creates a pressure differential when the exterior door is opened — the room acts like an airlock and the interior door fights you. This is manageable, but it's slightly annoying every time. The fix is either a large door undercut or a small transfer grille that allows pressure equalization. I'd design this in explicitly next time rather than discovering it after move-in.
+      </p>
+
+      <h3 class="entry-h3">Shared children's closets</h3>
+      <p>
+        I gave the children's bathrooms shared closets and individual closets in each bedroom. The idea was that shared closets would be managed communally, take less total space, and let the children work more like the master suite where they can go in and come out fully ready for the day. I'm not ready to throw in the towel on the idea yet, but time will tell.
+      </p>
+
+      <h3 class="entry-h3">Commercial microwaves</h3>
+      <p>
+        We destroy regular microwaves. They last 9-15 months and then they are done. I have started buying a commercial microwaves. They work extremely well and handle the number of door open/close cycles easily. (That's what kills our microwaves) It is also really loud. The cooling fan that keeps the electronics alive is significantly louder than a residential unit and stays on significantly longer. In a quiet house, the microwave sound carries. I don't regret the choice, but I'd think more carefully about where to locate it.
+      </p>
+
+      <blockquote class="pull-quote">
+        <p>"The decisions that stay uncertain are usually the ones where there isn't a right answer — only tradeoffs that suit different families differently."</p>
+      </blockquote>
+
+      <p>
+        These open questions are part of what I bring to client projects. Not settled conclusions, but active thinking — awareness of where the real uncertainty lives and what questions are worth sitting with longer than they typically get. A designer who has answers to everything may not have thought hard enough about the questions.</p>
+
+    </article>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ENTRIES
+     Replace the three <article> cards below with links
+     to other journal entries. Update: title, category,
+     date, read time, description, and href on the <a>.
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-surface-container-low border-t border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl font-headline text-primary">More from the journal</h2>
+    </div>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Related entry 1 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="what-i-did-right.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Design Process</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">What I got right building my own home.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Two years of daily feedback from nine full-time occupants. The decisions that held up — and why they worked.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Jan 2026 · 11 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 2 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="what-i-did-wrong.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Design Process</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">What I got wrong building my own home.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">The mistakes that cost real money, real time, or that I still live with every day — and what I'd do differently.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Jan 2026 · 14 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 3 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="air-sealing.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">High-Performance Building</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">Why air sealing matters more than insulation.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">R-value gets all the attention. Air sealing is what actually determines whether your home is comfortable. Here's why — and what the numbers look like.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Mar 2026 · 12 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="../journal.html" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all">
+        View all entries <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     CTA + FOOTER (do not modify)
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-xl">
+      <h2 class="text-3xl font-headline mb-3 text-white">Thinking about building?</h2>
+      <p class="text-white/70 font-body mb-7 leading-relaxed">The first conversation is free. Tell me about your land and what you're imagining.</p>
+      <a href="../index.html#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#313030] text-[#fcf9f6]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-4 md:px-12 py-12 md:py-20 max-w-screen-2xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
+      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">
+        Architectural design for those who value technical excellence alongside family comfort.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <!--<p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">LinkedIn</a></li>
+        </ul>-->
+      </div>
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Resources</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../privacy.html">Privacy Policy</a></li>
+          <!--<li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Journal</a></li>-->
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col justify-between items-end">
+      <div class="text-right">
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40">© 2026 Rencher Design</p>
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40 mt-1">Spring City, Utah</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Mobile nav ──
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = toggle.querySelectorAll('.hamburger-bar');
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', !isOpen);
+    if (!isOpen) {
+      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+      bars[1].style.opacity = '0';
+      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+
+  // ── Reading progress bar ──
+  const bar = document.getElementById('progress-bar');
+  const article = document.querySelector('article');
+  window.addEventListener('scroll', () => {
+    const articleTop = article.getBoundingClientRect().top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(Math.max(scrolled / articleHeight, 0), 1);
+    bar.style.width = (pct * 100) + '%';
+  });
+</script>
+
+</body>
+</html>

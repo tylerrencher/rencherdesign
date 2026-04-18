@@ -1,0 +1,159 @@
+@page "/Journal"
+@model IndexModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Journal";
+}
+
+<script>
+    function filterEntries(category) {
+    const articles = document.querySelectorAll('#entry-grid article');
+    const buttons = document.querySelectorAll('.filter-btn');
+    const emptyState = document.getElementById('empty-state');
+    let visibleCount = 0;
+
+    articles.forEach(article => {
+      const match = category === 'all' || article.dataset.category === category;
+      article.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+
+    emptyState.classList.toggle('hidden', visibleCount > 0);
+
+    buttons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.filter === category);
+      if (!btn.classList.contains('active')) {
+        btn.classList.add('text-on-surface-variant');
+        btn.classList.remove('text-[#fcf9f6]');
+      } else {
+        btn.classList.remove('text-on-surface-variant');
+      }
+    });
+  }
+</script>
+</script>
+
+<!-- Hero -->
+<section class="py-20 bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl">
+      <span class="font-label text-secondary tracking-widest text-xs font-bold uppercase block mb-4">Journal</span>
+      <h1 class="text-3xl md:text-5xl font-headline leading-tight mb-5">Writing on homes, design, and the decisions that matter.</h1>
+      <p class="text-lg text-on-surface-variant font-body font-light leading-relaxed">
+        I write about what I've learned designing and building homes — the things that work, the things that are misunderstood, and the questions worth asking before you build. These aren't abstractions. They come from a house I designed for my own family and live in every day.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Category filter bar -->
+<div class="py-5 bg-surface border-b border-outline-variant/20 sticky top-[73px] z-40">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="flex flex-wrap gap-2 items-center">
+      <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant hidden md:block mr-2">Filter:</span>
+      <button onclick="filterEntries('all')" data-filter="all" class="filter-btn active font-label text-xs tracking-wide border border-outline-variant/60 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary">All entries</button>
+      <button onclick="filterEntries('High-Performance Building')" data-filter="High-Performance Building" class="filter-btn font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary">High-Performance Building</button>
+      <button onclick="filterEntries('Off-Grid Living')" data-filter="Off-Grid Living" class="filter-btn font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary">Off-Grid Living</button>
+      <button onclick="filterEntries('Design')" data-filter="Design" class="filter-btn font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary">Design</button>
+      <button onclick="filterEntries('For Clients')" data-filter="For Clients" class="filter-btn font-label text-xs tracking-wide text-on-surface-variant border border-outline-variant/40 rounded-full px-4 py-2 hover:border-secondary hover:text-secondary">For Clients</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FEATURED ENTRY ─── -->
+<section class="py-20 bg-surface" id="entries">
+  <div class="max-w-screen-2xl mx-auto px-8">
+
+    <!-- Featured -->
+    <div class="mb-16" data-category="@Model.FeaturedEntry.Category">
+      <span class="featured-rule"></span>
+      <span class="font-label text-[10px] tracking-widest uppercase text-secondary block mb-6">Featured entry</span>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">@Model.FeaturedEntry.Category</span>
+            <span class="text-outline-variant">·</span>
+            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">@Model.FeaturedEntry.PublishedDate.ToString("MMMM yyyy")</span>
+            <span class="text-outline-variant">·</span>
+            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">@Model.FeaturedEntry.ReadTimeMinutes min read</span>
+          </div>
+          <h2 class="text-4xl font-headline leading-snug mb-4">
+            <a asp-page="/Journal/Entry" asp-route-slug="air-sealing" class="hover:text-secondary transition-colors duration-200">@Model.FeaturedEntry.Title</a>
+          </h2>
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light mb-6">@Model.FeaturedEntry.Lede</p>
+          <a asp-page="/Journal/Entry" asp-route-slug="@Model.FeaturedEntry.Slug" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all duration-200">
+            Read entry <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
+        </div>
+        <div class="lg:col-span-4">
+          <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/20 space-y-5">
+            <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">In this entry</p>
+            <ul class="space-y-3">
+              @foreach(string point in Model.FeaturedEntry.InterestPoints) {
+                <li class="flex items-start gap-3">
+                <span class="w-1 h-1 rounded-full bg-secondary mt-2.5 flex-shrink-0"></span>
+                <span class="text-sm font-body text-on-surface-variant leading-relaxed">@point</span>
+              </li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-outline-variant/20 mb-16"></div>
+
+    <!-- Entry grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8" id="entry-grid">
+      @foreach (JournalEntry entry in Model.RelatedEntries){
+        <article class="entry-card bg-surface rounded-xl border border-outline-variant/20 overflow-hidden" data-category="@entry.Category">
+        <a asp-page="/Journal/Entry" asp-route-slug="@entry.Slug" class="block p-8 h-full">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">@entry.Category</span>
+          </div>
+          <h3 class="text-xl font-headline leading-snug mb-3 group-hover:text-secondary">@entry.Title</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">@entry.Lede</p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center gap-2">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">@entry.PublishedDate.ToString("MMMM yyyy")</span>
+            <span class="text-outline-variant text-xs">·</span>
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">@entry.ReadTimeMinutes min</span>
+            </div>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      }
+
+      <!-- Empty state (shown when filter has no results) -->
+      <div id="empty-state" class="hidden col-span-full py-16 text-center">
+        <span class="material-symbols-outlined text-outline text-4xl mb-4 block">article</span>
+        <p class="font-headline text-xl text-primary mb-2">No entries in this category yet.</p>
+        <p class="text-on-surface-variant font-body text-sm">Check back soon, or <button onclick="filterEntries('all')" class="underline decoration-[#7c5730] underline-offset-4 hover:text-secondary transition-colors">view all entries</button>.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About this journal -->
+<section class="py-20 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl">
+      <span class="font-label text-secondary-container tracking-widest text-xs font-bold uppercase block mb-4">About this journal</span>
+      <h2 class="text-3xl font-headline text-white mb-6 leading-snug">Everything here comes from direct experience. None of it is abstract.</h2>
+      <div class="space-y-4 text-white/75 font-body leading-relaxed">
+        <p>I write about what I've learned from designing and building my own family's off-grid home on 40 acres outside Spring City, Utah — and from the work I do with clients. I don't have opinions about home design from a distance. I live in the house I built, and I notice every day what works and what I would have done differently.</p>
+        <p>These entries are for people who are thinking seriously about building — who want to understand not just what to choose, but why the decision matters, and what happens when you get it wrong.</p>
+      </div>
+      <div class="mt-10 flex items-center gap-5">
+        <a href="about.html" class="inline-flex items-center gap-2 text-white font-label text-sm font-semibold tracking-wide border-b border-secondary-container pb-0.5 hover:text-secondary-container transition-colors duration-200">
+          About Tyler <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+        <a href="index.html#contact" class="inline-flex items-center gap-2 text-white/60 font-label text-sm tracking-wide hover:text-white transition-colors duration-200">
+          Start a project
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

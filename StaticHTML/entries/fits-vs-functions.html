@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<!-- ═══════════════════════════════════════════════════
+     FILL IN: Page title and meta description
+     Title format: "Entry Title | Journal | Rencher Design"
+     Description: 1–2 sentence summary, ~150 characters
+     ═══════════════════════════════════════════════════ -->
+<title>The Difference Between a House That Fits and a House That Functions | Journal | Rencher Design</title>
+<meta name="description" content="Most clients come in knowing what they want aesthetically. But aesthetic preferences aren't a design brief. Here's how to think about what a home looks like versus what it does."/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tertiary-container": "#7c2e00", "on-secondary-fixed": "#2c1600",
+          "surface-variant": "#e5e2df", "on-tertiary": "#ffffff",
+          "surface-tint": "#5f5e5e", "outline-variant": "#d4c3be",
+          "secondary-fixed-dim": "#eebd8e", "on-tertiary-fixed-variant": "#7c2e00",
+          "error-container": "#ffdad6", "inverse-primary": "#c8c6c5",
+          "surface-container-low": "#f6f3f0", "surface-container": "#f0edea",
+          "tertiary-fixed": "#ffdbcd", "secondary-fixed": "#ffdcbd",
+          "surface-container-lowest": "#ffffff", "primary-fixed": "#e4e2e1",
+          "error": "#ba1a1a", "primary-fixed-dim": "#c8c6c5",
+          "on-surface": "#1c1c1a", "on-secondary": "#ffffff",
+          "inverse-on-surface": "#f3f0ed", "on-error-container": "#93000a",
+          "surface-dim": "#dcd9d7", "on-primary-container": "#b7b5b4",
+          "on-primary": "#ffffff", "on-tertiary-container": "#ff9c6e",
+          "primary-container": "#474747", "on-surface-variant": "#504441",
+          "on-secondary-fixed-variant": "#61401b", "surface": "#fcf9f6",
+          "on-tertiary-fixed": "#351000", "inverse-surface": "#31302f",
+          "surface-bright": "#fcf9f6", "on-primary-fixed": "#1b1c1c",
+          "outline": "#827470", "tertiary": "#571e00",
+          "surface-container-highest": "#e5e2df", "on-primary-fixed-variant": "#474747",
+          "background": "#fcf9f6", "secondary-container": "#fdcb9b",
+          "on-error": "#ffffff", "on-background": "#1c1c1a",
+          "tertiary-fixed-dim": "#ffb595", "primary": "#313030",
+          "on-secondary-container": "#79542d", "surface-container-high": "#eae8e5",
+          "secondary": "#7c5730"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif"],
+          "body": ["Plus Jakarta Sans"],
+          "label": ["Plus Jakarta Sans"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+
+  /* ── Reading progress bar ── */
+  #progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #7c5730;
+    width: 0%;
+    z-index: 100;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Prose typography ──
+     All body text inside .prose gets these styles.
+     You write plain HTML paragraphs — styling is automatic. */
+  .prose {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: #504441;
+  }
+  .prose p { margin-bottom: 1.5rem; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* Inline links within prose */
+  .prose a {
+    color: #7c5730;
+    text-decoration: underline;
+    text-decoration-color: #d4c3be;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .prose a:hover { text-decoration-color: #7c5730; }
+
+  /* Bold within prose */
+  .prose strong { color: #1c1c1a; font-weight: 600; }
+
+  /* ── Section headings within the article ──
+     Use <h2 class="entry-h2"> for major section breaks.
+     Use <h3 class="entry-h3"> for sub-points within a section. */
+  .entry-h2 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #1c1c1a;
+    line-height: 1.3;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d4c3be;
+  }
+  .entry-h3 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #313030;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Pull quote ──
+     Use <blockquote class="pull-quote"> for a standout quote.
+     Works best for a single compelling sentence. */
+  .pull-quote {
+    border-left: 4px solid #7c5730;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .pull-quote p {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    color: #313030;
+    margin: 0;
+  }
+
+  /* ── Callout / tip box ──
+     Use <div class="callout"> for a highlighted insight, warning, or aside.
+     Best used once or twice per entry, not repeatedly. */
+  .callout {
+    background: #f0edea;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    border-left: 3px solid #7c5730;
+  }
+  .callout p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #504441;
+    margin: 0;
+  }
+  .callout strong { color: #313030; }
+
+  /* ── Inline image — full width ──
+     Use <figure class="img-full"> for a wide photo spanning the column.
+     Add a <figcaption> for an optional caption below. */
+  .img-full {
+    margin: 2.5rem 0;
+  }
+  .img-full img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-full figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8125rem;
+    color: #827470;
+    margin-top: 0.625rem;
+    line-height: 1.5;
+  }
+
+  /* ── Inline image — half width, float left or right ──
+     Use <figure class="img-left"> or <figure class="img-right">
+     for a photo that sits beside text. Works best on desktop. */
+  .img-left, .img-right {
+    margin: 0.5rem 0 1.5rem 0;
+    max-width: 100%;
+  }
+  @media (min-width: 640px) {
+    .img-left {
+      float: left;
+      width: 46%;
+      margin: 0.25rem 2rem 1rem 0;
+    }
+    .img-right {
+      float: right;
+      width: 46%;
+      margin: 0.25rem 0 1rem 2rem;
+    }
+  }
+  .img-left img, .img-right img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-left figcaption, .img-right figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .clearfix::after { content: ''; display: table; clear: both; }
+
+  /* ── Two-photo side-by-side ──
+     Use <div class="img-pair"> wrapping two <figure> elements.
+     Best for before/after or comparison photos. */
+  .img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .img-pair figure { margin: 0; }
+  .img-pair img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-pair figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Three-photo row ──
+     Use <div class="img-trio"> wrapping three <figure> elements. */
+  .img-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    margin: 2.5rem 0;
+  }
+  .img-trio figure { margin: 0; }
+  .img-trio img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .img-trio figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Horizontal rule ──
+     A styled <hr> between major sections. */
+  .entry-rule {
+    border: none;
+    border-top: 1px solid #d4c3be;
+    margin: 3rem 0;
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Reading progress bar — fills automatically as user scrolls -->
+<div id="progress-bar"></div>
+
+<!-- ═══════════════════════════
+     NAVIGATION (do not modify)
+     ═══════════════════════════ -->
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm">
+  <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="../index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+    <div class="hidden md:flex space-x-10 items-center">
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../services.html">Services</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../process.html">Process</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../portfolio.html">Portfolio</a>
+      <a class="text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]" href="../journal.html">Journal</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../about.html">About</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../index.html#contact">Contact</a>
+    </div>
+    <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='../index.html#contact'">
+      Begin Your Project
+    </button>
+    <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+    </button>
+  </nav>
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+    <div class="px-8 py-6 space-y-1">
+      <a href="../services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Services<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Process<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Portfolio<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">Journal<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">About<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <div class="pt-4"><a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Begin Your Project</a></div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     Replace the src with your image path.
+     alt= should describe what's in the photo.
+     The image displays at full column width, cropped to
+     a 16:9 ratio. Tall portrait photos will be cropped —
+     prefer landscape orientation here.
+     ═══════════════════════════════════════════════════ -->
+<div class="w-full bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto">
+    <img
+      src="../images/journal/fits-vs-functions-hero.jpg"
+      alt="A beautifully styled kitchen that looks perfect in a magazine — the question is whether it works for the family who will actually cook in it every day"
+      class="w-full object-cover"
+      style="max-height: 560px;"
+    />
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ENTRY HEADER
+     Fill in: category, date, read time, title, lede.
+     Category options: High-Performance Building /
+       Off-Grid Living / Design Process / For Clients
+     Read time: count roughly 200 words per minute.
+     Lede: 2–3 sentences. The thing that makes someone
+       want to read the whole entry. Write it last.
+     ═══════════════════════════════════════════════════ -->
+<header class="py-14 bg-surface border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+
+    <!-- Back link -->
+    <a href="../journal.html" class="inline-flex items-center gap-1 text-secondary font-label text-xs tracking-wide hover:gap-2 transition-all mb-8 block">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>Journal
+    </a>
+
+    <div class="max-w-2xl">
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="font-label text-[10px] tracking-widest uppercase text-secondary font-bold">
+          Design Process
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          July 2026
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          10 min read
+        </span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-headline leading-tight mb-6">
+        The difference between a house that fits and a house that functions.
+      </h1>
+
+      <p class="text-xl text-on-surface-variant font-body font-light leading-relaxed">
+        Most clients come in knowing what they want. A farmhouse kitchen. Vaulted ceilings. A big front porch. These are aesthetic preferences, and they're valid. But they're not a design brief. Here's how I think about the difference between what a home looks like and what it does.
+      </p>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE BODY
+     The <article> element contains all your writing.
+     Max width is constrained to ~680px for comfortable
+     reading line length. Write everything between the
+     opening and closing article tags below.
+
+     AVAILABLE ELEMENTS — copy and use as needed:
+
+     PARAGRAPH:
+       <p>Your text here.</p>
+
+     SECTION HEADING (major break):
+       <h2 class="entry-h2">Heading text</h2>
+
+     SUB-HEADING:
+       <h3 class="entry-h3">Sub-heading text</h3>
+
+     PULL QUOTE:
+       <blockquote class="pull-quote">
+         <p>"Your quote here."</p>
+       </blockquote>
+
+     CALLOUT BOX:
+       <div class="callout">
+         <p><strong>Label:</strong> Your callout text here.</p>
+       </div>
+
+     FULL-WIDTH PHOTO:
+       <figure class="img-full">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption text.</figcaption>
+       </figure>
+
+     PHOTO FLOATED LEFT (text wraps right):
+       <figure class="img-left">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     PHOTO FLOATED RIGHT (text wraps left):
+       <figure class="img-right">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     TWO PHOTOS SIDE BY SIDE:
+       <div class="img-pair">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Left photo caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Right photo caption.</figcaption>
+         </figure>
+       </div>
+
+     THREE PHOTOS IN A ROW:
+       <div class="img-trio">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-c.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+       </div>
+
+     HORIZONTAL RULE (section divider):
+       <hr class="entry-rule"/>
+
+     INLINE LINK (within prose):
+       <a href="../services.html">linked text</a>
+       (styling is automatic inside .prose)
+     ═══════════════════════════════════════════════════ -->
+
+<div class="py-16 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <article class="max-w-2xl mx-auto prose">
+
+      <p>
+        There are two ways to evaluate a home. The first is visual: how does it look? What materials, what proportions, what style? Does the kitchen feel warm and welcoming? Do the ceilings feel generous? Does the front elevation have presence from the street? These are real qualities that matter to real people, and I'm not dismissing them. A home that is thoughtfully detailed and beautifully finished is a better place to live than one that isn't, all else being equal.
+      </p>
+
+      <p>
+        The second way to evaluate a home is functional: how does it work? Does the layout support how the family actually moves through the house? Is the kitchen in the right relationship to the dining area, to the mudroom, to the rooms where children spend time? Can the primary cook see the children's play area while making dinner, or does the kitchen layout put their back to the rest of the house? Is the laundry in a location that reflects how laundry actually happens in this household, or where it was convenient to run the drain?
+      </p>
+
+      <p>
+        The problem is that these two ways of evaluating a home are not the same thing, and most clients focus on the first because it is fun and exciting while the second is what determines whether they're happy living in the house five years after they move in.
+      </p>
+
+      <h2 class="entry-h2">What aesthetic preferences actually tell you</h2>
+
+      <p>
+        When a client tells me they want a farmhouse kitchen, they're telling me something real. They're telling me they want warmth, materiality, a sense of craft, probably natural wood tones and some amount of visual interest that comes from texture rather than sleekness. They're telling me they've seen something that resonated with them — maybe in a magazine, maybe in a house they visited — and that they want something of that feeling in their own home.
+      </p>
+
+      <p>
+        That's useful information. But it's not enough to design from. A farmhouse kitchen in a home where the cook needs unobstructed sightlines to the children's play area is a different design problem than a farmhouse kitchen in a home where the kitchen is entirely separate from the rest of the living areas. A farmhouse kitchen with a serious baker in the household calls for different counter depths, different storage decisions, and different ventilation than one in a household where dinner is a quick weeknight meal most nights. The aesthetic tells me the direction. The function tells me the design.
+      </p>
+
+      <blockquote class="pull-quote">
+        <p>"A beautiful kitchen that fights you every time you cook in it is not a good kitchen. It's an expensive problem that looks nice in photographs."</p>
+      </blockquote>
+
+      <p>
+        The pinterest and houzz images clients bring to discovery conversations show beautiful rooms. What they don't show is how those rooms work at 6 PM on a Wednesday when three children are doing homework, dinner is being made, and the counter is covered with the debris of a day. The image is a best-case representation: staged, lit, photographed by a professional, and optimized to look good rather than to reveal how the space actually functions under normal household conditions.
+      </p>
+
+      <h2 class="entry-h2">The distinction that matters: designed for you, or designed to look good</h2>
+
+      <p>
+        There's a version of kitchen design that optimizes for photographs. Open shelves instead of closed cabinets, because they read better visually. An island with seating on all sides, because it looks generous and inviting in a wide-angle shot. A range positioned as a focal point at the center of the wall, because it anchors the room visually. These are not bad choices, but they're choices made from the outside in — what looks good to someone looking at the room — rather than from the inside out — what works for someone living in it.
+      </p>
+
+      <p>
+        Open shelves require constant maintenance to look good and provide less storage than closed cabinets. An island with seating on all sides may block traffic flow in a household where the kitchen is heavily used by multiple people simultaneously. A range centered on the far wall may put the cook's back to the dining area and the children's play space for the entire duration of meal preparation.
+      </p>
+
+      <p>
+        None of these is an absolute rule — each can be the right choice in the right household. But they're choices that need to be made from an understanding of how the household actually operates, not from how the room will look in a photograph. A home designed from photographs tends to look like the photographs and function like no household that actually exists.
+      </p>
+
+      <h2 class="entry-h2">What function actually means</h2>
+
+      <p>
+        Function in a home is about the relationship between spaces — adjacency, flow, and sightlines — more than it is about any individual room. A kitchen can be beautiful in isolation and wrong in context. The question isn't just what's in the room; it's what happens at the boundaries between rooms and how people move between them.
+      </p>
+
+      <h3 class="entry-h3">Adjacency: what needs to be near what</h3>
+
+      <p>
+        Adjacency decisions are among the most permanent a floor plan makes, and among the ones most often gotten wrong by clients who are thinking room-by-room rather than about the house as a system. The kitchen needs to be near the dining area — that's understood by almost everyone. Less universally understood: the kitchen should be near the mudroom entry in households where children come in from outside multiple times a day, because the transition from outside to the kitchen is where snacks happen, where dirty hands get washed, where the cook is interrupted by arrivals and departures.
+      </p>
+
+      <p>
+        The laundry room needs to be near the bedrooms in a household where laundry is done frequently and in small loads — because that's where the clothes come from and where they go back. In a household where laundry is done in large batches once or twice a week, the laundry room near the garage or utility entry may make more sense, because the workflow is different. There is no universally correct adjacency. There is a correct adjacency for each household's actual pattern of use.
+      </p>
+
+      <h3 class="entry-h3">Flow: how people move through the house</h3>
+
+      <p>
+        Flow describes the paths people take through the house during normal daily life. Efficient flow means the paths are direct and don't require crossing through spaces that are being used for something else. A home where the route from the garage to the kitchen requires passing through the dining room is a home where every grocery run interrupts anyone sitting at the dining table. A home where the route from the primary bedroom to the laundry requires passing through the children's play area means someone is woken up every time laundry happens early in the morning.
+      </p>
+
+      <p>
+        Good flow also means that the spaces people use simultaneously are connected in ways that allow that simultaneous use. A household where the primary cook needs to monitor young children while preparing meals needs a layout where the kitchen and the children's area have a sightline connection or a proximity that allows supervision without physical presence in the same room. A household where a parent works from home and takes calls needs a layout where the office is far enough from the household's main activity areas that call noise doesn't create conflict. Receiving business clients is even more important to consider the house as a system to think in public vs private spaces and how they interact.
+      </p>
+
+      <h3 class="entry-h3">Sightlines: seeing without being present</h3>
+
+      <p>
+        Sightlines are one of the most underrated functional elements in residential design. A parent who can see the front door from the kitchen knows when children arrive home without being positioned at the door. A parent who can see the play area from the kitchen can supervise young children without being in the room with them. A couple who can make eye contact across the kitchen island and the living area while one is cooking and the other is reading has a different quality of daily connection than a couple whose spaces are separated by walls.
+      </p>
+
+      <p>
+        Sightlines are also about privacy when privacy is needed: a primary bedroom that doesn't have a direct sightline from the street, a home office that can't be seen into from the main living areas, a children's bathroom where the door doesn't open directly into a visible hallway. These are decisions that require thinking about where people are, where they're looking from, and what they should and shouldn't see from any given position in the house.
+      </p>
+
+      <h2 class="entry-h2">How aesthetic and function come together</h2>
+
+      <p>
+        The goal isn't to choose between a home that looks good and a home that works. It's to design a home that works first, and then apply aesthetic decisions within that framework. Those decisions — materials, finishes, proportions, details — have enormous latitude once the functional constraints are established. There is no aesthetic that requires a bad floor plan. There is no style that requires a kitchen in the wrong relationship to the dining area. The best residential design produces homes that are both beautiful and functional, because the functional decisions were made first and the aesthetic decisions were made within a structure that already works.
+      </p>
+
+      <p>
+        The farmhouse kitchen the client wanted at the beginning of the conversation can still be the farmhouse kitchen they get at the end — with warm materials, craft details, generous proportions. The difference is that it will be the farmhouse kitchen that works for the way their family actually cooks and eats, positioned correctly relative to the rest of their household, with storage designed around what they actually store rather than what looks good on a shelf. It will look good in photographs. It will also work on Wednesday at 6 PM.
+      </p>
+
+      <h2 class="entry-h2">The question I ask that changes the conversation</h2>
+
+      <p>
+        Early in every discovery conversation, after a client has described what they want their home to look and feel like, I ask them to walk me through a typical Tuesday. Not what they hope life in the new house will look like — what it actually looks like in the house they're currently in. Who wakes up first and what do they do? How does the morning departure work? What does dinner look like? Where does everyone go in the evening? Where does gear accumulate? What is the thing they fight against most often in their current house?
+      </p>
+
+      <p>
+        That conversation — a description of a single ordinary day — tells me more about what the house needs to be than any amount of discussion about architectural style or finish preferences. It tells me where the adjacencies need to be, how the flow should work, what sightlines matter, and which of the aesthetic preferences the client described can be accommodated directly and which ones need to be interpreted in light of how the household actually functions.
+      </p>
+
+      <p>
+        The client who described a farmhouse kitchen may, in that Tuesday conversation, describe a household where the cook rarely has sustained time in the kitchen — where dinner is often a quick assembly rather than a prepared meal, where the kitchen is primarily a passing-through space rather than a gathering space. That household may actually want something quite different from the farmhouse kitchen aesthetic that comes with the open shelves and the statement range: a kitchen that's highly efficient, easy to clean, and gets out of the way. The aesthetic preference was real. The underlying need it pointed toward was different from what the image suggested.
+      </p>
+
+      <p>
+        Getting that right — understanding what the client actually needs versus what they think they want — is what the design process is for. Aesthetics come after. Function first.
+      </p>
+
+    </article>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ENTRIES
+     Replace the three <article> cards below with links
+     to other journal entries. Update: title, category,
+     date, read time, description, and href on the <a>.
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-surface-container-low border-t border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl font-headline text-primary">More from the journal</h2>
+    </div>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Related entry 1 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="rooms-people-regret.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Design Process</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">The rooms people regret — and the rooms they never thought to ask for.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">The rooms included because they seemed expected, and the ones left out because nobody raised the question. Both patterns are predictable and both are preventable.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Jul 2026 · 11 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 2 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="what-to-bring.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">For Clients</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">What to bring to your first design conversation — and what to leave out.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">The binder of magazine tearouts is almost always a liability. Here's what actually helps — and why a description of a typical Tuesday is worth more than a hundred images.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">May 2026 · 9 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 3 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="design-decisions.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">For Clients</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">Design is cheap. Change orders are not.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Getting the function right during design costs nothing. Discovering the function is wrong during framing costs thousands. The sequence matters enormously.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Feb 2026 · 9 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="../journal.html" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all">
+        View all entries <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     CTA + FOOTER (do not modify)
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-xl">
+      <h2 class="text-3xl font-headline mb-3 text-white">Thinking about building?</h2>
+      <p class="text-white/70 font-body mb-7 leading-relaxed">The first conversation is free. Tell me about your land and what you're imagining.</p>
+      <a href="../index.html#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-[#313030] text-[#fcf9f6]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-20 max-w-screen-2xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
+      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">Architectural design for those who value technical excellence alongside family comfort.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Navigate</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../index.html">Home</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../services.html">Services</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widests uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../portfolio.html">Portfolio</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../journal.html">Journal</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../about.html">About</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col justify-between items-end">
+      <div class="text-right">
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40">© 2026 Rencher Design</p>
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40 mt-1">Spring City, Utah</p>
+      </div>
+      <div class="mt-8 md:mt-0 flex gap-4">
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">architecture</span>
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">foundation</span>
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">home_storage</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Mobile nav ──
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = toggle.querySelectorAll('.hamburger-bar');
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', !isOpen);
+    if (!isOpen) {
+      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+      bars[1].style.opacity = '0';
+      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+
+  // ── Reading progress bar ──
+  const bar = document.getElementById('progress-bar');
+  const article = document.querySelector('article');
+  window.addEventListener('scroll', () => {
+    const articleTop = article.getBoundingClientRect().top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(Math.max(scrolled / articleHeight, 0), 1);
+    bar.style.width = (pct * 100) + '%';
+  });
+</script>
+
+</body>
+</html>

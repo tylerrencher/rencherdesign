@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+    <head>
+        <title>@ViewData["Title"] | Rencher Design</title>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="~/style.css" rel="stylesheet" />
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                extend: {
+                    colors: {
+                    "tertiary-container": "#7c2e00",
+                    "on-secondary-fixed": "#2c1600",
+                    "surface-variant": "#e5e2df",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "outline-variant": "#d4c3be",
+                    "secondary-fixed-dim": "#eebd8e",
+                    "on-tertiary-fixed-variant": "#7c2e00",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-container-low": "#f6f3f0",
+                    "surface-container": "#f0edea",
+                    "tertiary-fixed": "#ffdbcd",
+                    "secondary-fixed": "#ffdcbd",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#e4e2e1",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-surface": "#1c1c1a",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f3f0ed",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dcd9d7",
+                    "on-primary-container": "#b7b5b4",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#ff9c6e",
+                    "primary-container": "#474747",
+                    "on-surface-variant": "#504441",
+                    "on-secondary-fixed-variant": "#61401b",
+                    "surface": "#fcf9f6",
+                    "on-tertiary-fixed": "#351000",
+                    "inverse-surface": "#31302f",
+                    "surface-bright": "#fcf9f6",
+                    "on-primary-fixed": "#1b1c1c",
+                    "outline": "#827470",
+                    "tertiary": "#571e00",
+                    "surface-container-highest": "#e5e2df",
+                    "on-primary-fixed-variant": "#474747",
+                    "background": "#fcf9f6",
+                    "secondary-container": "#fdcb9b",
+                    "on-error": "#ffffff",
+                    "on-background": "#1c1c1a",
+                    "tertiary-fixed-dim": "#ffb595",
+                    "primary": "#313030",
+                    "on-secondary-container": "#79542d",
+                    "surface-container-high": "#eae8e5",
+                    "secondary": "#7c5730"
+                    },
+                    fontFamily: {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+        </script>
+    </head>
+    <body class="bg-surface text-on-surface antialiased">
+        @await Html.PartialAsync("_Nav")
+        <main>
+            @RenderBody()
+        </main>
+        @await Html.PartialAsync("_Footer")
+    </body>
+</html>

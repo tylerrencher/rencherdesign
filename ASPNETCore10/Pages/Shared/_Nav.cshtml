@@ -1,0 +1,111 @@
+@functions {
+    string MobileNavLinkClass(string page) =>
+        ViewContext.RouteData.Values["page"]?.ToString() == page
+            ? "flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold"
+            : "flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors";
+
+    string DesktopNavLinkClass(string page) =>
+        ViewContext.RouteData.Values["page"]?.ToString() == page
+        ? "text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]"
+        : "text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body";
+}
+
+@{
+    var indexPage = "/Index";
+    var aboutPage = "/About";
+    var journalPage = "/Journal/Index";
+    var servicesPage = "/Services";
+    var portfolioPage = "/Portfolio/Index";
+    var processPage = "/Process";
+    var contactPage = "/#contact";
+}
+
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm transition-opacity">
+    <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+        <a asp-page="@indexPage" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+
+        <!-- Desktop nav -->
+        <div class="hidden md:flex space-x-10 items-center">
+            <a class="@DesktopNavLinkClass(aboutPage)" asp-page="@aboutPage">About</a>
+            <a class="@DesktopNavLinkClass(journalPage)" asp-page="@journalPage">Journal</a>
+            <a class="@DesktopNavLinkClass(servicesPage)" asp-page="@servicesPage">Services</a>
+            <a class="@DesktopNavLinkClass(portfolioPage)" asp-page="@portfolioPage">Portfolio</a>
+            <a class="@DesktopNavLinkClass(processPage)" asp-page="@processPage">Process</a>
+        </div>
+        <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='@contactPage'">
+        Begin Your Project
+        </button>
+
+        <!-- Mobile hamburger button -->
+        <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+            <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+            <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+            <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile menu drawer -->
+    <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+        <div class="px-8 py-6 space-y-1">
+            <a asp-page="@aboutPage" class="@MobileNavLinkClass(@aboutPage)">
+                About
+                <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+            </a>
+            <a asp-page="@journalPage" class="@MobileNavLinkClass(@journalPage)">
+                Journal
+                <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+            </a>
+            <a asp-page="@servicesPage" class="@MobileNavLinkClass(@servicesPage)">
+                Services
+                <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+            </a>
+            <a asp-page="@portfolioPage" class="@MobileNavLinkClass(@portfolioPage)">
+                Portfolio
+                <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+            </a>
+            <a asp-page="@processPage" class="@MobileNavLinkClass(@processPage)">
+                Process
+                <span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span>
+            </a>
+            <div class="pt-4">
+                <a href="@contactPage" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">
+                Begin Your Project
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const bars = toggle.querySelectorAll('.hamburger-bar');
+
+    toggle.addEventListener('click', () => {
+        const isOpen = !menu.classList.contains('hidden');
+        menu.classList.toggle('hidden');
+        toggle.setAttribute('aria-expanded', !isOpen);
+
+        // Animate to X
+        if (!isOpen) {
+            bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+            bars[1].style.opacity = '0';
+            bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+        } else {
+            bars[0].style.transform = '';
+            bars[1].style.opacity = '';
+            bars[2].style.transform = '';
+        }
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+        if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.add('hidden');
+            toggle.setAttribute('aria-expanded', 'false');
+            bars[0].style.transform = '';
+            bars[1].style.opacity = '';
+            bars[2].style.transform = '';
+        }
+  });
+</script>

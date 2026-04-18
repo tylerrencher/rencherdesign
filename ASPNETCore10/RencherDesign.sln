@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RencherDesign", "RencherDesign.csproj", "{A950C4B1-0BA4-4E8E-2695-4E88C8B9D28A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A950C4B1-0BA4-4E8E-2695-4E88C8B9D28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A950C4B1-0BA4-4E8E-2695-4E88C8B9D28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A950C4B1-0BA4-4E8E-2695-4E88C8B9D28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A950C4B1-0BA4-4E8E-2695-4E88C8B9D28A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D393E75A-7A0E-4427-9ACC-073E175DDC2E}
+	EndGlobalSection
+EndGlobal

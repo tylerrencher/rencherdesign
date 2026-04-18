@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<!-- ═══════════════════════════════════════════════════
+     FILL IN: Page title and meta description
+     Title format: "Entry Title | Journal | Rencher Design"
+     Description: 1–2 sentence summary, ~150 characters
+     ═══════════════════════════════════════════════════ -->
+<title>How Software Engineering Made Me a Better Home Designer | Journal | Rencher Design</title>
+<meta name="description" content="Thirteen years building systems taught me to think about complexity, manage expectations, and make decisions that age well. Those skills transfer to home design — and matter more here, because you only get one shot."/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tertiary-container": "#7c2e00", "on-secondary-fixed": "#2c1600",
+          "surface-variant": "#e5e2df", "on-tertiary": "#ffffff",
+          "surface-tint": "#5f5e5e", "outline-variant": "#d4c3be",
+          "secondary-fixed-dim": "#eebd8e", "on-tertiary-fixed-variant": "#7c2e00",
+          "error-container": "#ffdad6", "inverse-primary": "#c8c6c5",
+          "surface-container-low": "#f6f3f0", "surface-container": "#f0edea",
+          "tertiary-fixed": "#ffdbcd", "secondary-fixed": "#ffdcbd",
+          "surface-container-lowest": "#ffffff", "primary-fixed": "#e4e2e1",
+          "error": "#ba1a1a", "primary-fixed-dim": "#c8c6c5",
+          "on-surface": "#1c1c1a", "on-secondary": "#ffffff",
+          "inverse-on-surface": "#f3f0ed", "on-error-container": "#93000a",
+          "surface-dim": "#dcd9d7", "on-primary-container": "#b7b5b4",
+          "on-primary": "#ffffff", "on-tertiary-container": "#ff9c6e",
+          "primary-container": "#474747", "on-surface-variant": "#504441",
+          "on-secondary-fixed-variant": "#61401b", "surface": "#fcf9f6",
+          "on-tertiary-fixed": "#351000", "inverse-surface": "#31302f",
+          "surface-bright": "#fcf9f6", "on-primary-fixed": "#1b1c1c",
+          "outline": "#827470", "tertiary": "#571e00",
+          "surface-container-highest": "#e5e2df", "on-primary-fixed-variant": "#474747",
+          "background": "#fcf9f6", "secondary-container": "#fdcb9b",
+          "on-error": "#ffffff", "on-background": "#1c1c1a",
+          "tertiary-fixed-dim": "#ffb595", "primary": "#313030",
+          "on-secondary-container": "#79542d", "surface-container-high": "#eae8e5",
+          "secondary": "#7c5730"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif"],
+          "body": ["Plus Jakarta Sans"],
+          "label": ["Plus Jakarta Sans"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+
+  /* ── Reading progress bar ── */
+  #progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #7c5730;
+    width: 0%;
+    z-index: 100;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Prose typography ──
+     All body text inside .prose gets these styles.
+     You write plain HTML paragraphs — styling is automatic. */
+  .prose {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: #504441;
+  }
+  .prose p { margin-bottom: 1.5rem; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* Inline links within prose */
+  .prose a {
+    color: #7c5730;
+    text-decoration: underline;
+    text-decoration-color: #d4c3be;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .prose a:hover { text-decoration-color: #7c5730; }
+
+  /* Bold within prose */
+  .prose strong { color: #1c1c1a; font-weight: 600; }
+
+  /* ── Section headings within the article ──
+     Use <h2 class="entry-h2"> for major section breaks.
+     Use <h3 class="entry-h3"> for sub-points within a section. */
+  .entry-h2 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #1c1c1a;
+    line-height: 1.3;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d4c3be;
+  }
+  .entry-h3 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #313030;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Pull quote ──
+     Use <blockquote class="pull-quote"> for a standout quote.
+     Works best for a single compelling sentence. */
+  .pull-quote {
+    border-left: 4px solid #7c5730;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .pull-quote p {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    color: #313030;
+    margin: 0;
+  }
+
+  /* ── Callout / tip box ──
+     Use <div class="callout"> for a highlighted insight, warning, or aside.
+     Best used once or twice per entry, not repeatedly. */
+  .callout {
+    background: #f0edea;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    border-left: 3px solid #7c5730;
+  }
+  .callout p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #504441;
+    margin: 0;
+  }
+  .callout strong { color: #313030; }
+
+  /* ── Inline image — full width ──
+     Use <figure class="img-full"> for a wide photo spanning the column.
+     Add a <figcaption> for an optional caption below. */
+  .img-full {
+    margin: 2.5rem 0;
+  }
+  .img-full img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-full figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8125rem;
+    color: #827470;
+    margin-top: 0.625rem;
+    line-height: 1.5;
+  }
+
+  /* ── Inline image — half width, float left or right ──
+     Use <figure class="img-left"> or <figure class="img-right">
+     for a photo that sits beside text. Works best on desktop. */
+  .img-left, .img-right {
+    margin: 0.5rem 0 1.5rem 0;
+    max-width: 100%;
+  }
+  @media (min-width: 640px) {
+    .img-left {
+      float: left;
+      width: 46%;
+      margin: 0.25rem 2rem 1rem 0;
+    }
+    .img-right {
+      float: right;
+      width: 46%;
+      margin: 0.25rem 0 1rem 2rem;
+    }
+  }
+  .img-left img, .img-right img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-left figcaption, .img-right figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .clearfix::after { content: ''; display: table; clear: both; }
+
+  /* ── Two-photo side-by-side ──
+     Use <div class="img-pair"> wrapping two <figure> elements.
+     Best for before/after or comparison photos. */
+  .img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .img-pair figure { margin: 0; }
+  .img-pair img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-pair figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Three-photo row ──
+     Use <div class="img-trio"> wrapping three <figure> elements. */
+  .img-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    margin: 2.5rem 0;
+  }
+  .img-trio figure { margin: 0; }
+  .img-trio img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .img-trio figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Horizontal rule ──
+     A styled <hr> between major sections. */
+  .entry-rule {
+    border: none;
+    border-top: 1px solid #d4c3be;
+    margin: 3rem 0;
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Reading progress bar — fills automatically as user scrolls -->
+<div id="progress-bar"></div>
+
+<!-- ═══════════════════════════
+     NAVIGATION (do not modify)
+     ═══════════════════════════ -->
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm">
+  <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="../index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+    <div class="hidden md:flex space-x-10 items-center">
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../services.html">Services</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../process.html">Process</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../portfolio.html">Portfolio</a>
+      <a class="text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]" href="../journal.html">Journal</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../about.html">About</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../index.html#contact">Contact</a>
+    </div>
+    <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='../index.html#contact'">
+      Begin Your Project
+    </button>
+    <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+    </button>
+  </nav>
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+    <div class="px-8 py-6 space-y-1">
+      <a href="../services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Services<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Process<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Portfolio<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">Journal<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">About<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <div class="pt-4"><a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Begin Your Project</a></div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     Replace the src with your image path.
+     alt= should describe what's in the photo.
+     The image displays at full column width, cropped to
+     a 16:9 ratio. Tall portrait photos will be cropped —
+     prefer landscape orientation here.
+     ═══════════════════════════════════════════════════ -->
+<div class="w-full bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto">
+    <img
+      src="../images/journal/software-engineering-hero.jpg"
+      alt="A desk with both architectural drawings and a laptop with code — the intersection of software thinking and home design"
+      class="w-full object-cover"
+      style="max-height: 560px;"
+    />
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ENTRY HEADER
+     Fill in: category, date, read time, title, lede.
+     Category options: High-Performance Building /
+       Off-Grid Living / Design Process / For Clients
+     Read time: count roughly 200 words per minute.
+     Lede: 2–3 sentences. The thing that makes someone
+       want to read the whole entry. Write it last.
+     ═══════════════════════════════════════════════════ -->
+<header class="py-14 bg-surface border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+
+    <!-- Back link -->
+    <a href="../journal.html" class="inline-flex items-center gap-1 text-secondary font-label text-xs tracking-wide hover:gap-2 transition-all mb-8 block">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>Journal
+    </a>
+
+    <div class="max-w-2xl">
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="font-label text-[10px] tracking-widest uppercase text-secondary font-bold">
+          Design Process
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          June 2026
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          11 min read
+        </span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-headline leading-tight mb-6">
+        How software engineering made me a better home designer.
+      </h1>
+
+      <p class="text-xl text-on-surface-variant font-body font-light leading-relaxed">
+        Thirteen years building systems for a living taught me how to think about complexity, manage stakeholder expectations, and make decisions that age well. Those skills transfer more directly to residential design than I expected — and in some ways they're more valuable here, because you only get one shot.
+      </p>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE BODY
+     The <article> element contains all your writing.
+     Max width is constrained to ~680px for comfortable
+     reading line length. Write everything between the
+     opening and closing article tags below.
+
+     AVAILABLE ELEMENTS — copy and use as needed:
+
+     PARAGRAPH:
+       <p>Your text here.</p>
+
+     SECTION HEADING (major break):
+       <h2 class="entry-h2">Heading text</h2>
+
+     SUB-HEADING:
+       <h3 class="entry-h3">Sub-heading text</h3>
+
+     PULL QUOTE:
+       <blockquote class="pull-quote">
+         <p>"Your quote here."</p>
+       </blockquote>
+
+     CALLOUT BOX:
+       <div class="callout">
+         <p><strong>Label:</strong> Your callout text here.</p>
+       </div>
+
+     FULL-WIDTH PHOTO:
+       <figure class="img-full">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption text.</figcaption>
+       </figure>
+
+     PHOTO FLOATED LEFT (text wraps right):
+       <figure class="img-left">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     PHOTO FLOATED RIGHT (text wraps left):
+       <figure class="img-right">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     TWO PHOTOS SIDE BY SIDE:
+       <div class="img-pair">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Left photo caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Right photo caption.</figcaption>
+         </figure>
+       </div>
+
+     THREE PHOTOS IN A ROW:
+       <div class="img-trio">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-c.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+       </div>
+
+     HORIZONTAL RULE (section divider):
+       <hr class="entry-rule"/>
+
+     INLINE LINK (within prose):
+       <a href="../services.html">linked text</a>
+       (styling is automatic inside .prose)
+     ═══════════════════════════════════════════════════ -->
+
+<div class="py-16 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <article class="max-w-2xl mx-auto prose">
+
+      <p>
+        When people find out that I'm a professional software engineer also designs homes, the reaction is usually: "How can you do two completely different things?" They assume that the two fields are unrelated, that I left one world behind and learned an entirely different one. That isn't quite right. The longer I design homes, the more I recognize how directly the thinking I built in software applies. Not the technical details. The underlying habits.
+      </p>
+
+      <p>
+        This entry is about what I bring from software to homes and why I think that makes me a different kind of designer than someone who came up through architecture school or learned design on the job site. Some of it is about tools and process. Most of it is about how to think.
+      </p>
+
+      <h2 class="entry-h2">There are some rules that are hard and fast</h2>
+
+      <p>
+        In software, code is written according to a language specification. A tool called a complier translates code to something the machine can execute. The software author can make logic mistakes in how the code processes data or performs a computation, but the author can't make a typo or the compiler will fail to translate the code for the machine. In home design we have building codes — hard and fast rules that must be adhered to that are checked by a building department and inspector as the build progresses. That doesn't prevent bad design decisions though. Like forcing people to walk through the kitchen to get to the mudroom. I've made a lot of mistakes in software where things just didn't fit together right for how data moved through a system or how a user interacts with the program. Learning from those mistakes helps me spot the same kinds of bad patterns in homes before they are even built.
+      </p>
+
+      <h2 class="entry-h2">The cost of change an important concept in both fields</h2>
+
+      <p>
+        In software, there's a well-understood principle about defects: they are cheapest to find in the requirements phase, more expensive in design, significantly more expensive in development, and extremely expensive in production where mistakes cost money and your reputation. Every step toward deployment makes a fundamental problem harder and costlier to fix. This is why the best engineering teams invest heavily in getting requirements right before writing a line of code, and why the discipline of upfront design — figuring out how the system should work before building it — has such a strong return.
+      </p>
+
+      <p>
+        I spent years working in environments where this principle was understood and taken seriously. Requirements reviews. Architecture reviews. Code reviews. Each is an attempt to catch problems at the cheapest possible point in the development cycle, before the cost of change becomes prohibitive. After thirteen years of that, it becomes a reflex: find the problem early, when fixing it is cheap.
+      </p>
+
+      <p>
+        Home construction follows the same pattern with the same mathematical ruthlessness — and too often doesn't treated that way. A change to the floor plan during discovery costs nothing: a conversation, a revised sketch, a different idea. The same change once the plans are complete might cost $100-200 dollars to update the plans. The same change during framing could cost thousands: labor to tear out what's been built, materials wasted, schedule disrupted, coordination across trades undone. The same change after drywall is up can cost more than it's worth to make at all, and the client lives with it forever. The pattern is identical. The consequences are just physical instead of digital.
+      </p>
+
+      <blockquote class="pull-quote">
+        <p>"In software, you can release a new version. You can patch a bug in production. In a house, once the concrete is poured, it's poured."</p>
+      </blockquote>
+
+      <p>
+        What I do differently as a result of this background is front-load. I ask more questions before I start drawing than most draftsmen ask total. I push clients to make decisions — real decisions, with real implications — while those decisions are still free to make. The discovery process I run is longer and more demanding than clients sometimes expect. But it's the equivalent of a thorough requirements phase: the work that makes everything downstream go more smoothly and produce a better result.
+      </p>
+
+      <h2 class="entry-h2">Systems thinking: everything connects to everything else</h2>
+
+      <p>
+        A software system is a collection of components that interact. Change one component and you change the behavior of everything it touches and that touches it. Build a feature without understanding the downstream dependencies and you break something you didn't expect to break. The discipline of systems thinking — holding the whole architecture in mind while working on a part of it, understanding how changes propagate — is the core skill of a good engineer.
+      </p>
+
+      <p>
+        A home is also a system. The building envelope affects the HVAC load. The HVAC load affects the equipment sizing. The equipment sizing affects the duct design. The duct design affects where the registers go. The register locations affect the room layout. The room layout affects the window placement. The window placement affects the solar gain, which feeds back into the HVAC load. None of these are independent decisions. Pull on any one of them and the others can move.
+      </p>
+
+      <p>
+        Most residential design treats these as sequential decisions: design the floor plan, then place the windows, then figure out the mechanical on site. The problem with that sequence is that by the time you're sizing the HVAC, the decisions that most affect the load — envelope performance, window specifications, air tightness targets — were not considered.
+      </p>
+
+      <p>
+        I design differently. The envelope performance targets, the HVAC strategy, and the room layout are developed together — because they're not independent decisions and shouldn't be treated as such. For off-grid homes especially, the electrical load affects the solar system size, which affects the roof area needed, which affects the building footprint, which affects the floor plan. These decisions have to be made as a system, not in sequence.
+      </p>
+
+      <h2 class="entry-h2">Managing stakeholders who have conflicting requirements</h2>
+
+      <p>
+        Most software projects involve multiple stakeholders with different, often conflicting, ideas about what the system should do. A product manager wants features. An engineer wants stability. A security team wants control. A designer wants simplicity. An executive wants it done by Friday. Getting alignment among people with genuinely different objectives — without letting any one voice dominate in ways that damage the outcome — is a significant part of the job.
+      </p>
+
+      <p>
+        Custom home design has the same dynamic, except the stakeholders are usually two people who are married to each other. That doesn't make the conflict less real. Spouses routinely have genuinely different priorities about what their home should be: one wants an open kitchen connected to the living room, one wants a kitchen with walls where cooking smells stay contained. One wants a master bedroom far from the children, one wants to be nearby. One wants to spend the money on the kitchen, one wants to spend it on a shop. One wants a second story, one wants everything on one floor.
+      </p>
+
+      <p>
+        A designer who just draws what one spouse asks for is going to produce a home that the other spouse didn't agree to. A designer who tries to make both spouses happy without surfacing the conflict is going to produce a home that satisfies neither. The job is to get the conflict on the table explicitly, understand what's actually driving each position, and find a design resolution that both parties understand and genuinely accept — rather than one that papers over the disagreement until they're living in it.
+      </p>
+
+      <div class="callout">
+        <p><strong>The most useful question in a discovery conversation:</strong> "What does your spouse think about this?" Not because I need permission, but because the answer tells me immediately whether we're talking about a genuine shared priority or a preference one person holds that the other hasn't been asked about yet. Surfacing that gap early is one of the most valuable things a designer can do.</p>
+      </div>
+
+      <p>
+        The skill that makes this possible is one I developed doing stakeholder management in software: the ability to make someone feel genuinely heard even while pushing back on their position. To understand the need behind the stated preference — what they're actually trying to achieve — and then explore whether the stated solution is the only way to get there. In software, a product manager who wants a feature often wants an outcome. Sometimes the outcome can be achieved more cleanly with a different feature. The same is true of clients who want a specific room or a specific layout: what they usually want is a specific thing the room or layout would give them, and that need can often be met in more than one way.
+      </p>
+
+      <h2 class="entry-h2">Documentation that survives handoffs</h2>
+
+      <p>
+        In software, a system that isn't documented is a liability. The engineer who built it knows how it works. Everyone else is guessing. When that engineer leaves, the knowledge leaves with them, and the next person to touch the system is working from incomplete information. Good engineering teams treat documentation as a first-class deliverable, not an afterthought — because the system will eventually be maintained by someone who wasn't in the room when the decisions were made.
+      </p>
+
+      <p>
+        Residential construction has a documentation problem. Most homes are built from drawing sets that specify what the building should look like but not why certain decisions were made. The designer knows why the window is in that location, why the wall assembly is detailed that particular way, why the HVAC register is where it is. The general contractor may know some of it. The subcontractors know very little. When a question arises in the field — and questions always arise in the field — the people making the decision often don't have access to the reasoning that should inform it.
+      </p>
+
+      <p>
+        My drawing sets include more annotation than is strictly required for permit submission. Not because building officials ask for it, but because my drawings are also instructions to the people who will build from them. A note on a wall section that says "continuous air barrier — see detail A-401, do not substitute" is different from a wall section that just shows the layers without comment. The first gives a framer the information they need to make the right call when the detail I specified isn't available at the supply house and they're deciding whether to call me or substitute. The second leaves them guessing.
+      </p>
+
+      <h2 class="entry-h2">Getting to yes through other people's processes</h2>
+
+      <p>
+        Software engineers spend a significant portion of their careers navigating bureaucratic processes they didn't design and can't change. Code reviews. Change control boards. Security reviews. Compliance audits. The work itself is only part of the job. Getting the work approved, released, and adopted — through people and processes that have their own priorities, their own timelines, and their own risk tolerances — is a separate skill that takes years to develop.
+      </p>
+
+      <p>
+        Building permit processes are the same kind of challenge. Building officials have specific things they're looking for, specific ways they expect to see information presented, and specific processes for handling things that are outside their normal experience. They're not obstacles — they're people doing a job with the tools and training they have. But navigating their process effectively, without unnecessary friction, while still building the home you actually want, requires the same combination of preparation, patience, and diplomatic persistence that I learned doing software.
+      </p>
+
+      <p>
+        When I submitted plans to a county that was not familiar with reviewing off-grid electrical systems, I didn't go in arguing that they had to approve it. I went in with technical documentation from the equipment manufacturers, code references from the IRC, a clear explanation of how the system worked and why it was safe, and a design from a recognized solar design company. I understood that the building officials weren't opposed to the system — they just didn't know how to evaluate it. My job was to give them the information they needed to approve it confidently, in a format they could work with. That's a stakeholder management problem, not a technical problem. The technical part was easy. The process part is what took months.
+      </p>
+
+      <h2 class="entry-h2">Designing for maintenance, not just for launch</h2>
+
+      <p>
+        One of the most useful distinctions in software is between code that's easy to write and code that's easy to maintain. Junior engineers write for the computer — to make the program do what it's supposed to do. Senior engineers write for the next person — to make the code readable, modifiable, and debuggable by someone who wasn't there when it was written. The difference between the two orientations shows up most clearly years later, when the original engineer is gone and someone else is trying to understand what was built and why.
+      </p>
+
+      <p>
+        Homes need maintenance too — and some homes are much easier to maintain than others. Access panels that let someone reach a shutoff valve or inspect a critical connection without cutting into drywall. Mechanical rooms with enough space to actually work in. Labeled circuits in an electrical panel that's sized with room to grow. Conduit instead of direct-buried wire runs, so the wire can be replaced someday without an excavator. Pipe chases that can be accessed from a utility space rather than requiring a finished ceiling to be opened.
+      </p>
+
+      <p>
+        None of these things affect how the house looks or how it feels to live in on day one. All of them affect how the house behaves at year fifteen, when something needs to be serviced or replaced. I think about them because I spent years maintaining the systems I built — and I know how often the original choices either helped or hindered that work. A home designer who has never been on the wrong end of an inaccessible shutoff valve probably doesn't think about it. I do.
+      </p>
+
+      <h2 class="entry-h2">The one place where software thinking has limits</h2>
+
+      <p>
+        In software, you learn to accept that the first version of anything is wrong, and that iteration is how you find the right version. The more experience you get the better your first version are, but the process is still: ship early, learn from real usage, revise. The feedback loop is how the product improves. You build a tolerance for imperfection because imperfection is the starting point, not a failure.
+      </p>
+
+      <p>
+        That mindset is useful in design and actively harmful in construction. A home is not a product you can iterate. You cannot ship version one, get feedback from the family living in it, and then patch the floor plan in the next release. The decisions made in the design phase are the decisions the family lives with. The tolerance for imperfection that serves an engineer well in software has to be replaced, in home design, by a commitment to getting it right before anything is built — because there is no version two.
+      </p>
+
+      <p>
+        I think about this permanence all the time. Initial designs can be shipped fast, but the final design needs some time to sit and bake in a client's mind and my own. They are making a permanent investment in a permanent building. What serves clients well is the opposite: thoroughness in the design phase, precision in the drawings, and the willingness to hold a decision open until it can be made well rather than closing it quickly so the project can move forward.
+      </p>
+
+      <p>
+        The best of what I learned in software transferred directly. The worst of it had to be left behind. Knowing the difference is what thirteen years of building things has taught me.
+      </p>
+
+    </article>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ENTRIES
+     Replace the three <article> cards below with links
+     to other journal entries. Update: title, category,
+     date, read time, description, and href on the <a>.
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-surface-container-low border-t border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl font-headline text-primary">More from the journal</h2>
+    </div>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Related entry 1 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="design-decisions.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">For Clients</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">Design is cheap. Change orders are not.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">The cost-of-change curve from software engineering applies to residential construction with the same ruthlessness — most clients don't discover this until they're mid-build.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Feb 2026 · 9 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 2 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="what-to-bring.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">For Clients</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">What to bring to your first design conversation — and what to leave out.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">The discovery process I run is longer and more demanding than clients sometimes expect — for the same reason a good requirements phase is the most valuable part of a software project.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">May 2026 · 9 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 3 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="hvac-load-calculations.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">High-Performance Building</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">HVAC sizing: why rules of thumb produce uncomfortable homes.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Systems thinking applied to HVAC — the building envelope, equipment sizing, and duct design are not independent decisions and can't be treated as a sequence.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Nov 2025 · 10 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="../journal.html" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all">
+        View all entries <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     CTA + FOOTER (do not modify)
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-xl">
+      <h2 class="text-3xl font-headline mb-3 text-white">Thinking about building?</h2>
+      <p class="text-white/70 font-body mb-7 leading-relaxed">The first conversation is free. Tell me about your land and what you're imagining.</p>
+      <a href="../index.html#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-[#313030] text-[#fcf9f6]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-20 max-w-screen-2xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
+      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">Architectural design for those who value technical excellence alongside family comfort.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Navigate</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../index.html">Home</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../services.html">Services</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widests uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../portfolio.html">Portfolio</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../journal.html">Journal</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../about.html">About</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col justify-between items-end">
+      <div class="text-right">
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40">© 2026 Rencher Design</p>
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40 mt-1">Spring City, Utah</p>
+      </div>
+      <div class="mt-8 md:mt-0 flex gap-4">
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">architecture</span>
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">foundation</span>
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">home_storage</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Mobile nav ──
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = toggle.querySelectorAll('.hamburger-bar');
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', !isOpen);
+    if (!isOpen) {
+      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+      bars[1].style.opacity = '0';
+      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+
+  // ── Reading progress bar ──
+  const bar = document.getElementById('progress-bar');
+  const article = document.querySelector('article');
+  window.addEventListener('scroll', () => {
+    const articleTop = article.getBoundingClientRect().top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(Math.max(scrolled / articleHeight, 0), 1);
+    bar.style.width = (pct * 100) + '%';
+  });
+</script>
+
+</body>
+</html>

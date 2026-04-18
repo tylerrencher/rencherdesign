@@ -1,0 +1,320 @@
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+
+  /* Timeline connector */
+  .timeline-item { position: relative; }
+  .timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 1.75rem;
+    top: 3.5rem;
+    bottom: -1rem;
+    width: 2px;
+    background: linear-gradient(to bottom, #7c5730, #d4c3be);
+  }
+
+  /* Sticky section nav */
+  .section-pill.active { background-color: #313030; color: #fcf9f6; }
+
+  /* Room tag */
+  .room-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: 0.375rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border: 1px solid #d4c3be;
+    color: #504441;
+    background: #fcf9f6;
+    transition: all 0.2s;
+  }
+  .room-tag:hover { border-color: #7c5730; color: #7c5730; background: #fff8f2; }
+
+  /* Stat pill */
+  .stat-pill {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  /* Photo placeholder shimmer */
+  .photo-placeholder {
+    background: linear-gradient(135deg, #e5e2df 0%, #eae8e5 50%, #e5e2df 100%);
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Upcoming card */
+  .upcoming-card {
+    background: repeating-linear-gradient(
+      45deg,
+      #f6f3f0,
+      #f6f3f0 12px,
+      #f0edea 12px,
+      #f0edea 24px
+    );
+  }
+
+  /* Tag */
+  .project-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background-color: #fdcb9b;
+    color: #79542d;
+  }
+  .project-tag.outline {
+    background-color: transparent;
+    border: 1px solid #d4c3be;
+    color: #504441;
+    outline: none;
+  }
+
+  .section-rule { width: 2.5rem; height: 2px; background: #7c5730; margin-bottom: 1.25rem; }
+  .toc-link { transition: color 0.15s, padding-left 0.15s; }
+  .toc-link:hover { color: #7c5730; padding-left: 0.25rem; }
+  .toc-link.active { color: #7c5730; font-weight: 600; }
+  /* Lightbox */
+  #lightbox {
+    position: fixed; inset: 0; background: rgba(28,28,26,0.93);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999; cursor: zoom-out; padding: 1.5rem;
+    opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+  }
+  #lightbox.is-open { opacity: 1; pointer-events: all; }
+  #lightbox img {
+    max-width: 100%; max-height: 100vh; width: auto; height: auto;
+    border-radius: 4px; box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    transform: scale(0.92); transition: transform 0.25s ease; cursor: zoom-out;
+  }
+  #lightbox.is-open img { transform: scale(1); }
+  #lightbox-close {
+    position: absolute; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem;
+    border-radius: 50%; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    color: white; font-size: 1.25rem; display: flex; align-items: center;
+    justify-content: center; cursor: pointer; transition: background 0.15s;
+  }
+  #lightbox-close:hover { background: rgba(255,255,255,0.22); }
+  #lightbox-caption {
+    position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.55); font-size: 0.8125rem;
+    font-family: 'Plus Jakarta Sans', sans-serif; text-align: center;
+  }
+  .zoomable { cursor: zoom-in; transition: opacity 0.15s; }
+  .zoomable:hover { opacity: 0.88; }
+
+   /* ── Reading progress bar ── */
+  #progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #7c5730;
+    width: 0%;
+    z-index: 100;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Prose typography ──
+     All body text inside .prose gets these styles.
+     You write plain HTML paragraphs — styling is automatic. */
+  .prose {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: #504441;
+  }
+  .prose p { margin-bottom: 1.5rem; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* Inline links within prose */
+  .prose a {
+    color: #7c5730;
+    text-decoration: underline;
+    text-decoration-color: #d4c3be;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .prose a:hover { text-decoration-color: #7c5730; }
+
+  /* Bold within prose */
+  .prose strong { color: #1c1c1a; font-weight: 600; }
+
+  /* ── Section headings within the article ──
+     Use <h2 class="entry-h2"> for major section breaks.
+     Use <h3 class="entry-h3"> for sub-points within a section. */
+  .prose h2 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #1c1c1a;
+    line-height: 1.3;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d4c3be;
+  }
+  .prose h3 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #313030;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Pull quote ──
+     Use <blockquote class="pull-quote"> for a standout quote.
+     Works best for a single compelling sentence. */
+  .prose blockquote {
+    border-left: 4px solid #7c5730;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .prose blockquote p {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    color: #313030;
+    margin: 0;
+  }
+
+  /* ── Callout / tip box ──
+     Use <div class="callout"> for a highlighted insight, warning, or aside.
+     Best used once or twice per entry, not repeatedly. */
+  .callout {
+    background: #f0edea;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    border-left: 3px solid #7c5730;
+  }
+  .callout p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #504441;
+    margin: 0;
+  }
+  .callout strong { color: #313030; }
+
+  /* ── Inline image — full width ──
+     Use <figure class="img-full"> for a wide photo spanning the column.
+     Add a <figcaption> for an optional caption below. */
+  .img-full {
+    margin: 2.5rem 0;
+  }
+  .img-full img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-full figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8125rem;
+    color: #827470;
+    margin-top: 0.625rem;
+    line-height: 1.5;
+  }
+
+  /* ── Inline image — half width, float left or right ──
+     Use <figure class="img-left"> or <figure class="img-right">
+     for a photo that sits beside text. Works best on desktop. */
+  .img-left, .img-right {
+    margin: 0.5rem 0 1.5rem 0;
+    max-width: 100%;
+  }
+  @media (min-width: 640px) {
+    .img-left {
+      float: left;
+      width: 46%;
+      margin: 0.25rem 2rem 1rem 0;
+    }
+    .img-right {
+      float: right;
+      width: 46%;
+      margin: 0.25rem 0 1rem 2rem;
+    }
+  }
+  .img-left img, .img-right img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-left figcaption, .img-right figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .clearfix::after { content: ''; display: table; clear: both; }
+
+  /* ── Two-photo side-by-side ──
+     Use <div class="img-pair"> wrapping two <figure> elements.
+     Best for before/after or comparison photos. */
+  .img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .img-pair figure { margin: 0; }
+  .img-pair img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-pair figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Three-photo row ──
+     Use <div class="img-trio"> wrapping three <figure> elements. */
+  .img-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    margin: 2.5rem 0;
+  }
+  .img-trio figure { margin: 0; }
+  .img-trio img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .img-trio figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Horizontal rule ──
+     A styled <hr> between major sections. */
+  .entry-rule {
+    border: none;
+    border-top: 1px solid #d4c3be;
+    margin: 3rem 0;
+  }

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<!-- ═══════════════════════════════════════════════════
+     FILL IN: Page title and meta description
+     Title format: "Entry Title | Journal | Rencher Design"
+     Description: 1–2 sentence summary, ~150 characters
+     ═══════════════════════════════════════════════════ -->
+<title>Why Your Heat Pump Should Run All Day — and Why That's a Sign It's Working | Journal | Rencher Design</title>
+<meta name="description" content="The instinct to turn the heat down at night and recover in the morning saves money with a gas furnace. Heat pumps don't work that way — and the unit size determines whether recovery is even possible."/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tertiary-container": "#7c2e00", "on-secondary-fixed": "#2c1600",
+          "surface-variant": "#e5e2df", "on-tertiary": "#ffffff",
+          "surface-tint": "#5f5e5e", "outline-variant": "#d4c3be",
+          "secondary-fixed-dim": "#eebd8e", "on-tertiary-fixed-variant": "#7c2e00",
+          "error-container": "#ffdad6", "inverse-primary": "#c8c6c5",
+          "surface-container-low": "#f6f3f0", "surface-container": "#f0edea",
+          "tertiary-fixed": "#ffdbcd", "secondary-fixed": "#ffdcbd",
+          "surface-container-lowest": "#ffffff", "primary-fixed": "#e4e2e1",
+          "error": "#ba1a1a", "primary-fixed-dim": "#c8c6c5",
+          "on-surface": "#1c1c1a", "on-secondary": "#ffffff",
+          "inverse-on-surface": "#f3f0ed", "on-error-container": "#93000a",
+          "surface-dim": "#dcd9d7", "on-primary-container": "#b7b5b4",
+          "on-primary": "#ffffff", "on-tertiary-container": "#ff9c6e",
+          "primary-container": "#474747", "on-surface-variant": "#504441",
+          "on-secondary-fixed-variant": "#61401b", "surface": "#fcf9f6",
+          "on-tertiary-fixed": "#351000", "inverse-surface": "#31302f",
+          "surface-bright": "#fcf9f6", "on-primary-fixed": "#1b1c1c",
+          "outline": "#827470", "tertiary": "#571e00",
+          "surface-container-highest": "#e5e2df", "on-primary-fixed-variant": "#474747",
+          "background": "#fcf9f6", "secondary-container": "#fdcb9b",
+          "on-error": "#ffffff", "on-background": "#1c1c1a",
+          "tertiary-fixed-dim": "#ffb595", "primary": "#313030",
+          "on-secondary-container": "#79542d", "surface-container-high": "#eae8e5",
+          "secondary": "#7c5730"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif"],
+          "body": ["Plus Jakarta Sans"],
+          "label": ["Plus Jakarta Sans"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcf9f6; color: #1c1c1a; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+
+  /* ── Reading progress bar ── */
+  #progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #7c5730;
+    width: 0%;
+    z-index: 100;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Prose typography ──
+     All body text inside .prose gets these styles.
+     You write plain HTML paragraphs — styling is automatic. */
+  .prose {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: #504441;
+  }
+  .prose p { margin-bottom: 1.5rem; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* Inline links within prose */
+  .prose a {
+    color: #7c5730;
+    text-decoration: underline;
+    text-decoration-color: #d4c3be;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .prose a:hover { text-decoration-color: #7c5730; }
+
+  /* Bold within prose */
+  .prose strong { color: #1c1c1a; font-weight: 600; }
+
+  /* ── Section headings within the article ──
+     Use <h2 class="entry-h2"> for major section breaks.
+     Use <h3 class="entry-h3"> for sub-points within a section. */
+  .entry-h2 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #1c1c1a;
+    line-height: 1.3;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d4c3be;
+  }
+  .entry-h3 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #313030;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Pull quote ──
+     Use <blockquote class="pull-quote"> for a standout quote.
+     Works best for a single compelling sentence. */
+  .pull-quote {
+    border-left: 4px solid #7c5730;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .pull-quote p {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    color: #313030;
+    margin: 0;
+  }
+
+  /* ── Callout / tip box ──
+     Use <div class="callout"> for a highlighted insight, warning, or aside.
+     Best used once or twice per entry, not repeatedly. */
+  .callout {
+    background: #f0edea;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    border-left: 3px solid #7c5730;
+  }
+  .callout p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #504441;
+    margin: 0;
+  }
+  .callout strong { color: #313030; }
+
+  /* ── Inline image — full width ──
+     Use <figure class="img-full"> for a wide photo spanning the column.
+     Add a <figcaption> for an optional caption below. */
+  .img-full {
+    margin: 2.5rem 0;
+  }
+  .img-full img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-full figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8125rem;
+    color: #827470;
+    margin-top: 0.625rem;
+    line-height: 1.5;
+  }
+
+  /* ── Inline image — half width, float left or right ──
+     Use <figure class="img-left"> or <figure class="img-right">
+     for a photo that sits beside text. Works best on desktop. */
+  .img-left, .img-right {
+    margin: 0.5rem 0 1.5rem 0;
+    max-width: 100%;
+  }
+  @media (min-width: 640px) {
+    .img-left {
+      float: left;
+      width: 46%;
+      margin: 0.25rem 2rem 1rem 0;
+    }
+    .img-right {
+      float: right;
+      width: 46%;
+      margin: 0.25rem 0 1rem 2rem;
+    }
+  }
+  .img-left img, .img-right img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-left figcaption, .img-right figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .clearfix::after { content: ''; display: table; clear: both; }
+
+  /* ── Two-photo side-by-side ──
+     Use <div class="img-pair"> wrapping two <figure> elements.
+     Best for before/after or comparison photos. */
+  .img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .img-pair figure { margin: 0; }
+  .img-pair img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  .img-pair figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Three-photo row ──
+     Use <div class="img-trio"> wrapping three <figure> elements. */
+  .img-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    margin: 2.5rem 0;
+  }
+  .img-trio figure { margin: 0; }
+  .img-trio img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .img-trio figcaption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #827470;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Horizontal rule ──
+     A styled <hr> between major sections. */
+  .entry-rule {
+    border: none;
+    border-top: 1px solid #d4c3be;
+    margin: 3rem 0;
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Reading progress bar — fills automatically as user scrolls -->
+<div id="progress-bar"></div>
+
+<!-- ═══════════════════════════
+     NAVIGATION (do not modify)
+     ═══════════════════════════ -->
+<header class="bg-[#fcf9f6]/70 backdrop-blur-xl top-0 sticky z-50 shadow-sm">
+  <nav class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="../index.html" class="text-2xl font-serif tracking-tighter text-[#313030]">Rencher Design</a>
+    <div class="hidden md:flex space-x-10 items-center">
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../services.html">Services</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../process.html">Process</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../portfolio.html">Portfolio</a>
+      <a class="text-[#313030] font-semibold text-sm tracking-wide font-body border-b border-[#7c5730]" href="../journal.html">Journal</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../about.html">About</a>
+      <a class="text-[#313030] opacity-80 hover:text-[#7c5730] transition-colors duration-300 text-sm tracking-wide font-body" href="../index.html#contact">Contact</a>
+    </div>
+    <button class="hidden md:block bg-primary text-on-primary px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm hover:translate-y-[-2px]" onclick="window.location.href='../index.html#contact'">
+      Begin Your Project
+    </button>
+    <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+      <span class="hamburger-bar block w-6 h-[2px] bg-[#313030] transition-all duration-300 origin-center"></span>
+    </button>
+  </nav>
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/20 bg-[#fcf9f6]">
+    <div class="px-8 py-6 space-y-1">
+      <a href="../services.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Services<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../process.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Process<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../portfolio.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">Portfolio<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../journal.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#7c5730] text-base font-body font-semibold">Journal<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <a href="../about.html" class="flex items-center justify-between py-4 border-b border-outline-variant/20 text-[#313030] text-base font-body font-medium hover:text-[#7c5730] transition-colors">About<span class="material-symbols-outlined text-[#7c5730] text-lg">chevron_right</span></a>
+      <div class="pt-4"><a href="../index.html#contact" class="block w-full bg-primary text-on-primary text-center px-8 py-4 rounded-md font-medium text-sm hover:bg-primary-container transition-all shadow-sm">Begin Your Project</a></div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     Replace the src with your image path.
+     alt= should describe what's in the photo.
+     The image displays at full column width, cropped to
+     a 16:9 ratio. Tall portrait photos will be cropped —
+     prefer landscape orientation here.
+     ═══════════════════════════════════════════════════ -->
+<div class="w-full bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto">
+    <img
+      src="../images/journal/heat-pump-operation-hero.jpg"
+      alt="Outdoor heat pump unit running in winter — condensation visible, doing steady work rather than cycling on and off"
+      class="w-full object-cover"
+      style="max-height: 560px;"
+    />
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ENTRY HEADER
+     Fill in: category, date, read time, title, lede.
+     Category options: High-Performance Building /
+       Off-Grid Living / Design Process / For Clients
+     Read time: count roughly 200 words per minute.
+     Lede: 2–3 sentences. The thing that makes someone
+       want to read the whole entry. Write it last.
+     ═══════════════════════════════════════════════════ -->
+<header class="py-14 bg-surface border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+
+    <!-- Back link -->
+    <a href="../journal.html" class="inline-flex items-center gap-1 text-secondary font-label text-xs tracking-wide hover:gap-2 transition-all mb-8 block">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>Journal
+    </a>
+
+    <div class="max-w-2xl">
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="font-label text-[10px] tracking-widest uppercase text-secondary font-bold">
+          High-Performance Building
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          September 2026
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          12 min read
+        </span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-headline leading-tight mb-6">
+        Why your heat pump should run all day — and why that's a sign it's working.
+      </h1>
+
+      <p class="text-xl text-on-surface-variant font-body font-light leading-relaxed">
+        The American habit is to turn the heat down at night and let it recover in the morning. Properly sized heat pumps don't work that way. Here's why a heat pump running continuously at a modest output is more efficient than one cycling hard to recover from a temperature setback, and why the unit size determines whether recovery is even possible.
+      </p>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE BODY
+     The <article> element contains all your writing.
+     Max width is constrained to ~680px for comfortable
+     reading line length. Write everything between the
+     opening and closing article tags below.
+
+     AVAILABLE ELEMENTS — copy and use as needed:
+
+     PARAGRAPH:
+       <p>Your text here.</p>
+
+     SECTION HEADING (major break):
+       <h2 class="entry-h2">Heading text</h2>
+
+     SUB-HEADING:
+       <h3 class="entry-h3">Sub-heading text</h3>
+
+     PULL QUOTE:
+       <blockquote class="pull-quote">
+         <p>"Your quote here."</p>
+       </blockquote>
+
+     CALLOUT BOX:
+       <div class="callout">
+         <p><strong>Label:</strong> Your callout text here.</p>
+       </div>
+
+     FULL-WIDTH PHOTO:
+       <figure class="img-full">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption text.</figcaption>
+       </figure>
+
+     PHOTO FLOATED LEFT (text wraps right):
+       <figure class="img-left">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     PHOTO FLOATED RIGHT (text wraps left):
+       <figure class="img-right">
+         <img src="../images/journal/photo.jpg" alt="Description"/>
+         <figcaption>Optional caption.</figcaption>
+       </figure>
+       <p>Text that wraps around the photo goes here...</p>
+       <div class="clearfix"></div>
+
+     TWO PHOTOS SIDE BY SIDE:
+       <div class="img-pair">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Left photo caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Right photo caption.</figcaption>
+         </figure>
+       </div>
+
+     THREE PHOTOS IN A ROW:
+       <div class="img-trio">
+         <figure>
+           <img src="../images/journal/photo-a.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-b.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+         <figure>
+           <img src="../images/journal/photo-c.jpg" alt="Description"/>
+           <figcaption>Caption.</figcaption>
+         </figure>
+       </div>
+
+     HORIZONTAL RULE (section divider):
+       <hr class="entry-rule"/>
+
+     INLINE LINK (within prose):
+       <a href="../services.html">linked text</a>
+       (styling is automatic inside .prose)
+     ═══════════════════════════════════════════════════ -->
+
+<div class="py-16 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <article class="max-w-2xl mx-auto prose">
+
+      <p>
+        Most people who grew up with gas or propane heat learned a useful habit: turn the thermostat down at night, turn it back up in the morning. The furnace would roar to life, bring the house up to temperature in twenty or thirty minutes, and the fuel burned during recovery was less than the fuel that would have been burned maintaining temperature overnight so you saved money. The math worked.
+      </p>
+
+      <p>
+        Heat pumps follow different physics, and that old habit applied to a properly sized heat pump at best saves a little money and at worst leaves you uncomfortable until the weather changes. Understanding why requires understanding what a heat pump actually is — and how its efficiency changes depending on how hard it's working.
+      </p>
+
+      <h2 class="entry-h2">How heat pump efficiency actually works</h2>
+
+      <p>
+        A heat pump doesn't generate heat. It moves heat — from the outdoor air into the house, against the temperature gradient between them. The metric that describes how efficiently it does this is called the Coefficient of Performance, or COP: the ratio of heat energy delivered to electrical energy consumed. A COP of 3 means the unit delivers three units of heat for every unit of electricity it uses. For comparison, a resistance electric heater has a COP of exactly 1 — it converts electrical energy to heat at a 1:1 ratio, which is why resistance heat is so expensive to run.
+      </p>
+
+      <p>
+        The COP of a heat pump is not a fixed number. It varies with two things: outdoor temperature and the unit's operating output level. Both matter enormously for understanding how to operate the system correctly.
+      </p>
+
+      <h3 class="entry-h3">COP and outdoor temperature</h3>
+
+      <p>
+        The colder it is outside, the harder it is for the heat pump to extract heat from the outdoor air, and the lower its COP becomes. A modern variable-capacity heat pump might achieve a COP of 4 or higher at 40°F outdoors — delivering four units of heat per unit of electricity. At 10°F, that same unit might achieve a COP of 2. Each heat pump has an operating temperature limit. Below that limit the heat pump may not power on or won't be able to make heat effectively anymore. This is why heat pump sizing and performance need to be evaluated against the actual winter temperatures at your specific location, not against rated performance at a standard test condition.
+      </p>
+
+      <h3 class="entry-h3">COP and operating output level</h3>
+
+      <p>
+        This is the piece most homeowners don't know, and it's the key to understanding why continuous low-output operation is more efficient than intermittent high-output operation. Modern variable-capacity (inverter-driven) heat pumps are most efficient when running at a moderate, sustained output — somewhere in the range of 40 to 70 percent of their rated capacity. At that level, the compressor is running at a speed that produces the best thermodynamic efficiency. When the unit ramps up to 100 percent capacity to recover from a temperature setback, efficiency drops. When it short-cycles — running at full output for a few minutes then shutting off — efficiency drops further, because compressor startup draws a significant amount of power and the refrigerant circuit never reaches its most efficient steady-state operating condition.
+      </p>
+
+      <blockquote class="pull-quote">
+        <p>"A heat pump running gently all day is doing less work per hour than one recovering from an overnight setback — and doing that work more efficiently."</p>
+      </blockquote>
+
+      <p>
+        A heat pump that runs continuously at low output to maintain a steady temperature is operating in its efficiency sweet spot. A heat pump that sits idle overnight and then runs at high output to recover lost heat is operating at its least efficient point, for an extended period, at exactly the time of day when outdoor temperatures are coldest — which further reduces its COP. The two inefficiencies stack.
+      </p>
+
+      <h2 class="entry-h2">Why setback schedules hurt more than they help</h2>
+
+      <p>
+        With a gas furnace, a nighttime setback of 4 to 6 degrees saves energy because the furnace is equally efficient (or nearly so) at whatever output it produces, and the reduced heat loss through the building envelope overnight accumulates into real savings. The physics is simple: less temperature differential between inside and outside means less heat escaping through the walls, windows, and ceiling over those eight hours.
+      </p>
+
+      <p>
+        The same thermal logic applies to a heat pump — a cooler house overnight does lose less heat. But a heat pump incurs an efficiency penalty during the recovery that a gas furnace doesn't, and for most households and most temperature setbacks, that penalty consumes the overnight savings and then some. The Department of Energy's guidance on setback thermostats explicitly notes that heat pumps are less suited to setback schedules than combustion systems, and recommends either modest setbacks or no setback at all.
+      </p>
+
+      <p>
+        There is a specific condition where setback can still make sense with a heat pump: when the home is so well insulated and air-sealed that heat loss overnight is very low, and the recovery demand is therefore also very low. In a house that drops only 1 to 2 degrees over eight hours of setback, the recovery period is short and the efficiency penalty is small. In a leaky, poorly insulated house that drops 6 degrees or more overnight, the recovery is long, high-output, and expensive. This is one more reason why a high-performance building envelope is not just a comfort decision — it changes how the mechanical system should be operated.
+      </p>
+
+      <div class="callout">
+        <p><strong>The practical rule:</strong> For most homes with a properly sized heat pump, keep the thermostat at a single setpoint 24 hours a day. If you want to experiment with setback, limit it to 2 degrees — enough to reduce overnight heat loss without triggering a sustained high-output recovery cycle. Larger setbacks almost always cost more than they save espeically if the backup heating element gets turned on.</p>
+      </div>
+
+      <h2 class="entry-h2">Taking the efficiency argument to its logical conclusion</h2>
+
+      <p>
+        If a heat pump is most efficient when outdoor temperatures are highest, and least efficient when they're lowest, then the theoretically optimal operating strategy is to over heat the house during the warmest part of the day — when the COP is at its peak — and then allow the temperature to fall until the outdoor air warms again. This is the inverse of the standard nighttime setback, and it's worth thinking through what it would actually take to do it correctly.
+      </p>
+
+      <p>
+        A thermostat connected to a weather station on the property could, in principle, implement this strategy automatically. It would know the current outdoor temperature, have access to a forecast, and understand that 2 PM is typically the warmest point of the day in winter — when the heat pump's COP is highest and running the compressor is cheapest in energy terms. It would preheat the house during that window, then allow the indoor temperature to drift downward through the evening and overnight as outdoor temperatures fall and the cost of maintaining setpoint rises. As the outdoor temperature begins recovering after sunrise, the system would resume active heating ahead of the cold morning hours.
+      </p>
+
+      <p>
+        The math works. In a climate where outdoor temperatures swing 20 to 30 degrees between the overnight low and the afternoon high — common in high-desert locations like central Utah — the difference in COP between those two conditions is meaningful. A unit achieving a COP of 3.5 at 2 PM and a COP of 2.0 at 4 AM is doing the same heating work at nearly half the electrical cost during the afternoon window. Preheating during that window and coasting through the cold hours is a legitimate efficiency strategy, not just a thought experiment.
+      </p>
+
+      <div class="callout">
+        <p><strong>Why this matters more off-grid:</strong> For a grid-connected home, the efficiency gain from weather-optimized scheduling is real but modest — it might reduce the heating bill by a meaningful percentage, but the dollar value is limited by what grid electricity costs. For an off-grid home running on solar and batteries, the calculus is different. Afternoon is exactly when solar production peaks. Running the heat pump hard at 2 PM means running it on solar energy being produced in real time rather than drawing from the battery bank. That's not just more efficient — it uses power when the batteries are more likely to be charged and generation is being curtailed. The optimal operating schedule for an off-grid heat pump and the optimal operating schedule for a solar-plus-battery system point in the same direction.</p>
+      </div>
+
+      <p>
+        The tradeoff is comfort. A house preheated to 76°F at 2 PM that drifts to 68°F by 4 AM before recovering is a house where occupants experience a large temperature swing over 24 hours. Whether that's acceptable depends entirely on the household. Some people will care but others won't. This strategy optimizes for energy, not for the experience of living in the house.
+      </p>
+
+      <p>
+        I haven't implemented this on my own system in a fully automated way. In practice, my windows already do a version of this passively. I ordered them with a solar heat gain coating, and on a clear winter day the house often warms two to six degrees just from sun coming through the glass — no mechanical heat required. It depends on the outdoor temperature. The windows can maintain the house down to 20 degrees, but colder than that and the heat pump comes on to help. It's great because more of the power we generate on those days can go into recharging the batteries to make up from previous days where we didn't fully charge. The effect is absent on overcast days and the difference is striking: cloudy days in January draw measurably more power because the heat pumps are filling a gap that the sun was covering for free on clear days. It's a useful reminder that passive solar gain is part of the heating system whether you account for it in the design or not. The interesting application for active weather-based scheduling is for off-grid households where battery management and generator runtime make the optimization more consequential — and where the solar production curve and the heat pump efficiency curve both peak in the afternoon, pointing the system in the same direction at the same time.
+      </p>
+
+      <h2 class="entry-h2">Sizing: the decision that determines everything else</h2>
+
+      <p>
+        All of the above assumes the heat pump is sized correctly for the building. If it isn't — and in most residential installations, it isn't — the operating behavior looks different, and the problems are different depending on which direction the sizing error goes.
+      </p>
+
+      <p>
+        Correct sizing means the unit was selected based on a calculated heat loss and heat gain for the specific building: its envelope area, insulation values, air leakage rate, window specifications, local climate data, and internal heat gains. This calculation — called a Manual J load calculation — produces a peak heating load in BTUs per hour and a peak cooling load in BTUs per hour. The heat pump should be sized to meet both of those loads as closely as possible. There is safety margin built into the calculation.
+      </p>
+
+      <p>
+        Most residential heat pumps are not sized this way. Most are sized by rule of thumb — typically one ton of capacity per 400 to 600 square feet of conditioned floor area. That rule of thumb was derived from average construction practices in average climates, and it produces systems that are dramatically oversized for high-performance homes and potentially undersized for leaky, poorly insulated ones. The rule has no knowledge of your specific building.
+      </p>
+
+      <h3 class="entry-h3">What oversizing actually does</h3>
+
+      <p>
+        An oversized heat pump satisfies the thermostat quickly and shuts off. It then sits idle until the temperature drops enough to trigger another cycle, runs briefly, and shuts off again. This is called short-cycling, and it is one of the most damaging operating conditions for a heat pump — damaging to the equipment, damaging to efficiency, and damaging to comfort.
+      </p>
+
+      <p>
+        Short-cycling prevents the refrigerant circuit from reaching steady-state efficiency. Compressor starts are electrically expensive. The brief runtime doesn't allow for adequate dehumidification in summer, because moisture removal requires sustained airflow across the evaporator coil. And frequent cycling accelerates mechanical wear on the compressor, the contactors, and the reversing valve. An oversized unit costs more to operate and wears out faster than a correctly sized one — while also delivering worse comfort.
+      </p>
+
+      <p>
+        The irony is that short-cycling looks like the unit is working: the house reaches setpoint quickly, the unit shuts off, temperature is maintained. From the inside, it feels fine. The inefficiency and the wear are invisible until the equipment fails earlier than expected or the utility bill is higher than it should be.
+      </p>
+
+      <h3 class="entry-h3">Recovery time: oversized vs. correctly sized</h3>
+
+      <p>
+        This is where the setback question and the sizing question intersect in a way that surprises most people. It is obvious that a bigger unit recovers faster from a temperature setback, and a bigger unit is therefore better if setback is part of the operating strategy. This is true as far as it goes — an oversized unit does recover faster. But the recovery comes at the cost of efficiency, and the unit's short-cycling behavior during the rest of the day creates its own set of problems.
+      </p>
+
+      <p>
+        A correctly sized unit recovering from a significant overnight setback may take hours to return to setpoint on a cold morning — running continuously at or near full output for that entire period, at the coldest outdoor temperatures of the day, at reduced COP. That recovery period represents the system operating at its worst efficiency for an extended time. We have chosen to do this a few times when we've been really close to running out of battery right before a string of sunny days will recharge them. It takes about 4 hours to recover and the units are drawing max power the whole time.
+      </p>
+
+      <p>
+        An oversized unit covering the same recovery might do it in forty-five minutes to an hour. It recovers faster, but it doesn't recover more efficiently — it recovers at full output and reduced COP just as the correctly sized unit does, just for a shorter period. The total energy consumed during recovery is roughly similar; the oversized unit just compresses it into a shorter window.
+      </p>
+
+      <p>
+        Neither scenario is particularly efficient. The right sized heat pump should be run constantly, but the oversized unit can benefit from large setbacks. Because it is always running less efficiently than it could be, it is actually using less power than running constantly when recovering from a large setback.
+      </p>
+
+      <h2 class="entry-h2">What continuous operation actually looks like</h2>
+
+      <p>
+        In a correctly sized system in a well-insulated home, the heat pump may run for long stretches — hours at a time — without shutting off. In very cold weather, it may run continuously for days. Homeowners who are used to seeing their furnace cycle on and off frequently sometimes interpret this as a malfunction. It is not. It is the system doing exactly what it should do.
+      </p>
+
+      <p>
+        A heat pump running continuously at 50 percent output is delivering heat steadily and efficiently, keeping pace with the building's heat loss without overwhelming it. The indoor temperature stays stable. The humidity is managed consistently. The compressor runs smoothly in its efficiency range without the repeated start-stop stress of short cycling. The equipment lasts longer. The operating cost is lower.
+      </p>
+
+      <p>
+        The sign that something is actually wrong is not continuous operation — it's continuous operation at 100 percent capacity that fails to maintain setpoint. That means the load exceeds what the unit can deliver at current outdoor conditions, which is either a sizing problem (the unit is too small for the building as-built) or an unusually severe weather event that exceeds the design condition. Either way, the response is to understand the cause — not to add emergency resistance heat strips as a first instinct.
+      </p>
+
+      <h2 class="entry-h2">The design implications</h2>
+
+      <p>
+        Everything in this entry is downstream of two decisions made during the design phase: how well the building envelope performs, and what equipment is selected to condition it.
+      </p>
+
+      <p>
+        A tight, well-insulated building has a low peak heating load. A low peak heating load means a small, correctly sized heat pump. A small, correctly sized heat pump runs at moderate output for long periods in cold weather, stays in its efficiency sweet spot, and keeps the house at a steady temperature with minimal energy input. The system works the way heat pump technology is designed to work.
+      </p>
+
+      <p>
+        An oversized heat pump in the same building short-cycles, loses efficiency, wears faster, and delivers worse comfort despite costing more to install. The square footage rule of thumb that produced the oversize didn't know the building was tight. It assumed average construction, and average construction requires more capacity than a high-performance building does.
+      </p>
+
+      <p>
+        This is why I do load calculations before specifying mechanical systems, and why the load calculation is part of the High-Performance drawing package rather than something left to the HVAC contractor. The contractor's incentive is not to undersize — callbacks are expensive and a unit that can't keep up is a problem they own. So they oversize, and the system works acceptably but not well and nobody even knows it should be better. The load calculation is what prevents that, and what makes it possible to run the kind of system described in this entry: a heat pump that runs most of the day, delivers steady comfort, and does it at the lowest possible operating cost.
+      </p>
+
+    </article>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ENTRIES
+     Replace the three <article> cards below with links
+     to other journal entries. Update: title, category,
+     date, read time, description, and href on the <a>.
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-surface-container-low border-t border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl font-headline text-primary">More from the journal</h2>
+    </div>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Related entry 1 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="hvac-load-calculations.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">High-Performance Building</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">HVAC sizing: why rules of thumb produce uncomfortable homes.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Square footage tells you almost nothing about how much heating and cooling a home actually needs. Here's what Manual J is, why it matters, and what happens when contractors skip it.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Nov 2025 · 10 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 2 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="air-sealing.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">High-Performance Building</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">Why air sealing matters more than insulation.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">A tight building envelope is what makes efficient heat pump operation possible — and what keeps the load low enough to size the system correctly in the first place.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Oct 2025 · 12 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      <!-- Related entry 3 -->
+      <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a href="living-off-grid.html" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">Off-Grid Living</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">Living off-grid with a family of nine: what we gave up, and what we didn't.</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">Heat pump efficiency matters everywhere — but it matters most when every kilowatt-hour has to be generated and stored on-site. Here's what that looks like in practice.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">Aug 2026 · 13 min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="../journal.html" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all">
+        View all entries <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     CTA + FOOTER (do not modify)
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-xl">
+      <h2 class="text-3xl font-headline mb-3 text-white">Thinking about building?</h2>
+      <p class="text-white/70 font-body mb-7 leading-relaxed">The first conversation is free. Tell me about your land and what you're imagining.</p>
+      <a href="../index.html#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-[#313030] text-[#fcf9f6]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-20 max-w-screen-2xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-xl font-serif text-[#fcf9f6]">Rencher Design</div>
+      <p class="font-body text-sm text-[#fcf9f6]/60 leading-relaxed max-w-xs">Architectural design for those who value technical excellence alongside family comfort.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Connect</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">Instagram</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <p class="font-label text-xs tracking-widest uppercase text-secondary">Navigate</p>
+        <ul class="space-y-2">
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../index.html">Home</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../services.html">Services</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widests uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../portfolio.html">Portfolio</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../journal.html">Journal</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../about.html">About</a></li>
+          <li><a class="text-[#fcf9f6]/60 font-label text-[10px] tracking-widest uppercase hover:text-[#fcf9f6] underline decoration-[#7c5730] underline-offset-4 transition-all" href="../privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col justify-between items-end">
+      <div class="text-right">
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40">© 2026 Rencher Design</p>
+        <p class="font-label text-[10px] tracking-widest uppercase text-[#fcf9f6]/40 mt-1">Spring City, Utah</p>
+      </div>
+      <div class="mt-8 md:mt-0 flex gap-4">
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">architecture</span>
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">foundation</span>
+        <span class="material-symbols-outlined text-[#fcf9f6]/20">home_storage</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Mobile nav ──
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = toggle.querySelectorAll('.hamburger-bar');
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', !isOpen);
+    if (!isOpen) {
+      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+      bars[1].style.opacity = '0';
+      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    }
+  });
+
+  // ── Reading progress bar ──
+  const bar = document.getElementById('progress-bar');
+  const article = document.querySelector('article');
+  window.addEventListener('scroll', () => {
+    const articleTop = article.getBoundingClientRect().top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(Math.max(scrolled / articleHeight, 0), 1);
+    bar.style.width = (pct * 100) + '%';
+  });
+</script>
+
+</body>
+</html>

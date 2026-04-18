@@ -1,0 +1,105 @@
+@page "{slug}"
+@model EntryModel
+<div id="progress-bar"></div>
+<div class="w-full bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto">
+    <img
+      src="~/@Model.Entry.HeroImagePath"
+      class="w-full object-cover"
+      style="max-height: 560px;"
+    />
+  </div>
+</div>
+
+<header class="py-14 bg-surface border-b border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+
+    <a asp-page="/Journal/Index" class="inline-flex items-center gap-1 text-secondary font-label text-xs tracking-wide hover:gap-2 transition-all mb-8 block">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>Journal
+    </a>
+
+    <div class="max-w-2xl">
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="font-label text-[10px] tracking-widest uppercase text-secondary font-bold">
+          @Model.Entry.Category
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          @Model.Entry.PublishedDate.ToString("MMMM yyyy")
+        </span>
+        <span class="text-outline-variant text-sm">·</span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
+          @Model.Entry.ReadTimeMinutes min read
+        </span>
+      </div> 
+
+      <h1 class="text-4xl md:text-5xl font-headline leading-tight mb-6">
+        @Model.Entry.Title 
+      </h1>
+
+      <p class="text-xl text-on-surface-variant font-body font-light leading-relaxed">
+        @Model.Entry.Summary
+      </p>
+    </div>
+  </div>
+</header>
+
+<div class="py-16 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <article class="max-w-2xl mx-auto prose">
+      @Html.Raw(Model.Entry.BodyHtml)
+    </article>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ENTRIES
+     Replace the three <article> cards below with links
+     to other journal entries. Update: title, category,
+     date, read time, description, and href on the <a>.
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-surface-container-low border-t border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl font-headline text-primary">More from the journal</h2>
+    </div>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+      @foreach (JournalEntry entry in Model.RelatedEntries){
+        <article class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+        <a asp-page="/Journal/Entry" asp-route-slug="@entry.Slug" class="block p-7 h-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="font-label text-[10px] tracking-widest uppercase text-secondary">@entry.Category</span>
+          </div>
+          <h3 class="text-lg font-headline leading-snug mb-3 text-primary">@entry.Title</h3>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-5">@entry.Lede</p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest">@entry.PublishedDate.ToString("MMMM yyyy") · @entry.ReadTimeMinutes min</span>
+            <span class="material-symbols-outlined text-secondary text-base">arrow_forward</span>
+          </div>
+        </a>
+      </article>
+      }
+    </div>
+
+    <div class="text-center mt-10">
+      <a asp-page="/Journal/Index" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all">
+        View all entries <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     CTA + FOOTER (do not modify)
+     ═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-primary text-white">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-xl">
+      <h2 class="text-3xl font-headline mb-3 text-white">Thinking about building?</h2>
+      <p class="text-white/70 font-body mb-7 leading-relaxed">The first conversation is free. Tell me about your land and what you're imagining.</p>
+      <a asp-page="~/#contact" class="inline-block bg-white text-primary px-10 py-4 rounded-md font-medium text-sm hover:bg-secondary-container transition-all shadow-sm">Begin Your Project</a>
+    </div>
+  </div>
+</section>
