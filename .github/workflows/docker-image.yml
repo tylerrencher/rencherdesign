@@ -18,4 +18,4 @@ jobs:
       working-directory: ./ASPNETCore10
       run: |
         docker build . --file Dockerfile --tag rencher-design:$(date +%s)
-        docker push ghcr.io/tylerrencher/store:latest
+        docker push rencher-design:$(date +%s)
