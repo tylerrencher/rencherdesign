@@ -16,4 +16,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       working-directory: ./ASPNETCore10
-      run: docker build . --file Dockerfile --tag rencher-design:$(date +%s)
+      run: |
+        docker build . --file Dockerfile --tag rencher-design:$(date +%s)
+        docker push ghcr.io/tylerrencher/store:latest
