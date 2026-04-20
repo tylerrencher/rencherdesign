@@ -21,24 +21,24 @@
     <div class="max-w-2xl">
       <div class="flex flex-wrap items-center gap-3 mb-5">
         <span class="font-label text-[10px] tracking-widest uppercase text-secondary font-bold">
-          @Model.Entry.Category
+          @Model.Entry?.Category
         </span>
         <span class="text-outline-variant text-sm">·</span>
         <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
-          @Model.Entry.PublishedDate.ToString("MMMM yyyy")
+          @Model.Entry?.PublishedDate.ToString("MMMM yyyy")
         </span>
         <span class="text-outline-variant text-sm">·</span>
         <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">
-          @Model.Entry.ReadTimeMinutes min read
+          @Model.Entry?.ReadTimeMinutes min read
         </span>
       </div> 
 
       <h1 class="text-4xl md:text-5xl font-headline leading-tight mb-6">
-        @Model.Entry.Title 
+        @Model.Entry?.Title 
       </h1>
 
       <p class="text-xl text-on-surface-variant font-body font-light leading-relaxed">
-        @Model.Entry.Summary
+        @Model.Entry?.Summary
       </p>
     </div>
   </div>
@@ -47,7 +47,7 @@
 <div class="py-16 bg-surface">
   <div class="max-w-screen-2xl mx-auto px-8">
     <article class="max-w-2xl mx-auto prose">
-      @Html.Raw(Model.Entry.BodyHtml)
+      @Html.Raw(Model.Entry?.BodyHtml)
     </article>
   </div>
 </div>

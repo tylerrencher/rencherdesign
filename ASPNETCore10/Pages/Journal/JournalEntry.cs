@@ -1,42 +1,31 @@
 using Markdig;
 using Markdig.Extensions.Yaml;
-using Markdig.Syntax; 
+using Markdig.Syntax;
 using YamlDotNet.Serialization;
 
 public class JournalEntry
 {
-    public string Title { get; set; }
-    public DateTime PublishedDate { get; set; }
-    public string Slug { get; set; }
-    public string Summary { get; set; } 
-    public string Category { get; set; }
-    public string Lede { get; set; }
-    public List<string> InterestPoints { get; set; }
-    public string HeroImagePath { get; set; }
-    public string BodyHtml { get; set; }
-    public string ReadTimeMinutes { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public DateTime PublishedDate { get; set; } = new DateTime();
+    public string Slug { get; set; } = string.Empty;
+    public string Summary { get; set; } = string.Empty;
+    public string Category { get; set; } = string.Empty;
+    public string Lede { get; set; } = string.Empty;
+    public List<string> InterestPoints { get; set; } = [];
+    public string HeroImagePath { get; set; } = string.Empty;
+    public string BodyHtml { get; set; } = string.Empty;
+    public string ReadTimeMinutes { get; set; } = string.Empty;
 
     public JournalEntry(string contentPath)
-    { 
-        // Configure safe defaults
-        Title = "";
-        PublishedDate = new DateTime();
-        Slug = "";
-        Category = "";
-        Lede = "";
-        Summary = "";
-        ReadTimeMinutes = "";
-        HeroImagePath = "";
-        InterestPoints = [];
-        BodyHtml = "";
-
-        if(string.IsNullOrWhiteSpace(contentPath))
+    {
+        if (string.IsNullOrWhiteSpace(contentPath))
         {
             return;
-        }    
+        }
 
         string content;
-        try {
+        try
+        {
             content = File.ReadAllText(contentPath);
         }
         catch
@@ -48,7 +37,7 @@ public class JournalEntry
             .UseYamlFrontMatter()
             .UseGenericAttributes()
             .UseCustomContainers()
-            .Build(); 
+            .Build();
         var document = Markdown.Parse(content, pipeline);
         var yamlBlock = document.Descendants<YamlFrontMatterBlock>().FirstOrDefault();
         if (yamlBlock != null)
@@ -65,12 +54,10 @@ public class JournalEntry
             Summary = ObjectToString(RetrieveValue(metadata, "summary"));
             ReadTimeMinutes = ObjectToString(RetrieveValue(metadata, "readminutes"));
             HeroImagePath = $"images/entries/{Slug}-hero.jpg";
-            var interestPoints = (RetrieveValue(metadata, "interestpoints") as List<object>)?.Select(ObjectToString).ToList();
-            if(interestPoints == null)
-            {
-                InterestPoints = [];
-            }
-            else
+            var interestPoints = (RetrieveValue(metadata, "interestpoints") as List<object>)
+                ?.Select(ObjectToString)
+                .ToList();
+            if (interestPoints != null)
             {
                 InterestPoints = interestPoints;
             }
@@ -79,16 +66,19 @@ public class JournalEntry
         BodyHtml = document.ToHtml(pipeline);
     }
 
-    private string ObjectToString(object value)
+    private string ObjectToString(object? value)
     {
-        if(value == null)
+        if (value == null)
         {
-            return "";
+            return string.Empty;
         }
-        return value.ToString();
+        else
+        {
+            return value.ToString() ?? string.Empty;
+        }
     }
 
-    private object RetrieveValue(Dictionary<string, object> data, string key)
+    private object? RetrieveValue(Dictionary<string, object> data, string key)
     {
         try
         {

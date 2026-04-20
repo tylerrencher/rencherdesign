@@ -11,73 +11,73 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RencherDesign
 build_property.RootNamespace = RencherDesign
-build_property.ProjectDir = C:\Users\TylerRencher\OneDrive\Business\RencherDesign\ASPNETCore10\
+build_property.ProjectDir = C:\Users\TylerRencher\Code\rencherdesign\ASPNETCore10\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\TylerRencher\OneDrive\Business\RencherDesign\ASPNETCore10
+build_property.MSBuildProjectDirectory = C:\Users\TylerRencher\Code\rencherdesign\ASPNETCore10
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/About.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/Index.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/Journal/Entry.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/Journal/Entry.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm91cm5hbFxFbnRyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/Journal/Index.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/Journal/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm91cm5hbFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/Portfolio/Index.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/Portfolio/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9ydGZvbGlvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/Portfolio/Rencher.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/Portfolio/Rencher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9ydGZvbGlvXFJlbmNoZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/Prepare.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/Prepare.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJlcGFyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/PrivacyPolicy.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/PrivacyPolicy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeVBvbGljeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/Process.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/Process.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/Services.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/Services.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VydmljZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/Shared/_Footer.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/Shared/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Gb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/Shared/_Layout.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/Shared/_Nav.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/Shared/_Nav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9OYXYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/_ViewImports.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TylerRencher/OneDrive/Business/RencherDesign/ASPNETCore10/Pages/_ViewStart.cshtml]
+[C:/Users/TylerRencher/Code/rencherdesign/ASPNETCore10/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

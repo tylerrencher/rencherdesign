@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TylerRencher\\OneDrive\\Business\\RencherDesign\\ASPNETCore10\\RencherDesign.csproj": {}
+    "C:\\Users\\TylerRencher\\Code\\rencherdesign\\ASPNETCore10\\RencherDesign.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TylerRencher\\OneDrive\\Business\\RencherDesign\\ASPNETCore10\\RencherDesign.csproj": {
+    "C:\\Users\\TylerRencher\\Code\\rencherdesign\\ASPNETCore10\\RencherDesign.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TylerRencher\\OneDrive\\Business\\RencherDesign\\ASPNETCore10\\RencherDesign.csproj",
+        "projectUniqueName": "C:\\Users\\TylerRencher\\Code\\rencherdesign\\ASPNETCore10\\RencherDesign.csproj",
         "projectName": "RencherDesign",
-        "projectPath": "C:\\Users\\TylerRencher\\OneDrive\\Business\\RencherDesign\\ASPNETCore10\\RencherDesign.csproj",
+        "projectPath": "C:\\Users\\TylerRencher\\Code\\rencherdesign\\ASPNETCore10\\RencherDesign.csproj",
         "packagesPath": "C:\\Users\\TylerRencher\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TylerRencher\\OneDrive\\Business\\RencherDesign\\ASPNETCore10\\obj\\",
+        "outputPath": "C:\\Users\\TylerRencher\\Code\\rencherdesign\\ASPNETCore10\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TylerRencher\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -29,6 +29,7 @@
           }
         },
         "warningProperties": {
+          "allWarningsAsErrors": true,
           "warnAsError": [
             "NU1605"
           ]

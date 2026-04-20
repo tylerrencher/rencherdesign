@@ -3,26 +3,31 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 public class IndexModel(JournalService journalService) : PageModel
 {
-    private readonly JournalService _journalService = journalService;
-    private const int _displayedEntries = 9;
-    private const string _featuredEntrySlug = "air-sealing";
+    private const int DisplayedEntries = 9;
+    private const string FeaturedEntrySlug = "air-sealing";
 
     public required JournalEntry FeaturedEntry { get; set; }
     public required List<JournalEntry> RelatedEntries { get; set; }
 
     public IActionResult OnGet()
     {
-        FeaturedEntry = _journalService.GetBySlug(_featuredEntrySlug);
+        var featuredEntry = journalService.GetBySlug(FeaturedEntrySlug);
 
-        if (FeaturedEntry == null) {
+        if (featuredEntry == null)
+        {
             return NotFound();
         }
 
+        FeaturedEntry = featuredEntry;
+
         // We want 9 entries at the bottom of the page, but it is possible that we could
-        // select the featured entry a related entry. So we get 10 entries, discard the 
+        // select the featured entry a related entry. So we get 10 entries, discard the
         // air-sealing entry if it exists, then take 9 of the remainder.
-        RelatedEntries = _journalService.GetRandom(_displayedEntries + 1);
-        RelatedEntries = [.. RelatedEntries.Where(x => x.Slug != _featuredEntrySlug).Take(_displayedEntries)];
+        RelatedEntries = journalService.GetRandom(DisplayedEntries + 1);
+        RelatedEntries =
+        [
+            .. RelatedEntries.Where(x => x.Slug != FeaturedEntrySlug).Take(DisplayedEntries),
+        ];
 
         return Page();
     }

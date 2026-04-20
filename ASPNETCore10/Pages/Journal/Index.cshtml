@@ -65,23 +65,23 @@
   <div class="max-w-screen-2xl mx-auto px-8">
 
     <!-- Featured -->
-    <div class="mb-16" data-category="@Model.FeaturedEntry.Category">
+    <div class="mb-16" data-category="@Model.FeaturedEntry?.Category">
       <span class="featured-rule"></span>
       <span class="font-label text-[10px] tracking-widest uppercase text-secondary block mb-6">Featured entry</span>
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <div class="lg:col-span-8">
           <div class="flex items-center gap-3 mb-4">
-            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">@Model.FeaturedEntry.Category</span>
+            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">@Model.FeaturedEntry?.Category</span>
             <span class="text-outline-variant">·</span>
-            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">@Model.FeaturedEntry.PublishedDate.ToString("MMMM yyyy")</span>
+            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">@Model.FeaturedEntry?.PublishedDate.ToString("MMMM yyyy")</span>
             <span class="text-outline-variant">·</span>
-            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">@Model.FeaturedEntry.ReadTimeMinutes min read</span>
+            <span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">@Model.FeaturedEntry?.ReadTimeMinutes min read</span>
           </div>
           <h2 class="text-4xl font-headline leading-snug mb-4">
-            <a asp-page="/Journal/Entry" asp-route-slug="air-sealing" class="hover:text-secondary transition-colors duration-200">@Model.FeaturedEntry.Title</a>
+            <a asp-page="/Journal/Entry" asp-route-slug="air-sealing" class="hover:text-secondary transition-colors duration-200">@Model.FeaturedEntry?.Title</a>
           </h2>
-          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light mb-6">@Model.FeaturedEntry.Lede</p>
-          <a asp-page="/Journal/Entry" asp-route-slug="@Model.FeaturedEntry.Slug" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all duration-200">
+          <p class="text-on-surface-variant text-lg font-body leading-relaxed font-light mb-6">@Model.FeaturedEntry?.Lede</p>
+          <a asp-page="/Journal/Entry" asp-route-slug="@Model.FeaturedEntry?.Slug" class="inline-flex items-center gap-2 text-secondary font-label text-sm font-semibold tracking-wide hover:gap-3 transition-all duration-200">
             Read entry <span class="material-symbols-outlined text-base">arrow_forward</span>
           </a>
         </div>
@@ -89,7 +89,7 @@
           <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/20 space-y-5">
             <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">In this entry</p>
             <ul class="space-y-3">
-              @foreach(string point in Model.FeaturedEntry.InterestPoints) {
+              @foreach(string point in Model.FeaturedEntry?.InterestPoints ?? []) {
                 <li class="flex items-start gap-3">
                 <span class="w-1 h-1 rounded-full bg-secondary mt-2.5 flex-shrink-0"></span>
                 <span class="text-sm font-body text-on-surface-variant leading-relaxed">@point</span>

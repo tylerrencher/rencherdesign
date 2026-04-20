@@ -6,25 +6,19 @@ public class JournalService
     private Dictionary<string, JournalEntry> _entryCache;
 
     public JournalService(IWebHostEnvironment env)
-    { 
+    {
         _contentPath = env.WebRootPath + "/../Content/Entries";
         _entryCache = [];
-        foreach(var entry in GetAll())
+        foreach (var entry in GetAll())
         {
             _entryCache.Add(entry.Slug, entry);
         }
     }
 
-    public JournalEntry GetBySlug(string slug)
+    public JournalEntry? GetBySlug(string slug)
     {
-        try
-        {
-            return _entryCache[slug];
-        }
-        catch
-        {
-            return null;
-        }
+        _entryCache.TryGetValue(slug, out var entry);
+        return entry;
     }
 
     public List<JournalEntry> GetRandom(int count)
@@ -36,8 +30,12 @@ public class JournalService
 
     private List<JournalEntry> GetAll()
     {
-        return [.. Directory.GetFiles(_contentPath, "*.md")
-            .Select(p => new JournalEntry(p))
-            .OrderByDescending(e => e.PublishedDate)];
+        return
+        [
+            .. Directory
+                .GetFiles(_contentPath, "*.md")
+                .Select(p => new JournalEntry(p))
+                .OrderByDescending(e => e.PublishedDate),
+        ];
     }
 }
