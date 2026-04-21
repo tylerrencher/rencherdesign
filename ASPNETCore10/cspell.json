@@ -1,0 +1,53 @@
+{
+    "language": "en-US",
+    "files": [
+        "**/*.cs",
+        "**/*.md",
+        "**/*.json",
+        "**/*.yml",
+        "**/*.cshtml"
+    ],
+    "ignorePaths": [
+        "**/obj/**",
+        "**/bin/**"
+    ],
+    "words": [
+        "ACCA",
+        "apos",
+        "Bento",
+        "Bunkroom",
+        "countertops",
+        "dampered",
+        "dotnet",
+        "drywalled",
+        "drywallers",
+        "Ductwork",
+        "homeschools",
+        "HVAC",
+        "lede",
+        "lightbox",
+        "Markdig",
+        "mechanicals",
+        "non-negotiables",
+        "Noto",
+        "onclick",
+        "oversizing",
+        "pvwatts",
+        "Rencher",
+        "Sanpete",
+        "sightline",
+        "sightlines",
+        "sqft",
+        "stylesheet",
+        "undersizing",
+        "widests",
+        "zoomable"
+    ],
+    "dictionaryDefinitions": [
+    {
+      "name": "global-terms",
+      "path": "./cspell-global-dict.txt",
+      "addWords": true
+    }
+  ]
+}

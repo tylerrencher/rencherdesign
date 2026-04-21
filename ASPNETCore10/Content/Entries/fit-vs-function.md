@@ -4,7 +4,7 @@ slug: fit-vs-function
 date: 2026-03-01
 category: For Clients
 lede: Most clients come in knowing what they want. A farmhouse kitchen. Vaulted ceilings. A big front porch. These are aesthetic preferences, and they're valid. But they're not a design brief. Here's how I think about the difference between what a home looks like and what it does.  
-readminutes: 9
+read-minutes: 9
 ---
 
 There are two ways to evaluate a home. The first is visual: how does it look? What materials, what proportions, what style? Does the kitchen feel warm and welcoming? Do the ceilings feel generous? Does the front elevation have presence from the street? These are real qualities that matter to real people, and I'm not dismissing them. A home that is thoughtfully detailed and beautifully finished is a better place to live than one that isn't, all else being equal.
@@ -21,7 +21,7 @@ That's useful information. But it's not enough to design from. A farmhouse kitch
 
 > "A beautiful kitchen that fights you every time you cook in it is not a good kitchen. It's an expensive problem that looks nice in photographs."
 
-The pinterest and houzz images clients bring to discovery conversations show beautiful rooms. What they don't show is how those rooms work at 6 PM on a Wednesday when three children are doing homework, dinner is being made, and the counter is covered with the debris of a day. The image is a best-case representation: staged, lit, photographed by a professional, and optimized to look good rather than to reveal how the space actually functions under normal household conditions.
+The Pinterest and Houzz images clients bring to discovery conversations show beautiful rooms. What they don't show is how those rooms work at 6 PM on a Wednesday when three children are doing homework, dinner is being made, and the counter is covered with the debris of a day. The image is a best-case representation: staged, lit, photographed by a professional, and optimized to look good rather than to reveal how the space actually functions under normal household conditions.
 
 ## The distinction that matters: designed for you, or designed to look good
 

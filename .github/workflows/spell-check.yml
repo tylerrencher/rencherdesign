@@ -1,0 +1,21 @@
+
+name: Spell Check
+on: [push, pull_request]
+
+jobs:
+  builds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install cspell
+        run: npm install -g cspell
+
+      - name: Spell Check
+        run: cspell "ASPNetCore10/**/*.cs" "ASPNetCore10/**/*.md" "ASPNetCore10/**/*.json" ASPNetCore10/"**/*.yml" "ASPNetCore10/**/*.cshtml"--no-progress --show-suggestions

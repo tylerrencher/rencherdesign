@@ -4,7 +4,7 @@ slug: solar-sizing
 date: 2026-03-01
 category: Off-Grid Living
 lede: Most solar quotes are sized for average daily production in good conditions. They're not sized for January, which is the month that determines whether your system works. Here's how to think about the number that actually matters. 
-readminutes: 11
+read-minutes: 11
 ---
 
 I have 26 kW of solar installed on my property — 20 kW on the roof and 6 kW on a ground mount. My home has nine full-time occupants. We run two dishwashers, two ranges, a washer and dryer, a heat pump HVAC system, a hybrid water heater, three chest freezers, two refrigerators, and the full complement of electronics and lighting that a large family generates. We have been off-grid since 2023. I went into this knowing more than most homeowners do about how solar systems actually perform — because I did the analysis myself before a single panel was ordered. Most people don't do that analysis, and the quotes they receive from solar contractors reflect it.
@@ -47,7 +47,7 @@ The saving grace is that heat pumps are more efficient than resistance heaters �
 
 In my home, the well pump actually draws about as much energy over the course of a winter as HVAC — 2.45 MWh for the well vs. 2.24 MWh and 2.70 MWh for heat in the last 2 years. That was a surprise and illustrates why generic assumptions about load composition can mislead a system design. Every home's load profile is different, and the only way to size the system correctly is to know your specific loads.
 
-I'll give you another example. Lighting. LED lights are very energy efficient, but when you have a well lit home like I do they use a lot of power. Everyone told me that I was wrong when I was analyzing my predited energy consumption and said that lighting would be one of our largest loads. I was right. The #3 biggest energy consumer in my home each winter is lighting. Hot water is #4 if you can believe it.
+I'll give you another example. Lighting. LED lights are very energy efficient, but when you have a well lit home like I do they use a lot of power. Everyone told me that I was wrong when I was analyzing my predicted energy consumption and said that lighting would be one of our largest loads. I was right. The #3 biggest energy consumer in my home each winter is lighting. Hot water is #4 if you can believe it.
 
 ### The load profile, not just the total
 
@@ -63,7 +63,7 @@ Battery and array are related but distinct. The array determines how much energy
 
 You'll often hear battery banks described in terms of "days of autonomy" — how many days the battery can power the home without any solar input. This metric sounds useful but is completely useless. A home varies in power usage every day. In March 2026, I had some days at 54 kWh and some days at 95 kWh. I averaged about 70 kWh for the month and my highest 3 day usage was 85 kWh per day. According to days of autonomy do I need a battery bank sized at 210 to 255 kWh. Roughly double what I have installed. Money would be far better spent oversizing the solar array than on batteries to meet the autonomy day spec.
 
-In my analysis of my own system, I found that the critical scenario isn't a single catastrophically bad day. It's a string of mediocre days — six or eight days of partial cloud cover where the array is producing 30–80% of household usage each day and the battery is slowly depleting. Your array produces power every day and that should be considered. The worst day I've ever seen for my array is 6 kWh of production. The worst 2 day production was 16 kWh. Dark days, but the generator carries us through that without spending another $60k on batteries. Autonomy days assumes the system is not doing it's job. We aren't building nuclear bunkers. We're going to assume that systems are operating as intended and provide adeqate fall backs if true emergencies occur.
+In my analysis of my own system, I found that the critical scenario isn't a single catastrophically bad day. It's a string of mediocre days — six or eight days of partial cloud cover where the array is producing 30–80% of household usage each day and the battery is slowly depleting. Your array produces power every day and that should be considered. The worst day I've ever seen for my array is 6 kWh of production. The worst 2 day production was 16 kWh. Dark days, but the generator carries us through that without spending another $60k on batteries. Autonomy days assumes the system is not doing it's job. We aren't building nuclear bunkers. We're going to assume that systems are operating as intended and provide adequate fall backs if true emergencies occur.
 
 ### Battery sizing for the actual scenario
 
@@ -77,7 +77,7 @@ A properly done off-grid system design starts from the load, not from the array.
 
 This is not a quick calculation. It's the kind of analysis that takes hours to do correctly, requires software or significant spreadsheet work, and produces a system design that actually reflects your home, your location, and your family's habits. The fact that most solar contractors don't do it isn't because they don't know it's necessary — it's because most of their customers are grid-connected and don't need it. Their tools and habits are calibrated for that market, not for off-grid design.
 
-I ended up settling on a battery bank sized to 1 day of my maximum theoretical usage in winter and about 1.5-2 days of predicted average usage with minimal solar input. I sized my solar array to produce about 1.25 times what I estimated we would need in winter. My initial battery sizing was based on how I knew my family works. I needed to have complete confidence that I could be away for an entire day in terrible weather and my wife wouldn't have to do anything. I ran a bunch of simulations using publicly available solar irradiance data and actual prodution data I was able to pull from local homeowners that made the data public with their system configuration details. I used that data to dial in the battery, array, and generator sizing to work well in 3, 5, 7, and 14 day blocks of time. The system performs as designed and extremely well.
+I ended up settling on a battery bank sized to 1 day of my maximum theoretical usage in winter and about 1.5-2 days of predicted average usage with minimal solar input. I sized my solar array to produce about 1.25 times what I estimated we would need in winter. My initial battery sizing was based on how I knew my family works. I needed to have complete confidence that I could be away for an entire day in terrible weather and my wife wouldn't have to do anything. I ran a bunch of simulations using publicly available solar irradiance data and actual production data I was able to pull from local homeowners that made the data public with their system configuration details. I used that data to dial in the battery, array, and generator sizing to work well in 3, 5, 7, and 14 day blocks of time. The system performs as designed and extremely well.
 
 ## What I produce for off-grid clients
 

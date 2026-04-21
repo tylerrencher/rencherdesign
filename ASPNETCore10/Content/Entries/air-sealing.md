@@ -5,16 +5,12 @@ date: 2026-03-01
 category: High-Performance Building
 lede: Most homeowners specify an insulation level and call it done. Air sealing is the part nobody talks about — and the part that actually determines whether your house is comfortable. In my home, the floor and ceiling temperatures in winter are nearly identical. That doesn't happen by accident. 
 summary: The insulation industry has done an excellent job convincing homeowners that R-value is the number that matters. It isn't. A wall with R-30 insulation and poorly detailed penetrations loses more energy than a wall with R-15 insulation that has been properly sealed. I spent more time on air sealing in my own home than on any other system — and I'll tell you exactly why.
-interestpoints: 
+interest-points: 
     - What air sealing actually is and why R-value alone misleads you
     - The five locations where air sealing fails in nearly every residential build
     - What the blower door test actually tells you — and when to run it
     - How I designed the envelope in my own home, and what I'd do differently
-readminutes: 11
-recommendedslugs: 
-    - did-right
-    - did-wrong
-    - unsure
+read-minutes: 11
 ---
 
 Every homeowner I've ever talked to knows what insulation is. Almost none of them know what air sealing is. The insulation industry has marketing, branding, and forty years of R-value messaging behind it. You can see it. If you are over 35 you probably have bad memories of touching it. Air sealing has a blower door test and a number that most people have never heard of. And yet, if I had to choose between a well-insulated home with poor air sealing and a modestly insulated home with an excellent air barrier, I'd choose the second one without hesitation.
@@ -31,7 +27,7 @@ Air sealing is the practice of creating a continuous, unbroken barrier around th
       
  > "If air can move through your insulation, the R-value is largely irrelevant. You have an air filter."
        
-The practical implication is significant. When desgning my own home I had to decide how to effectively spend my money. Adding extra insulation can get very expensive and doesn't help much after a certain point. My home has 2x6 walls with blown in fiberglass and 2" of XPS insulation around the outside. That wall assembly has an effective R value of about 25. Going beyond that level gets very expensive and doesn't buy any more performance in my climate. Money spent on air sealing still buys an additional 10% reduction in heating needs! That is literally the same difference as taking a home with zero insulation in the walls and adding the normal amount of insulation to them!
+The practical implication is significant. When designing my own home I had to decide how to effectively spend my money. Adding extra insulation can get very expensive and doesn't help much after a certain point. My home has 2x6 walls with blown in fiberglass and 2" of XPS insulation around the outside. That wall assembly has an effective R value of about 25. Going beyond that level gets very expensive and doesn't buy any more performance in my climate. Money spent on air sealing still buys an additional 10% reduction in heating needs! That is literally the same difference as taking a home with zero insulation in the walls and adding the normal amount of insulation to them!
 
 ## Where the air goes — the five locations that make or break a building
 
@@ -39,7 +35,7 @@ Air leakage concentrates in predictable locations. These aren't random — they'
 
 ### 1\. The rim joist
 
-The rim joist sits at the intersection of the foundation wall, the floor framing, and the sheathing. It's one of the most consistently problematic air leakage locations in residential construction because it's a junction of multiple materials — concrete, wood sill plate, rim board, and sheathng — none of which seal naturally against each other. Cold air infiltrates here in winter and pushes warm air up through the ceiling just like a chimney. Sill tape helps stop this and is standard on all construction projects, but it can't solve the problem alone. The only solution is to seal the sheathing to the foundation which completely eliminates that problem area.
+The rim joist sits at the intersection of the foundation wall, the floor framing, and the sheathing. It's one of the most consistently problematic air leakage locations in residential construction because it's a junction of multiple materials — concrete, wood sill plate, rim board, and sheathing — none of which seal naturally against each other. Cold air infiltrates here in winter and pushes warm air up through the ceiling just like a chimney. Sill tape helps stop this and is standard on all construction projects, but it can't solve the problem alone. The only solution is to seal the sheathing to the foundation which completely eliminates that problem area.
       
 ### 2\. The top plate
 
@@ -55,7 +51,7 @@ The gap between a window frame and the rough opening framing around it is a dire
       
 ### 5\. Recessed lighting
 
-This is the most challenging one. A standard recessed light fixture installed in a ceiling below an attic or unconditioned space is, from an air sealing standpoint, a large intentional hole in your building envelope. The fixture housings say they are airtight, but that is a marketing term meaning that they are essentially air tight compared to their predecesors. They are not airtight. Especially when used by the dozens. The best solution is to avoid ceiling recessed lighting in locations where it penetrates the thermal boundary, and use surface-mounted or wall-mounted fixtures instead. That is only best for air sealing, not for people. Direct task lighting is often best done with ceiling mounted lights and recessed can lights give flexibility in bulb selection. I have nearly 100 holes in the ceiling on the main level of my home for lights and smoke detectors. There just wasn't another way to get the light I needed where I needed it so I had to find a way to air seal them all. I don't regret it.
+This is the most challenging one. A standard recessed light fixture installed in a ceiling below an attic or unconditioned space is, from an air sealing standpoint, a large intentional hole in your building envelope. The fixture housings say they are airtight, but that is a marketing term meaning that they are essentially air tight compared to their predecessors. They are not airtight. Especially when used by the dozens. The best solution is to avoid ceiling recessed lighting in locations where it penetrates the thermal boundary, and use surface-mounted or wall-mounted fixtures instead. That is only best for air sealing, not for people. Direct task lighting is often best done with ceiling mounted lights and recessed can lights give flexibility in bulb selection. I have nearly 100 holes in the ceiling on the main level of my home for lights and smoke detectors. There just wasn't another way to get the light I needed where I needed it so I had to find a way to air seal them all. I don't regret it.
 
 ## How leakage is measured — the blower door test
 
@@ -84,7 +80,7 @@ People need to breathe. People need fresh air. Fresh air and air leakage are not
 The tighter the building, the more control you have over the air inside it. That's not a problem — it's the point.
 
 ::: callout
-**HRV vs. ERV:** A heat recovery ventilator transfers heat between the outgoing and incoming airstreams. An energy recovery ventilator transfers both heat and moisture. It used to be that an HRV was preferred in dry climates, but these days ERVs have become the default choice and perform well in most situations. If your build needs one I'll assess if an ERV is the best choice for your climate.
+**HRV vs. ERV:** A heat recovery ventilator transfers heat between the outgoing and incoming air streams. An energy recovery ventilator transfers both heat and moisture. It used to be that an HRV was preferred in dry climates, but these days ERVs have become the default choice and perform well in most situations. If your build needs one I'll assess if an ERV is the best choice for your climate.
 :::
 
 ## What careful air sealing actually requires

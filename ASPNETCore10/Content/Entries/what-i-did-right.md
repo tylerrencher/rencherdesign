@@ -4,7 +4,7 @@ slug: what-i-did-right
 date: 2026-03-01
 category: Design
 lede: Years of daily feedback from nine full-time occupants. Here are the decisions I'd make again without hesitation — and why they worked. The reasoning matters more than the list, because reasoning is what transfers to a different project on a different piece of land for a different family. 
-readminutes: 8
+read-minutes: 8
 ---
 
 Designing your own home is a strange experience. You make hundreds of decisions across months of planning, you build the thing, and then you live with those decisions every day — including the ones you can't undo. It's one of the most honest forms of feedback a designer can receive, and I've paid attention to it.
@@ -25,7 +25,7 @@ I coordinated with my wireless internet provider in advance and pulled ethernet 
 
 ### Conduit for solar PV wire and pre-wiring for rapid shutdown
 
-Every wire that transmits solar power in residential construction has to go in steel conduit. It's a safety issue with high voltages. Often that conduit gets run on the outside of the house and it is ugly. Not my house. It's all in the walls where it belongs. The electrican and solar contractor are almost always separate people that are not coordinating their work, so even in new builds you end up with conduit on the outside of the building. Solar is always changing, but electricity physics is constant so I can easily specify conduit in the design and where to put in the walls to allow for a clean future solar installation and its only going to cost a couple hundred dollars to install it.
+Every wire that transmits solar power in residential construction has to go in steel conduit. It's a safety issue with high voltages. Often that conduit gets run on the outside of the house and it is ugly. Not my house. It's all in the walls where it belongs. The electrician and solar contractor are almost always separate people that are not coordinating their work, so even in new builds you end up with conduit on the outside of the building. Solar is always changing, but electricity physics is constant so I can easily specify conduit in the design and where to put in the walls to allow for a clean future solar installation and its only going to cost a couple hundred dollars to install it.
 
 ### Branch circuit level power monitoring and logging
 
@@ -41,7 +41,7 @@ I specified drawers as the primary storage format in the lower kitchen cabinets 
 
 ### Planning exactly what goes in every drawer before the order was placed
 
-During design I printed a view of each cabnet and wrote everything that would be stored in each cabinet. This forced the layout to be designed around actual use rather than generic storage. There are no drawers that were sized for a general purpose that turned out to be the wrong size for everything. Everything has a home and everything is where you expect it to be. Storage planning sounds tedious in the design phase. It's among the most valuable hours you can spend there.
+During design I printed a view of each cabinet and wrote everything that would be stored in each cabinet. This forced the layout to be designed around actual use rather than generic storage. There are no drawers that were sized for a general purpose that turned out to be the wrong size for everything. Everything has a home and everything is where you expect it to be. Storage planning sounds tedious in the design phase. It's among the most valuable hours you can spend there.
 
 ### Small appliance area in the pantry
 

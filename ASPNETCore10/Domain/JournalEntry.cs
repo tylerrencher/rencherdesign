@@ -54,9 +54,9 @@ namespace RencherDesign.Domain
                 Category = ObjectToString(RetrieveValue(metadata, "category"));
                 Lede = ObjectToString(RetrieveValue(metadata, "lede"));
                 Summary = ObjectToString(RetrieveValue(metadata, "summary"));
-                ReadTimeMinutes = ObjectToString(RetrieveValue(metadata, "readminutes"));
+                ReadTimeMinutes = ObjectToString(RetrieveValue(metadata, "read-minutes"));
                 HeroImagePath = $"images/entries/{Slug}-hero.jpg";
-                var interestPoints = (RetrieveValue(metadata, "interestpoints") as List<object>)
+                var interestPoints = (RetrieveValue(metadata, "interest-points") as List<object>)
                     ?.Select(ObjectToString)
                     .ToList();
                 if (interestPoints != null)

@@ -4,7 +4,7 @@ slug: heat-pump-operation
 date: 2026-04-01
 category: High-Performance Building
 lede: The American habit is to turn the heat down at night and let it recover in the morning. Properly sized heat pumps don't work that way. Here's why a heat pump running continuously at a modest output is more efficient than one cycling hard to recover from a temperature setback, and why the unit size determines whether recovery is even possible.
-readminutes: 14
+read-minutes: 14
 ---
 
 Most people who grew up with gas or propane heat learned a useful habit: turn the thermostat down at night, turn it back up in the morning. The furnace would roar to life, bring the house up to temperature in twenty or thirty minutes, and the fuel burned during recovery was less than the fuel that would have been burned maintaining temperature overnight so you saved money. The math worked.
@@ -38,7 +38,7 @@ The same thermal logic applies to a heat pump — a cooler house overnight does 
 There is a specific condition where setback can still make sense with a heat pump: when the home is so well insulated and air-sealed that heat loss overnight is very low, and the recovery demand is therefore also very low. In a house that drops only 1 to 2 degrees over eight hours of setback, the recovery period is short and the efficiency penalty is small. In a leaky, poorly insulated house that drops 6 degrees or more overnight, the recovery is long, high-output, and expensive. This is one more reason why a high-performance building envelope is not just a comfort decision — it changes how the mechanical system should be operated.
 
 ::: callout
-**The practical rule:** For most homes with a properly sized heat pump, keep the thermostat at a single setpoint 24 hours a day. If you want to experiment with setback, limit it to 2 degrees — enough to reduce overnight heat loss without triggering a sustained high-output recovery cycle. Larger setbacks almost always cost more than they save espeically if the backup heating element gets turned on.
+**The practical rule:** For most homes with a properly sized heat pump, keep the thermostat at a single setpoint 24 hours a day. If you want to experiment with setback, limit it to 2 degrees — enough to reduce overnight heat loss without triggering a sustained high-output recovery cycle. Larger setbacks almost always cost more than they save especially if the backup heating element gets turned on.
 :::
 
 ## Taking the efficiency argument to its logical conclusion
@@ -69,7 +69,7 @@ Most residential heat pumps are not sized this way. Most are sized by rule of th
 
 An oversized heat pump satisfies the thermostat quickly and shuts off. It then sits idle until the temperature drops enough to trigger another cycle, runs briefly, and shuts off again. This is called short-cycling, and it is one of the most damaging operating conditions for a heat pump — damaging to the equipment, damaging to efficiency, and damaging to comfort.
 
-Short-cycling prevents the refrigerant circuit from reaching steady-state efficiency. Compressor starts are electrically expensive. The brief runtime doesn't allow for adequate dehumidification in summer, because moisture removal requires sustained airflow across the evaporator coil. And frequent cycling accelerates mechanical wear on the compressor, the contactors, and the reversing valve. An oversized unit costs more to operate and wears out faster than a correctly sized one — while also delivering worse comfort.
+Short-cycling prevents the refrigerant circuit from reaching steady-state efficiency. Compressor starts are electrically expensive. The brief runtime doesn't allow for adequate dehumidification in summer, because moisture removal requires sustained airflow across the evaporator coil. And frequent cycling accelerates mechanical wear on the compressor, the contractors, and the reversing valve. An oversized unit costs more to operate and wears out faster than a correctly sized one — while also delivering worse comfort.
 
 The irony is that short-cycling looks like the unit is working: the house reaches setpoint quickly, the unit shuts off, temperature is maintained. From the inside, it feels fine. The inefficiency and the wear are invisible until the equipment fails earlier than expected or the utility bill is higher than it should be.
 

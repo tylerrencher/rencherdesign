@@ -4,7 +4,7 @@ slug: still-not-sure
 date: 2026-03-01
 category: Design
 lede: Some decisions produce clear answers quickly. Others don't. This entry covers the choices where years of living in my home hasn't settled the question — where I'd still be genuinely uncertain if I were starting over, and where the right answer depends more on what a particular family values than on any objective measure of performance. 
-readminutes: 7
+read-minutes: 7
 ---
 
 This is the third of three entries about my own home. The first covered what I got right. The second covered what I got wrong. This one is different — these aren't mistakes, exactly, and they aren't triumphs. They're the decisions that remain genuinely open. Living in the house since April 2023 hasn't produced an answer one way or the other, because the tradeoffs are real and balanced, or because the right answer depends on values that vary from family to family, or because I simply don't have enough data yet.
@@ -19,7 +19,7 @@ Diesel is a fuel that I want to have on hand for my truck, tractor, heavy equipm
 
 ## Exterior foam insulation
 
-I used foam on the exterior walls as part of my insulation strategy. The thermal performance is excellent. But the foam has caused complications during construction that I'm still managing, and it requries the trades to work diffently than they normally do. There are good reasons to use exterior foam — it breaks the thermal bridge at studs in a way that continuous cavity insulation can't — but there are also good reasons to consider SIP framing or site built SIP framing. That forces the framer to work with new materials and methods, but every other trade is the same as normal.
+I used foam on the exterior walls as part of my insulation strategy. The thermal performance is excellent. But the foam has caused complications during construction that I'm still managing, and it requires the trades to work differently than they normally do. There are good reasons to use exterior foam — it breaks the thermal bridge at studs in a way that continuous cavity insulation can't — but there are also good reasons to consider SIP framing or site built SIP framing. That forces the framer to work with new materials and methods, but every other trade is the same as normal.
 
 ## Vented vs. fully sealed and conditioned attic
 
@@ -35,7 +35,7 @@ I built storage rooms under the porch. They provide useful storage, but they've 
 
 I wrote in the previous entry about the acoustic problems in my home. What I'm still uncertain about is how much of that was avoidable given the other constraints of the design. I think I would have put a dog leg into the kitchen, dining area, living area combination great room that we have. That would have broken up the room more but still let my wife hear what was going on.
 
-What I know: any room that's roughly cubical, or that's a series of cubes in a line, will have acoustic problems. What I'm still working out: how to address this systematically in future designs without making every room feel like a recording studio. I don't have a reliable formula yet, but I do know how to use modeling tools to check whether there are significan problems before committing to a design.
+What I know: any room that's roughly cubical, or that's a series of cubes in a line, will have acoustic problems. What I'm still working out: how to address this systematically in future designs without making every room feel like a recording studio. I don't have a reliable formula yet, but I do know how to use modeling tools to check whether there are significant problems before committing to a design.
 
 ## Small practical questions I still wonder about
 

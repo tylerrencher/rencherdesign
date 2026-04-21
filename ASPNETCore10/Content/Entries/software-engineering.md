@@ -4,7 +4,7 @@ slug: software-engineering
 date: 2026-03-01
 category: Design
 lede: Thirteen years building systems for a living taught me how to think about complexity, manage stakeholder expectations, and make decisions that age well. Those skills transfer more directly to residential design than I expected — and in some ways they're more valuable here, because you only get one shot. 
-readminutes: 12
+read-minutes: 12
 ---
 
 When people find out that I'm a professional software engineer also designs homes, the reaction is usually: "How can you do two completely different things?" They assume that the two fields are unrelated, that I left one world behind and learned an entirely different one. That isn't quite right. The longer I design homes, the more I recognize how directly the thinking I built in software applies. Not the technical details. The underlying habits.
@@ -13,7 +13,7 @@ This entry is about what I bring from software to homes and why I think that mak
 
 ## There are some rules that are hard and fast
 
-In software, code is written according to a language specification. A tool called a complier translates code to something the machine can execute. The software author can make logic mistakes in how the code processes data or performs a computation, but the author can't make a typo or the compiler will fail to translate the code for the machine. In home design we have building codes — hard and fast rules that must be adhered to that are checked by a building department and inspector as the build progresses. That doesn't prevent bad design decisions though. Like forcing people to walk through the kitchen to get to the mudroom. I've made a lot of mistakes in software where things just didn't fit together right for how data moved through a system or how a user interacts with the program. Learning from those mistakes helps me spot the same kinds of bad patterns in homes before they are even built.
+In software, code is written according to a language specification. A tool called a compiler translates code to something the machine can execute. The software author can make logic mistakes in how the code processes data or performs a computation, but the author can't make a typo or the compiler will fail to translate the code for the machine. In home design we have building codes — hard and fast rules that must be adhered to that are checked by a building department and inspector as the build progresses. That doesn't prevent bad design decisions though. Like forcing people to walk through the kitchen to get to the mudroom. I've made a lot of mistakes in software where things just didn't fit together right for how data moved through a system or how a user interacts with the program. Learning from those mistakes helps me spot the same kinds of bad patterns in homes before they are even built.
 
 ## The cost of change an important concept in both fields
 

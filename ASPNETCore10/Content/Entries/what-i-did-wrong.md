@@ -4,7 +4,7 @@ slug: what-i-did-wrong
 date: 2026-03-01
 category: Design
 lede: I listed what I did right in another entry. This one is harder to write and more valuable to read. These are the mistakes that cost real money, real time, or that I still live with every day — and the reasoning behind why each one happened. That reasoning is what will prevent the same mistake on a your project.  
-readminutes: 9
+read-minutes: 9
 ---
 
 I'm a designer who built his own home from scratch. I made good decisions and I made bad ones, and I live with both every day. Publishing the bad ones is uncomfortable. But a designer who only talks about what went right must not have built anything, because things go wrong. The mistakes I made on my own home are the reason I push clients harder on certain things than they might expect — and the reason those lessons are now baked into how I design.
@@ -15,7 +15,7 @@ This is the one I think about most. Every day. I convinced my HVAC contractor to
 
 The same problem exists with the ventilation system. I had the right analysis. I didn't have the confidence to require the right installation.
 
-Then there's the rigid duct work. There's almost no flex duct in the house and sound goes in one register, through the duct, and out othe registers. In most homes this noise might be masked by other noise. In a quiet house it isn't. Flexible duct connections at equipment and flexible boots at registers reduce noise transmission significantly. This is worth specifying on the drawings, not leaving to the contractor's standard practice.
+Then there's the rigid duct work. There's almost no flex duct in the house and sound goes in one register, through the duct, and out other registers. In most homes this noise might be masked by other noise. In a quiet house it isn't. Flexible duct connections at equipment and flexible boots at registers reduce noise transmission significantly. This is worth specifying on the drawings, not leaving to the contractor's standard practice.
 
 > "I was right about the equipment and wrong about the installation. Being right about half isn't enough to produce a home that is as comfortable as it should be."
 
@@ -67,7 +67,7 @@ My well is in a poor location relative to the house and the garage — it's in t
 
 ### The basement floor
 
-I poured the basement floor at the top of the footer to get a ceiling 4" taller. That has caused problems for just about every trade. The cost of dealing with those complications sits at about $6,000 which is more than it would have cost to hire a guy with 10' forms to do the foundation. After all that I still don't even have as high of ceilngs in the basement as I wanted.
+I poured the basement floor at the top of the footer to get a ceiling 4" taller. That has caused problems for just about every trade. The cost of dealing with those complications sits at about $6,000 which is more than it would have cost to hire a guy with 10' forms to do the foundation. After all that I still don't even have as high of ceilings in the basement as I wanted.
 
 ### The garage depth
 

@@ -4,7 +4,7 @@ slug: rooms-people-regret
 date: 2026-03-01
 category: Design
 lede: In many homes, there is one room that sits largely unused and one space the owners wish they had. After seeing both patterns enough times, I've started keeping a list. This is that list. 
-readminutes: 9
+read-minutes: 9
 ---
 
 A custom home is expensive. The design process is long. The client spends months, maybe years thinking about what they want, and by the time they move in, they've made hundreds of decisions about what rooms the house contains and what those rooms should do. Most of those decisions are good ones. A predictable few are not — and the pattern of which rooms end up wasted and which ones end up missed is consistent enough that I've started treating it as a checklist item in every discovery conversation.

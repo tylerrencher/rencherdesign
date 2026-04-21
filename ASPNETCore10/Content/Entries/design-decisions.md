@@ -4,7 +4,7 @@ slug: design-decisions
 date: 2026-03-01
 category: Design
 lede: Every decision you make before breaking ground costs nothing to change. Every decision you make mid-framing costs thousands. The further into construction a project gets, the more expensive it becomes to revisit anything — and most clients don't discover this until they're standing in a half-framed house realizing the kitchen isn't going to work. Here's the framework I use to make sure to make sure my clients aren't in that position. 
-readminutes: 9
+read-minutes: 9
 ---
 
 I spent thirteen years as a software engineer before I became a home designer, and the most transferable thing I brought with me was an understanding of what happens when you make decisions late in a project. In software, there's a concept called the cost of change — the idea that a defect found in the requirements phase costs almost nothing to fix, a defect found in development costs ten times as much, and a defect found after deployment can cost a hundred times what it would have cost to catch early. Every project manager in the industry knows this curve. Most homeowners building a custom home have never heard of it.

@@ -4,7 +4,7 @@ slug: hvac-load-calculations
 date: 2026-03-01
 category: High-Performance Building
 lede: Ask most HVAC contractors how they size a system and they'll tell you they use square footage — maybe a rule of thumb like 1 ton of cooling per 500 square feet. That number comes from experience, not analysis. It doesn't account for your home's insulation, your windows, your climate, how many people live there, or whether your building is tight or leaky. The result is a system that's wrong — and wrong HVAC systems produce homes that are either uncomfortably hot and cold, or that wear out equipment ahead of schedule, or both. 
-readminutes: 8
+read-minutes: 8
 ---
 
 I've been in homes where the HVAC system ran almost continuously and still couldn't keep up on a cold day. I've been in homes where the system short-cycled — turned on, reached setpoint quickly, turned off, turned on again, over and over — making the home feel alternately clammy and stuffy and never quite comfortable. Both of these problems are frequently caused by the same root issue: a system that was sized wrong from the beginning.

@@ -4,7 +4,7 @@ slug: living-off-grid
 date: 2026-03-01
 category: Off-Grid Living
 lede: The most common assumption about off-grid homes is that you sacrifice comfort for independence. My family runs a dishwasher, washer and dryer, full kitchen appliances, and an all electric heating and air condition system — all from solar and battery storage. Here's how that works in practice.  
-readminutes: 10
+read-minutes: 10
 ---
 
 Before we built our home, my wife and I visited every off-grid home we could find that would talk to us. We wanted to see what this actually looked like at scale, in practice, with real families. What we found was consistent and discouraging: every home was either making serious compromises to daily comfort, or it was running primarily on propane. I know a lot of people are fine with propane, but I'm just not. It feels very dependent to me, but I can't make my own diesel so I get that it is a bit hypocritical.
