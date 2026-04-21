@@ -5,6 +5,7 @@ WORKDIR /src
 # Copy csproj and restore first — Docker caches this layer
 # so restore only re-runs when dependencies change
 COPY *.csproj .
+COPY Directory.Packages.props .
 RUN dotnet restore
 
 # Copy everything else and publish
