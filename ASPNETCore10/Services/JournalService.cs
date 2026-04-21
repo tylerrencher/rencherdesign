@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
-using Domain;
+using RencherDesign.Domain;
 
-namespace Services
+namespace RencherDesign.Services
 {
     public class JournalService
     {

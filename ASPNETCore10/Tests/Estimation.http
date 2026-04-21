@@ -1,0 +1,9 @@
+POST http://localhost:5265/Estimation/
+Content-Type: application/json
+
+{
+    "ProjectOverview": {
+        "Latitude": 39.478122,
+        "Longitude": -111.496064
+    }
+}

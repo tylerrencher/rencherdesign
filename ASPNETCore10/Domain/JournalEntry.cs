@@ -3,7 +3,7 @@ using Markdig.Extensions.Yaml;
 using Markdig.Syntax;
 using YamlDotNet.Serialization;
 
-namespace Domain
+namespace RencherDesign.Domain
 {
     public class JournalEntry
     {

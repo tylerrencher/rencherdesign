@@ -1,7 +1,7 @@
-using Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Services;
+using RencherDesign.Domain;
+using RencherDesign.Services;
 
 public class IndexModel(JournalService journalService) : PageModel
 {
