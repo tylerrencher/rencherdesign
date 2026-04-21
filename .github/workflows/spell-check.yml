@@ -18,4 +18,4 @@ jobs:
         run: npm install -g cspell
 
       - name: Spell Check
-        run: cspell "ASPNetCore10/**/*.cs" "ASPNetCore10/**/*.md" "ASPNetCore10/**/*.json" ASPNetCore10/"**/*.yml" "ASPNetCore10/**/*.cshtml"--no-progress --show-suggestions
+        run: cspell "ASPNetCore10/**/*.cs" "ASPNetCore10/**/*.md" "ASPNetCore10/**/*.json" "ASPNetCore10/**/*.yml" "ASPNetCore10/**/*.cshtml"--no-progress --show-suggestions
