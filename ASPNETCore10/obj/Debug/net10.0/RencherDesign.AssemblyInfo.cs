@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RencherDesign")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a0b4c8ed03e0bc137a3baf31ab3e9666db4c1a9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+250fa80f2b298e5801050ccd39aae785f86d3bd4")]
 [assembly: System.Reflection.AssemblyProductAttribute("RencherDesign")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RencherDesign")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

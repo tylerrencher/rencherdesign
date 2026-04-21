@@ -1,5 +1,7 @@
+using Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Services;
 
 public class EntryModel(JournalService journalService) : PageModel
 {
