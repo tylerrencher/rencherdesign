@@ -16,6 +16,7 @@ RUN dotnet publish -c Release -o /app/publish --no-restore
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
+COPY --from=build /src/content ./content
 
 # ASP.NET Core listens on 8080 by default in containers
 EXPOSE 8080
